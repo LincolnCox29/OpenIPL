@@ -1,0 +1,8 @@
+﻿  tests.c
+C:\Users\79242\Desktop\ImgLib\ImgLib.h(40,19): warning C4047: инициализация: "unsigned char" отличается по уровням косвенного обращения от "void *"
+C:\Users\79242\Desktop\ImgLib\tests.c(16,47): warning C4305: функция: усечение из "double" в "float"
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 172 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  ImgLib.vcxproj -> C:\Users\79242\Desktop\ImgLib\x64\Release\ImgLib.exe
