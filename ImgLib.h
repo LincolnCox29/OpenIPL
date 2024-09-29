@@ -11,33 +11,44 @@ typedef struct
     unsigned char* data;
 } Img;
 
-typedef enum {
+typedef enum 
+{
     IMG_LIB_SUCCESS = 0,
     IMG_LIB_ERROR_LOADING_IMAGE,
+
 } ImgLibErrorCode;
 
-typedef struct {
+typedef struct 
+{
     ImgLibErrorCode code;
     const char* message;
 } ImgLibErrorInfo;
 
 ImgLibErrorInfo imgToGrayscale(Img* img, float factor);
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, float factor);
+static ImgLibErrorInfo imgDataValidation(unsigned char* data);
 
 #ifdef IMG_LIB_IMPLEMENTATION
 
-ImgLibErrorInfo imgToGrayscale(Img* img, float factor)
+static ImgLibErrorInfo imgDataValidation(unsigned char* data)
 {
-    ImgLibErrorInfo err;
-    if (img->data == NULL)
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if (data == NULL)
     {
         err.code = IMG_LIB_ERROR_LOADING_IMAGE;
         err.message = "The specified path may be invalid or the file may not exist. Please check the file path and permissions.";
-        return err;
     }
+    return err;
+}
+
+ImgLibErrorInfo imgToGrayscale(Img* img, float factor)
+{
+    ImgLibErrorInfo err = imgDataValidation(img->data);
+    if (err.code != IMG_LIB_SUCCESS)
+        return err;
 
     int pIndex = 0;
-    unsigned char maxComponent = NULL;
+    unsigned char maxComponent = 0;
 
     for (int y = 0; y < img->height; y++)
     {
@@ -56,13 +67,10 @@ ImgLibErrorInfo imgToGrayscale(Img* img, float factor)
 
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, float factor)
 {
-    ImgLibErrorInfo err;
-    if (img->data == NULL)
-    {
-        err.code = IMG_LIB_ERROR_LOADING_IMAGE;
-        err.message = "The specified path may be invalid or the file may not exist. Please check the file path and permissions.";
+    ImgLibErrorInfo err = imgDataValidation(img->data);
+    if (err.code != IMG_LIB_SUCCESS)
         return err;
-    }
+
     int brightness;
     int pIndex = 0;
 

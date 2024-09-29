@@ -12,6 +12,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|C:\\Users\\79242\\Desktop\\ImgLib\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|C:\\PROGRAM FILES (X86)\\WINDOWS KITS\\10\\INCLUDE\\10.0.22621.0\\UCRT\\STDIO.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,8 +24,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "stdio.h",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "RelativeToolTip": "..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "ViewState": "AQIAAHQCAAAAAAAAAAAawIQCAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-29T07:19:26.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "tests.c",
+              "DocumentMoniker": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
+              "RelativeDocumentMoniker": "tests.c",
+              "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
+              "RelativeToolTip": "tests.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-09-29T06:46:18.662Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -38,26 +67,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "tests.c",
-              "DocumentMoniker": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
-              "RelativeDocumentMoniker": "tests.c",
-              "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
-              "RelativeToolTip": "tests.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-29T06:02:40.096Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ImgLib.h",
               "DocumentMoniker": "C:\\Users\\79242\\Desktop\\ImgLib\\ImgLib.h",
               "RelativeDocumentMoniker": "ImgLib.h",
               "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\ImgLib.h",
               "RelativeToolTip": "ImgLib.h",
-              "ViewState": "AQIAADoAAAAAAAAAAAAowFkAAAATAAAA",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAC0AAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-29T05:47:41.274Z",
               "EditorCaption": ""
