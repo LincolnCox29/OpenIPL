@@ -13,7 +13,7 @@ int main() //tests
 {
     Img* img = malloc(sizeof(Img));
     img->data = stbi_load("example.png", &img->width, &img->height, &img->channels, 0);
-    ImgLibErrorInfo err = imgToBlackAndWhite(img, 0.7);
+    ImgLibErrorInfo err = imgToGrayscale(img, 1.1);
     if (err.code != 0)
         printf("code: %d msg: %s", err.code, err.message);
     stbi_write_png("output.png",

@@ -15,6 +15,7 @@ typedef enum
 {
     IMG_LIB_SUCCESS = 0,
     IMG_LIB_ERROR_LOADING_IMAGE,
+    IMG_LIB_ERROR_NEGATIVE_FACTOR,
 
 } ImgLibErrorCode;
 
@@ -24,13 +25,14 @@ typedef struct
     const char* message;
 } ImgLibErrorInfo;
 
-ImgLibErrorInfo imgToGrayscale(Img* img, float factor);
-ImgLibErrorInfo imgToBlackAndWhite(Img* img, float factor);
-static ImgLibErrorInfo imgDataValidation(unsigned char* data);
+ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
+ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
+static ImgLibErrorInfo imgDataValidation(const unsigned char* data);
+static ImgLibErrorInfo factorValidation(const float factor);
 
 #ifdef IMG_LIB_IMPLEMENTATION
 
-static ImgLibErrorInfo imgDataValidation(unsigned char* data)
+static ImgLibErrorInfo imgDataValidation(const unsigned char* data)
 {
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
     if (data == NULL)
@@ -41,10 +43,23 @@ static ImgLibErrorInfo imgDataValidation(unsigned char* data)
     return err;
 }
 
-ImgLibErrorInfo imgToGrayscale(Img* img, float factor)
+static ImgLibErrorInfo factorValidation(const float factor)
 {
-    ImgLibErrorInfo err = imgDataValidation(img->data);
-    if (err.code != IMG_LIB_SUCCESS)
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if (factor < 0)
+    {
+        err.code = IMG_LIB_ERROR_NEGATIVE_FACTOR;
+        err.message = "Factor must be non-negative. Please provide a valid value.";
+    }
+    return err;
+}
+
+ImgLibErrorInfo imgToGrayscale(Img* img, const float factor)
+{
+    ImgLibErrorInfo err;
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+        return err;
+    if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
         return err;
 
     int pIndex = 0;
@@ -65,10 +80,12 @@ ImgLibErrorInfo imgToGrayscale(Img* img, float factor)
     return err;
 }
 
-ImgLibErrorInfo imgToBlackAndWhite(Img* img, float factor)
+ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
 {
-    ImgLibErrorInfo err = imgDataValidation(img->data);
-    if (err.code != IMG_LIB_SUCCESS)
+    ImgLibErrorInfo err;
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+        return err;
+    if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
         return err;
 
     int brightness;
