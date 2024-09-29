@@ -27,6 +27,7 @@ typedef struct
 
 ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
+ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);
 static ImgLibErrorInfo imgDataValidation(const unsigned char* data);
 static ImgLibErrorInfo factorValidation(const float factor);
 
@@ -38,7 +39,7 @@ static ImgLibErrorInfo imgDataValidation(const unsigned char* data)
     if (data == NULL)
     {
         err.code = IMG_LIB_ERROR_LOADING_IMAGE;
-        err.message = "The specified path may be invalid or the file may not exist. Please check the file path and permissions.";
+        err.message = "The specified path may be invalid or the file may not exist. Please check the file path and permissions.\n";
     }
     return err;
 }
@@ -49,14 +50,14 @@ static ImgLibErrorInfo factorValidation(const float factor)
     if (factor < 0)
     {
         err.code = IMG_LIB_ERROR_NEGATIVE_FACTOR;
-        err.message = "Factor must be non-negative. Please provide a valid value.";
+        err.message = "Factor must be non-negative. Please provide a valid value.\n";
     }
     return err;
 }
 
 ImgLibErrorInfo imgToGrayscale(Img* img, const float factor)
 {
-    ImgLibErrorInfo err;
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
     if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
         return err;
     if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
@@ -76,13 +77,12 @@ ImgLibErrorInfo imgToGrayscale(Img* img, const float factor)
         }
     }
 
-    err.code = 0;
     return err;
 }
 
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
 {
-    ImgLibErrorInfo err;
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
     if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
         return err;
     if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
@@ -106,7 +106,36 @@ ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
         }
     }
 
-    err.code = 0;
+    return err;
+}
+
+ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor)
+{
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+        return err;
+    if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
+        return err;
+
+    int pIndex = 0;
+
+    for (int y = 0; y < img->height; y++)
+    {
+        for (int x = 0; x < img->width; x++)
+        {
+            pIndex = (y * img->width + x) * img->channels;
+            for (int c = 0; c < 3; c++)
+            {
+                int newValue = (int)(img->data[pIndex + c] * factor);
+                if (newValue < 0)
+                    newValue = 0;
+                else if (newValue > 255)
+                    newValue = 255;
+                img->data[pIndex + c] = (unsigned char)newValue;
+            }
+        }
+    }
+
     return err;
 }
 
