@@ -12,11 +12,11 @@
 int main() //tests
 {
     Img* img = malloc(sizeof(Img));
-    img->data = stbi_load("example.png", &img->width, &img->height, &img->channels, 0);
-    ImgLibErrorInfo err = imgAdjustBrightness(img, 0.7);
+    img->data = stbi_load("examples\\source.png", &img->width, &img->height, &img->channels, 0);
+    ImgLibErrorInfo err = imgAdjustContrast(img, 1.5);
     if (err.code != 0)
         printf("code: %d msg: %s", err.code, err.message);
-    stbi_write_png("output.png",
+    stbi_write_png("examples\\output.png",
         img->width, img->height, img->channels, img->data, img->width * img->channels);
     return 0;
 }

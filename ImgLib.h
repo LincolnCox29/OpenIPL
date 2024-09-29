@@ -139,6 +139,36 @@ ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor)
     return err;
 }
 
+ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor)
+{
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+        return err;
+    if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
+        return err;
+
+    int pIndex = 0;
+
+    for (int y = 0; y < img->height; y++)
+    {
+        for (int x = 0; x < img->width; x++)
+        {
+            pIndex = (y * img->width + x) * img->channels;
+            for (int c = 0; c < 3; c++)
+            {
+                int newValue = (int)((img->data[pIndex + c] - 128) * factor + 128);
+                if (newValue < 0)
+                    newValue = 0;
+                else if (newValue > 255)
+                    newValue = 255;
+                img->data[pIndex + c] = (unsigned char)newValue;
+            }
+        }
+    }
+
+    return err;
+}
+
 #endif
 
 #endif // IMG_LIB_H
