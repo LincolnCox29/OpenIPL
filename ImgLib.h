@@ -5,6 +5,10 @@
 
 #define MaxComponent(r, g, b) ((r) > (g) ? ((r) > (b) ? (r) : (b)) : ((g) > (b) ? (g) : (b)))
 
+#define MID_COLOR_VALUE 128
+#define MAX_COLOR_VALUE 255
+#define MIN_COLOR_VALUE 0
+
 typedef struct
 {
     int width, height, channels;
@@ -28,6 +32,8 @@ typedef struct
 ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);
+ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor);
+static void clampColorValue(int* value);
 static ImgLibErrorInfo imgDataValidation(const unsigned char* data);
 static ImgLibErrorInfo factorValidation(const float factor);
 
@@ -55,13 +61,22 @@ static ImgLibErrorInfo factorValidation(const float factor)
     return err;
 }
 
+static void clampColorValue(int* value)
+{
+    if (*value < MIN_COLOR_VALUE)
+        *value = MIN_COLOR_VALUE;
+    else if (*value > MAX_COLOR_VALUE)
+        *value = MAX_COLOR_VALUE;
+}
+
 ImgLibErrorInfo imgToGrayscale(Img* img, const float factor)
 {
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
+        (err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
+    {
         return err;
-    if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
-        return err;
+    }
 
     int pIndex = 0;
     unsigned char maxComponent = 0;
@@ -83,10 +98,11 @@ ImgLibErrorInfo imgToGrayscale(Img* img, const float factor)
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
 {
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
+        (err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
+    {
         return err;
-    if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
-        return err;
+    }
 
     int brightness;
     int pIndex = 0;
@@ -97,12 +113,10 @@ ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
         {
             pIndex = (y * img->width + x) * img->channels;
             brightness = (int)(0.299 * img->data[pIndex + 0] + 0.587 * img->data[pIndex + 1] + 0.114 * img->data[pIndex + 2]);
-            if (brightness > (int)(128 * factor))
-                for (int c = 0; c < 3; c++)
-                    img->data[pIndex + c] = 255;
+            if (brightness > (int)(MID_COLOR_VALUE * factor))
+                memset(&img->data[pIndex], 255, 3);
             else
-                for (int c = 0; c < 3; c++)
-                    img->data[pIndex + c] = 0;
+                memset(&img->data[pIndex], 0, 3);
         }
     }
 
@@ -112,10 +126,11 @@ ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
 ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor)
 {
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
+        (err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
+    {
         return err;
-    if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
-        return err;
+    }
 
     int pIndex = 0;
 
@@ -127,10 +142,7 @@ ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor)
             for (int c = 0; c < 3; c++)
             {
                 int newValue = (int)(img->data[pIndex + c] * factor);
-                if (newValue < 0)
-                    newValue = 0;
-                else if (newValue > 255)
-                    newValue = 255;
+                clampColorValue(&newValue);
                 img->data[pIndex + c] = (unsigned char)newValue;
             }
         }
@@ -142,10 +154,11 @@ ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor)
 ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor)
 {
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
+        (err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
+    {
         return err;
-    if ((err = factorValidation(factor)).code != IMG_LIB_SUCCESS)
-        return err;
+    }
 
     int pIndex = 0;
 
@@ -156,11 +169,8 @@ ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor)
             pIndex = (y * img->width + x) * img->channels;
             for (int c = 0; c < 3; c++)
             {
-                int newValue = (int)((img->data[pIndex + c] - 128) * factor + 128);
-                if (newValue < 0)
-                    newValue = 0;
-                else if (newValue > 255)
-                    newValue = 255;
+                int newValue = (int)((img->data[pIndex + c] - MID_COLOR_VALUE) * factor + MID_COLOR_VALUE);
+                clampColorValue(&newValue);
                 img->data[pIndex + c] = (unsigned char)newValue;
             }
         }
