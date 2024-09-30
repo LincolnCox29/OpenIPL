@@ -34,7 +34,7 @@ ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor);
-ImgLibErrorInfo imgGaussianBlur(Img* img, const float factor);
+ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations);
 static void clampColorValue(int* value);
 static ImgLibErrorInfo imgDataValidation(const unsigned char* data);
 static ImgLibErrorInfo factorValidation(const float factor);
@@ -193,7 +193,7 @@ ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor)
     return err;
 }
 
-ImgLibErrorInfo imgGaussianBlur(Img* img)
+ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 {
     unsigned char* blurredData = malloc(img->width * img->height * img->channels * sizeof(unsigned char));
 
@@ -206,34 +206,36 @@ ImgLibErrorInfo imgGaussianBlur(Img* img)
 
     int pIndex = 0;
     int blurredValue = 0;
-
-    for (int y = 1; y < img->height - 1; y++)
+    while (iterations-- != 0)
     {
-        for (int x = 1; x < img->width - 1; x++)
+        for (int y = 1; y < img->height - 1; y++)
         {
-            pIndex = (y * img->width + x) * img->channels;
-            for (int c = 0; c < 3; c++)
+            for (int x = 1; x < img->width - 1; x++)
             {
-                blurredValue = (
-                    img->data[pIndex + c - img->width * img->channels - img->channels] +
-                    img->data[pIndex + c - img->width * img->channels + img->channels] +
-                    img->data[pIndex + c + img->width * img->channels - img->channels] +
-                    img->data[pIndex + c + img->width * img->channels + img->channels] +
+                pIndex = (y * img->width + x) * img->channels;
+                for (int c = 0; c < 3; c++)
+                {
+                    blurredValue = (
+                        img->data[pIndex + c - img->width * img->channels - img->channels] +
+                        img->data[pIndex + c - img->width * img->channels + img->channels] +
+                        img->data[pIndex + c + img->width * img->channels - img->channels] +
+                        img->data[pIndex + c + img->width * img->channels + img->channels] +
 
-                    (img->data[pIndex + c - img->width * img->channels] * 2) +
-                    (img->data[pIndex + c + img->width * img->channels] * 2) +
-                    (img->data[pIndex + c - img->channels] * 2) +
-                    (img->data[pIndex + c + img->channels] * 2) +
+                        (img->data[pIndex + c - img->width * img->channels] * 2) +
+                        (img->data[pIndex + c + img->width * img->channels] * 2) +
+                        (img->data[pIndex + c - img->channels] * 2) +
+                        (img->data[pIndex + c + img->channels] * 2) +
 
-                    (img->data[pIndex + c] * 4)
-                ) / 16;
+                        (img->data[pIndex + c] * 4)
+                        ) / 16;
 
-                clampColorValue(&blurredValue);
-                blurredData[pIndex + c] = (unsigned char)blurredValue;
+                    clampColorValue(&blurredValue);
+                    blurredData[pIndex + c] = (unsigned char)blurredValue;
+                }
             }
         }
+        memcpy(img->data, blurredData, img->width * img->height * img->channels * sizeof(unsigned char));
     }
-    memcpy(img->data, blurredData, img->width * img->height * img->channels * sizeof(unsigned char));
     free(blurredData);
 
     return err;

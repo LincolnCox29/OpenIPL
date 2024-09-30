@@ -17,7 +17,7 @@
 typedef ImgLibErrorInfo(*ImgOperationWithFac)(Img*, float);
 
 void absTest(ImgOperationWithFac func, char* outputPath);
-void gaussianBlurTest(int iterations);
+void gaussianBlurTest(unsigned iterations);
 void writePng(const char* path, Img img);
 Img* loadPng(const char* path);
 
@@ -28,7 +28,7 @@ int main() //tests
     absTest(imgAdjustBrightness, "examples\\Brightness.png");
     absTest(imgAdjustContrast, "examples\\Contrast.png");
 
-    gaussianBlurTest(100);
+    gaussianBlurTest(50);
 
     return 0;
 }
@@ -43,17 +43,15 @@ void absTest(ImgOperationWithFac func, char* outputPath)
     free(img->data);
 }
 
-void gaussianBlurTest(int iterations)
+void gaussianBlurTest(unsigned iterations)
 {
     ImgLibErrorInfo err;
     Img* img = loadPng("examples\\source.png");
-    for (int i = 0; i < iterations; i++)
+
+    if ((err = imgGaussianBlur(img, iterations)).code != 0)
     {
-        if ((err = imgGaussianBlur(img)).code != 0)
-        {
-            printf("code: %d msg: %s", err.code, err.message);
-            return;
-        }
+        printf("code: %d msg: %s", err.code, err.message);
+        return;
     }
     writePng("examples\\GaussianBlur.png", *img);
     free(img->data);
