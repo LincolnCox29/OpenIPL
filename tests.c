@@ -17,6 +17,9 @@
 typedef ImgLibErrorInfo(*ImgOperationWithFac)(Img*, float);
 
 void absTest(ImgOperationWithFac func, char* outputPath);
+void gaussianBlurTest(int iterations);
+void writePng(const char* path, Img img);
+Img* loadPng(const char* path);
 
 int main() //tests
 {
@@ -25,17 +28,45 @@ int main() //tests
     absTest(imgAdjustBrightness, "examples\\Brightness.png");
     absTest(imgAdjustContrast, "examples\\Contrast.png");
 
+    gaussianBlurTest(100);
+
     return 0;
 }
 
 void absTest(ImgOperationWithFac func, char* outputPath)
 {
-    Img* img = malloc(sizeof(Img));
-    img->data = stbi_load("examples\\source.png", &img->width, &img->height, &img->channels, 0);
-    ImgLibErrorInfo err = func(img, 1.5);
+    Img* img = loadPng("examples\\source.png");
+    ImgLibErrorInfo err = func(img, 0.8);
     if (err.code != 0)
         printf("code: %d msg: %s", err.code, err.message);
-    stbi_write_png(outputPath,
-        img->width, img->height, img->channels, img->data, img->width * img->channels);
+    writePng(outputPath, *img);
     free(img->data);
+}
+
+void gaussianBlurTest(int iterations)
+{
+    ImgLibErrorInfo err;
+    Img* img = loadPng("examples\\source.png");
+    for (int i = 0; i < iterations; i++)
+    {
+        if ((err = imgGaussianBlur(img)).code != 0)
+        {
+            printf("code: %d msg: %s", err.code, err.message);
+            return;
+        }
+    }
+    writePng("examples\\GaussianBlur.png", *img);
+    free(img->data);
+}
+
+void writePng(const char* path, Img img)
+{
+    stbi_write_png(path,img.width, img.height, img.channels, img.data, img.width * img.channels);
+}
+
+Img* loadPng(const char* path)
+{
+    Img* img = malloc(sizeof(Img));
+    img->data = stbi_load(path, &img->width, &img->height, &img->channels, 0);
+    return img;
 }

@@ -20,6 +20,7 @@ typedef enum
     IMG_LIB_SUCCESS = 0,
     IMG_LIB_ERROR_LOADING_IMAGE,
     IMG_LIB_ERROR_NEGATIVE_FACTOR,
+    IMG_LIB_ERROR_MEMORY_ALLOCATION,
 
 } ImgLibErrorCode;
 
@@ -33,9 +34,11 @@ ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor);
+ImgLibErrorInfo imgGaussianBlur(Img* img, const float factor);
 static void clampColorValue(int* value);
 static ImgLibErrorInfo imgDataValidation(const unsigned char* data);
 static ImgLibErrorInfo factorValidation(const float factor);
+static ImgLibErrorInfo memallocValidation(const unsigned char* imgData);
 
 #ifdef IMG_LIB_IMPLEMENTATION
 
@@ -57,6 +60,17 @@ static ImgLibErrorInfo factorValidation(const float factor)
     {
         err.code = IMG_LIB_ERROR_NEGATIVE_FACTOR;
         err.message = "Factor must be non-negative. Please provide a valid value.\n";
+    }
+    return err;
+}
+
+static ImgLibErrorInfo memallocValidation(const unsigned char* imgData)
+{
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if (imgData == NULL)
+    {
+        err.code = IMG_LIB_ERROR_MEMORY_ALLOCATION;
+        err.message = "Memory allocation failed.";
     }
     return err;
 }
@@ -114,9 +128,9 @@ ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
             pIndex = (y * img->width + x) * img->channels;
             brightness = (int)(0.299 * img->data[pIndex + 0] + 0.587 * img->data[pIndex + 1] + 0.114 * img->data[pIndex + 2]);
             if (brightness > (int)(MID_COLOR_VALUE * factor))
-                memset(&img->data[pIndex], 255, 3);
+                memset(&img->data[pIndex], MAX_COLOR_VALUE, 3);
             else
-                memset(&img->data[pIndex], 0, 3);
+                memset(&img->data[pIndex], MIN_COLOR_VALUE, 3);
         }
     }
 
@@ -175,6 +189,52 @@ ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor)
             }
         }
     }
+
+    return err;
+}
+
+ImgLibErrorInfo imgGaussianBlur(Img* img)
+{
+    unsigned char* blurredData = malloc(img->width * img->height * img->channels * sizeof(unsigned char));
+
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
+        (err = memallocValidation(blurredData)).code != IMG_LIB_SUCCESS)
+    {
+        return err;
+    }
+
+    int pIndex = 0;
+    int blurredValue = 0;
+
+    for (int y = 1; y < img->height - 1; y++)
+    {
+        for (int x = 1; x < img->width - 1; x++)
+        {
+            pIndex = (y * img->width + x) * img->channels;
+            for (int c = 0; c < 3; c++)
+            {
+                blurredValue = (
+                    img->data[pIndex + c - img->width * img->channels - img->channels] +
+                    img->data[pIndex + c - img->width * img->channels + img->channels] +
+                    img->data[pIndex + c + img->width * img->channels - img->channels] +
+                    img->data[pIndex + c + img->width * img->channels + img->channels] +
+
+                    (img->data[pIndex + c - img->width * img->channels] * 2) +
+                    (img->data[pIndex + c + img->width * img->channels] * 2) +
+                    (img->data[pIndex + c - img->channels] * 2) +
+                    (img->data[pIndex + c + img->channels] * 2) +
+
+                    (img->data[pIndex + c] * 4)
+                ) / 16;
+
+                clampColorValue(&blurredValue);
+                blurredData[pIndex + c] = (unsigned char)blurredValue;
+            }
+        }
+    }
+    memcpy(img->data, blurredData, img->width * img->height * img->channels * sizeof(unsigned char));
+    free(blurredData);
 
     return err;
 }

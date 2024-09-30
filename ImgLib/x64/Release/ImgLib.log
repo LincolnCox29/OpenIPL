@@ -1,7 +1,8 @@
 ﻿  tests.c
+C:\Users\79242\Desktop\ImgLib\ImgLib.h(196,17): warning C4029: объявленный список формальных параметров отличается от объявления
+C:\Users\79242\Desktop\ImgLib\tests.c(39,37): warning C4305: функция: усечение из "double" в "float"
   Создание кода
-  9 of 179 functions ( 5.0%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    8 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 184 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   ImgLib.vcxproj -> C:\Users\79242\Desktop\ImgLib\x64\Release\ImgLib.exe
