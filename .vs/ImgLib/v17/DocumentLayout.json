@@ -18,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "tests.c",
-              "DocumentMoniker": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
-              "RelativeDocumentMoniker": "tests.c",
-              "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
-              "RelativeToolTip": "tests.c",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAABwAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-01T07:24:19.795Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -41,9 +28,22 @@
               "RelativeDocumentMoniker": "ImgLib.h",
               "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\ImgLib.h",
               "RelativeToolTip": "ImgLib.h",
-              "ViewState": "AQIAABMBAAAAAAAAAAAuwCgBAAAlAAAA",
+              "ViewState": "AQIAAC0BAAAAAAAAAAAAAEgBAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-01T07:19:41.268Z",
+              "WhenOpened": "2024-10-01T08:21:53.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "tests.c",
+              "DocumentMoniker": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
+              "RelativeDocumentMoniker": "tests.c",
+              "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
+              "RelativeToolTip": "tests.c",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAqwCUAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-01T07:24:19.795Z",
               "EditorCaption": ""
             }
           ]

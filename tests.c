@@ -9,6 +9,8 @@
 #define IMG_LIB_IMPLEMENTATION
 #include "ImgLib.h"
 
+#include <time.h>
+
 //  imgToGrayscale
 //  imgToBlackAndWhite
 //  imgAdjustBrightness
@@ -30,18 +32,23 @@ int main() //tests
     absTestWithFac(imgAdjustBrightness, "examples\\Brightness.png");
     absTestWithFac(imgAdjustContrast, "examples\\Contrast.png");
 
-    gaussianBlurTest(50, "examples\\GaussianBlur.png");
-
     absTest(imgSepiaFilter, "examples\\SepiaFilter.png");
     absTest(imgNegative, "examples\\Negative.png");
+
+    gaussianBlurTest(50u, "examples\\GaussianBlur.png");
 
     return 0;
 }
 
 void absTestWithFac(ImgOperationWithFac func, char* outputPath)
 {
+    clock_t start, end;
     Img* img = loadPng("examples\\source.png");
+    start = clock();
     ImgLibErrorInfo err = func(img, 0.8);
+    end = clock();
+    double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("time: %f sec\n", timeSpent);
     if (err.code != 0)
         printf("code: %d msg: %s", err.code, err.message);
     writePng(outputPath, *img);
@@ -50,29 +57,37 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
 
 void absTest(ImgOperation func, char* outputPath)
 {
+    clock_t start, end;
     ImgLibErrorInfo err;
     Img* img = loadPng("examples\\source.png");
-
+    start = clock();
     if ((err = func(img)).code != 0)
     {
         printf("code: %d msg: %s", err.code, err.message);
         return;
     }
+    end = clock();
+    double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("time: %f sec\n", timeSpent);
     writePng(outputPath, *img);
     free(img->data);
 }
 
 void gaussianBlurTest(unsigned iterations, char* outputPath)
 {
+    clock_t start, end;
     ImgLibErrorInfo err;
     Img* img = loadPng("examples\\source.png");
-
+    start = clock();
     if ((err = imgGaussianBlur(img, iterations)).code != 0)
     {
         printf("code: %d msg: %s", err.code, err.message);
         return;
     }
-    writePng("examples\\GaussianBlur.png", *img);
+    end = clock();
+    double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("time: %f sec\n", timeSpent);
+    writePng(outputPath, *img);
     free(img->data);
 }
 

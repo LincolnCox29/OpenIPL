@@ -211,12 +211,12 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
     int pIndex = 0;
     int blurredValue = 0;
     int xOffset, yOffset;
-    int weights[3][3] = { {1, 2, 1}, {2, 4, 2}, {1, 2, 1} };
+    const int weights[3][3] = { {1, 2, 1}, {2, 4, 2}, {1, 2, 1} };
     int appliedWeightSum;
     int neighborIndex;
     unsigned char* temp;
 
-    while (iterations-- != 0)
+    while (0 != iterations--)
     {
         for (int y = 0; y < img->height; y++)
         {
@@ -230,17 +230,19 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 
                     for (int ky = -1; ky <= 1; ky++)
                     {
+                        yOffset = y + ky;
+                        if (yOffset < 0 || yOffset >= img->height) 
+                            continue;
+
                         for (int kx = -1; kx <= 1; kx++)
                         {
-                            yOffset = y + ky;
                             xOffset = x + kx;
+                            if (xOffset < 0 || xOffset >= img->width) 
+                                continue;
 
-                            if (yOffset >= 0 && yOffset < img->height && xOffset >= 0 && xOffset < img->width)
-                            {
-                                neighborIndex = (yOffset * img->width + xOffset) * img->channels;
-                                blurredValue += currentData[neighborIndex + c] * weights[ky + 1][kx + 1];
-                                appliedWeightSum += weights[ky + 1][kx + 1];
-                            }
+                            neighborIndex = (yOffset * img->width + xOffset) * img->channels;
+                            blurredValue += currentData[neighborIndex + c] * weights[ky + 1][kx + 1];
+                            appliedWeightSum += weights[ky + 1][kx + 1];
                         }
                     }
                     blurredValue /= appliedWeightSum;
