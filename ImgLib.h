@@ -201,34 +201,44 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
     if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
         (err = memallocValidation(blurredData)).code != IMG_LIB_SUCCESS)
     {
+        free(blurredData);
         return err;
     }
 
     int pIndex = 0;
     int blurredValue = 0;
+    int xOffset, yOffset;
+    int weights[3][3] = { {1, 2, 1}, {2, 4, 2}, {1, 2, 1} };
+    int sumWeights = 16;
+
     while (iterations-- != 0)
     {
-        for (int y = 1; y < img->height - 1; y++)
+        for (int y = 0; y < img->height; y++)
         {
-            for (int x = 1; x < img->width - 1; x++)
+            for (int x = 0; x < img->width; x++)
             {
                 pIndex = (y * img->width + x) * img->channels;
                 for (int c = 0; c < 3; c++)
                 {
-                    blurredValue = (
-                        img->data[pIndex + c - img->width * img->channels - img->channels] +
-                        img->data[pIndex + c - img->width * img->channels + img->channels] +
-                        img->data[pIndex + c + img->width * img->channels - img->channels] +
-                        img->data[pIndex + c + img->width * img->channels + img->channels] +
+                    blurredValue = 0;
+                    int appliedWeightSum = 0;
 
-                        (img->data[pIndex + c - img->width * img->channels] * 2) +
-                        (img->data[pIndex + c + img->width * img->channels] * 2) +
-                        (img->data[pIndex + c - img->channels] * 2) +
-                        (img->data[pIndex + c + img->channels] * 2) +
+                    for (int ky = -1; ky <= 1; ky++)
+                    {
+                        for (int kx = -1; kx <= 1; kx++)
+                        {
+                            yOffset = y + ky;
+                            xOffset = x + kx;
 
-                        (img->data[pIndex + c] * 4)
-                        ) / 16;
-
+                            if (yOffset >= 0 && yOffset < img->height && xOffset >= 0 && xOffset < img->width)
+                            {
+                                int neighborIndex = (yOffset * img->width + xOffset) * img->channels;
+                                blurredValue += img->data[neighborIndex + c] * weights[ky + 1][kx + 1];
+                                appliedWeightSum += weights[ky + 1][kx + 1];
+                            }
+                        }
+                    }
+                    blurredValue /= appliedWeightSum;
                     clampColorValue(&blurredValue);
                     blurredData[pIndex + c] = (unsigned char)blurredValue;
                 }
