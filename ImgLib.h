@@ -35,6 +35,7 @@ ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor);
 ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations);
+ImgLibErrorInfo imgSepiaFilter(Img* img);
 static void clampColorValue(int* value);
 static ImgLibErrorInfo imgDataValidation(const unsigned char* data);
 static ImgLibErrorInfo factorValidation(const float factor);
@@ -247,6 +248,42 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
         memcpy(img->data, blurredData, img->width * img->height * img->channels * sizeof(unsigned char));
     }
     free(blurredData);
+
+    return err;
+}
+
+ImgLibErrorInfo imgSepiaFilter(Img* img)
+{
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+    {
+        return err;
+    }
+
+    int pIndex = 0;
+    int newRed, newGreen, newBlue;
+    for (int y = 0; y < img->height; y++)
+    {
+        for (int x = 0; x < img->width; x++)
+        {
+            pIndex = (y * img->width + x) * img->channels;
+
+            newRed = (int)(
+                (0.393 * img->data[pIndex]) + (0.769 * img->data[pIndex + 1]) + (0.189 * img->data[pIndex + 2]));
+            newGreen = (int)(
+                (0.349 * img->data[pIndex]) + (0.686 * img->data[pIndex + 1]) + (0.168 * img->data[pIndex + 2]));
+            newBlue = (int)(
+                (0.272 * img->data[pIndex]) + (0.534 * img->data[pIndex + 1]) + (0.131 * img->data[pIndex + 2]));
+
+            clampColorValue(&newRed);
+            clampColorValue(&newGreen);
+            clampColorValue(&newBlue);
+
+            img->data[pIndex]     = ((unsigned char)newRed);
+            img->data[pIndex + 1] = ((unsigned char)newGreen);
+            img->data[pIndex + 2] = ((unsigned char)newBlue);
+        }
+    }
 
     return err;
 }
