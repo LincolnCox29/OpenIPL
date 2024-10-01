@@ -196,6 +196,7 @@ ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor)
 
 ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 {
+    unsigned char* currentData = img->data;
     unsigned char* blurredData = malloc(img->width * img->height * img->channels * sizeof(unsigned char));
 
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
@@ -210,7 +211,9 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
     int blurredValue = 0;
     int xOffset, yOffset;
     int weights[3][3] = { {1, 2, 1}, {2, 4, 2}, {1, 2, 1} };
-    int sumWeights = 16;
+    int appliedWeightSum;
+    int neighborIndex;
+    unsigned char* temp;
 
     while (iterations-- != 0)
     {
@@ -222,7 +225,7 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
                 for (int c = 0; c < 3; c++)
                 {
                     blurredValue = 0;
-                    int appliedWeightSum = 0;
+                    appliedWeightSum = 0;
 
                     for (int ky = -1; ky <= 1; ky++)
                     {
@@ -233,8 +236,8 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 
                             if (yOffset >= 0 && yOffset < img->height && xOffset >= 0 && xOffset < img->width)
                             {
-                                int neighborIndex = (yOffset * img->width + xOffset) * img->channels;
-                                blurredValue += img->data[neighborIndex + c] * weights[ky + 1][kx + 1];
+                                neighborIndex = (yOffset * img->width + xOffset) * img->channels;
+                                blurredValue += currentData[neighborIndex + c] * weights[ky + 1][kx + 1];
                                 appliedWeightSum += weights[ky + 1][kx + 1];
                             }
                         }
@@ -245,7 +248,9 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
                 }
             }
         }
-        memcpy(img->data, blurredData, img->width * img->height * img->channels * sizeof(unsigned char));
+        temp = currentData;
+        currentData = blurredData;
+        blurredData = temp;
     }
     free(blurredData);
 
