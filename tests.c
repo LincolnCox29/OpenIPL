@@ -15,27 +15,30 @@
 //  imgAdjustContrast
 
 typedef ImgLibErrorInfo(*ImgOperationWithFac)(Img*, float);
+typedef ImgLibErrorInfo(*ImgOperation)(Img*);
 
-void absTest(ImgOperationWithFac func, char* outputPath);
-void gaussianBlurTest(unsigned iterations);
+void absTestWithFac(ImgOperationWithFac func, char* outputPath);
+void absTest(ImgOperation func, char* outputPath);
+void gaussianBlurTest(unsigned iterations, char* outputPath);
 void writePng(const char* path, Img img);
-void sepiaFilterTest();
 Img* loadPng(const char* path);
 
 int main() //tests
 {
-    absTest(imgToGrayscale, "examples\\Grayscale.png");
-    absTest(imgToBlackAndWhite, "examples\\BlackAndWhite.png");
-    absTest(imgAdjustBrightness, "examples\\Brightness.png");
-    absTest(imgAdjustContrast, "examples\\Contrast.png");
+    absTestWithFac(imgToGrayscale, "examples\\Grayscale.png");
+    absTestWithFac(imgToBlackAndWhite, "examples\\BlackAndWhite.png");
+    absTestWithFac(imgAdjustBrightness, "examples\\Brightness.png");
+    absTestWithFac(imgAdjustContrast, "examples\\Contrast.png");
 
-    gaussianBlurTest(50);
-    sepiaFilterTest();
+    gaussianBlurTest(50, "examples\\GaussianBlur.png");
+
+    absTest(imgSepiaFilter, "examples\\SepiaFilter.png");
+    absTest(imgNegative, "examples\\Negative.png");
 
     return 0;
 }
 
-void absTest(ImgOperationWithFac func, char* outputPath)
+void absTestWithFac(ImgOperationWithFac func, char* outputPath)
 {
     Img* img = loadPng("examples\\source.png");
     ImgLibErrorInfo err = func(img, 0.8);
@@ -45,7 +48,21 @@ void absTest(ImgOperationWithFac func, char* outputPath)
     free(img->data);
 }
 
-void gaussianBlurTest(unsigned iterations)
+void absTest(ImgOperation func, char* outputPath)
+{
+    ImgLibErrorInfo err;
+    Img* img = loadPng("examples\\source.png");
+
+    if ((err = func(img)).code != 0)
+    {
+        printf("code: %d msg: %s", err.code, err.message);
+        return;
+    }
+    writePng(outputPath, *img);
+    free(img->data);
+}
+
+void gaussianBlurTest(unsigned iterations, char* outputPath)
 {
     ImgLibErrorInfo err;
     Img* img = loadPng("examples\\source.png");
@@ -56,20 +73,6 @@ void gaussianBlurTest(unsigned iterations)
         return;
     }
     writePng("examples\\GaussianBlur.png", *img);
-    free(img->data);
-}
-
-void sepiaFilterTest()
-{
-    ImgLibErrorInfo err;
-    Img* img = loadPng("examples\\source.png");
-
-    if ((err = imgSepiaFilter(img)).code != 0)
-    {
-        printf("code: %d msg: %s", err.code, err.message);
-        return;
-    }
-    writePng("examples\\SepiaFilter.png", *img);
     free(img->data);
 }
 
