@@ -31,6 +31,7 @@ int main() //tests
     absTestWithFac(imgToBlackAndWhite, "examples\\BlackAndWhite.png");
     absTestWithFac(imgAdjustBrightness, "examples\\Brightness.png");
     absTestWithFac(imgAdjustContrast, "examples\\Contrast.png");
+    absTestWithFac(imgSobelFilter, "examples\\SobelFilter.png");
 
     absTest(imgSepiaFilter, "examples\\SepiaFilter.png");
     absTest(imgNegative, "examples\\Negative.png");
@@ -45,7 +46,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
     clock_t start, end;
     Img* img = loadPng("examples\\source.png");
     start = clock();
-    ImgLibErrorInfo err = func(img, 0.8);
+    ImgLibErrorInfo err = func(img, 0.9);
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec\n", timeSpent);
