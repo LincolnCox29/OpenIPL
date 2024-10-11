@@ -270,27 +270,25 @@ ImgLibErrorInfo imgSepiaFilter(Img* img)
     }
 
     int pIndex = 0;
-    int newRed, newGreen, newBlue;
+    int newColors[3] = { 0,0,0 };
     for (int y = 0; y < img->height; y++)
     {
         for (int x = 0; x < img->width; x++)
         {
             pIndex = (y * img->width + x) * img->channels;
 
-            newRed = (int)(
+            newColors[0] = (int)(
                 (0.393 * img->data[pIndex]) + (0.769 * img->data[pIndex + 1]) + (0.189 * img->data[pIndex + 2]));
-            newGreen = (int)(
+            newColors[1] = (int)(
                 (0.349 * img->data[pIndex]) + (0.686 * img->data[pIndex + 1]) + (0.168 * img->data[pIndex + 2]));
-            newBlue = (int)(
+            newColors[2] = (int)(
                 (0.272 * img->data[pIndex]) + (0.534 * img->data[pIndex + 1]) + (0.131 * img->data[pIndex + 2]));
 
-            clampColorValue(&newRed);
-            clampColorValue(&newGreen);
-            clampColorValue(&newBlue);
-
-            img->data[pIndex]     = ((unsigned char)newRed);
-            img->data[pIndex + 1] = ((unsigned char)newGreen);
-            img->data[pIndex + 2] = ((unsigned char)newBlue);
+            for (short i = 0; i < 3; i++)
+            {
+                clampColorValue(&(newColors[i]));
+                img->data[pIndex + i] = ((unsigned char)newColors[i]);
+            }
         }
     }
 
