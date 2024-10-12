@@ -9,6 +9,8 @@
 #define MAX_COLOR_VALUE 255
 #define MIN_COLOR_VALUE 0
 
+#include <stdbool.h>
+
 typedef struct
 {
     int width, height, channels;
@@ -37,7 +39,8 @@ ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor);
 ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations);
 ImgLibErrorInfo imgSepiaFilter(Img* img);
 ImgLibErrorInfo imgNegative(Img* img);
-ImgLibErrorInfo imgSobelFilter(Img* img);
+ImgLibErrorInfo imgSobelFilter(Img* img, float factor);
+static ImgLibErrorInfo absValidation(const ImgLibErrorCode code, const char* message, const bool error—ondition);
 static void clampColorValue(int* value);
 static ImgLibErrorInfo imgDataValidation(const unsigned char* data);
 static ImgLibErrorInfo factorValidation(const float factor);
@@ -45,38 +48,39 @@ static ImgLibErrorInfo memallocValidation(const unsigned char* imgData);
 
 #ifdef IMG_LIB_IMPLEMENTATION
 
-static ImgLibErrorInfo imgDataValidation(const unsigned char* data)
+// ERRORS
+static inline ImgLibErrorInfo imgDataValidation(const unsigned char* data)
 {
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if (data == NULL)
-    {
-        err.code = IMG_LIB_ERROR_LOADING_IMAGE;
-        err.message = "The specified path may be invalid or the file may not exist. Please check the file path and permissions.\n";
-    }
-    return err;
+    return absValidation(IMG_LIB_ERROR_LOADING_IMAGE,
+                  "The specified path may be invalid or the file may not exist. Please check the file path and permissions.\n",
+                  data == NULL);
 }
 
-static ImgLibErrorInfo factorValidation(const float factor)
+static inline ImgLibErrorInfo factorValidation(const float factor)
 {
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if (factor < 0)
-    {
-        err.code = IMG_LIB_ERROR_NEGATIVE_FACTOR;
-        err.message = "Factor must be non-negative. Please provide a valid value.\n";
-    }
-    return err;
+    return absValidation(IMG_LIB_ERROR_NEGATIVE_FACTOR,
+                  "Factor must be non-negative. Please provide a valid value.\n", 
+                  factor < 0);
 }
 
-static ImgLibErrorInfo memallocValidation(const unsigned char* imgData)
+static inline ImgLibErrorInfo memallocValidation(const unsigned char* imgData)
+{
+    return absValidation(IMG_LIB_ERROR_MEMORY_ALLOCATION, 
+                  "Memory allocation failed.",
+                  imgData == NULL);
+}
+
+static ImgLibErrorInfo absValidation(const ImgLibErrorCode code, const char* message, const bool error—ondition)
 {
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if (imgData == NULL)
+    if (error—ondition)
     {
-        err.code = IMG_LIB_ERROR_MEMORY_ALLOCATION;
-        err.message = "Memory allocation failed.";
+        err.code = code;
+        err.message = message;
     }
     return err;
 }
+// ERRORS END
 
 static void clampColorValue(int* value)
 {
