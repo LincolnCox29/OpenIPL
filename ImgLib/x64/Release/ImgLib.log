@@ -1,8 +1,9 @@
 ﻿  tests.c
 C:\Users\79242\Desktop\ImgLib\ImgLib.h(389,52): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\79242\Desktop\ImgLib\tests.c(49,37): warning C4305: функция: усечение из "double" в "float"
   Создание кода
-  3 of 189 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
+  4 of 189 functions ( 2.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    16 functions had inline decision re-evaluated but remain unchanged
+    8 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   ImgLib.vcxproj -> C:\Users\79242\Desktop\ImgLib\x64\Release\ImgLib.exe

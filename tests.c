@@ -36,7 +36,7 @@ int main() //tests
     absTest(imgSepiaFilter, "examples\\SepiaFilter.png");
     absTest(imgNegative, "examples\\Negative.png");
 
-    gaussianBlurTest(50u, "examples\\GaussianBlur.png");
+    gaussianBlurTest(100u, "examples\\GaussianBlur.png");
 
     return 0;
 }
@@ -46,7 +46,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
     clock_t start, end;
     Img* img = loadPng("examples\\source.png");
     start = clock();
-    ImgLibErrorInfo err = func(img, 1.0);
+    ImgLibErrorInfo err = func(img, 0.1);
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec\n", timeSpent);

@@ -72,13 +72,9 @@ static inline ImgLibErrorInfo memallocValidation(const unsigned char* imgData)
 
 static ImgLibErrorInfo absValidation(const ImgLibErrorCode code, const char* message, const bool errorÑondition)
 {
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if (errorÑondition)
-    {
-        err.code = code;
-        err.message = message;
-    }
-    return err;
+    return errorÑondition 
+        ? (ImgLibErrorInfo) { code, message }
+        : (ImgLibErrorInfo) { IMG_LIB_SUCCESS, NULL };
 }
 // ERRORS END
 
@@ -134,10 +130,9 @@ ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
         {
             pIndex = (y * img->width + x) * img->channels;
             brightness = (int)(0.299 * img->data[pIndex + 0] + 0.587 * img->data[pIndex + 1] + 0.114 * img->data[pIndex + 2]);
-            if (brightness > (int)(MID_COLOR_VALUE * factor))
-                memset(&img->data[pIndex], MAX_COLOR_VALUE, 3);
-            else
-                memset(&img->data[pIndex], MIN_COLOR_VALUE, 3);
+            brightness > (int)(MID_COLOR_VALUE * factor)
+                ? memset(&img->data[pIndex], MAX_COLOR_VALUE, 3)
+                : memset(&img->data[pIndex], MIN_COLOR_VALUE, 3);
         }
     }
 
