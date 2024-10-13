@@ -40,11 +40,13 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations);
 ImgLibErrorInfo imgSepiaFilter(Img* img);
 ImgLibErrorInfo imgNegative(Img* img);
 ImgLibErrorInfo imgSobelFilter(Img* img, float factor);
+ImgLibErrorInfo imgToMirror(Img* img);
+static inline void* imgDataAlloc(Img* img);
 static ImgLibErrorInfo absValidation(const ImgLibErrorCode code, const char* message, const bool errorÑondition);
 static void clampColorValue(int* value);
-static ImgLibErrorInfo imgDataValidation(const unsigned char* data);
-static ImgLibErrorInfo factorValidation(const float factor);
-static ImgLibErrorInfo memallocValidation(const unsigned char* imgData);
+static inline ImgLibErrorInfo imgDataValidation(const unsigned char* data);
+static inline ImgLibErrorInfo factorValidation(const float factor);
+static inline ImgLibErrorInfo memallocValidation(const unsigned char* imgData);
 
 #ifdef IMG_LIB_IMPLEMENTATION
 
@@ -70,9 +72,9 @@ static inline ImgLibErrorInfo memallocValidation(const unsigned char* imgData)
                   imgData == NULL);
 }
 
-static ImgLibErrorInfo absValidation(const ImgLibErrorCode code, const char* message, const bool errorÑondition)
+static ImgLibErrorInfo absValidation(const ImgLibErrorCode code, const char* message, const bool errorCondition)
 {
-    return errorÑondition 
+    return errorCondition 
         ? (ImgLibErrorInfo) { code, message }
         : (ImgLibErrorInfo) { IMG_LIB_SUCCESS, NULL };
 }
@@ -84,6 +86,11 @@ static void clampColorValue(int* value)
         *value = MIN_COLOR_VALUE;
     else if (*value > MAX_COLOR_VALUE)
         *value = MAX_COLOR_VALUE;
+}
+
+static inline void* imgDataAlloc(Img* img)
+{
+    return malloc(img->width * img->height * img->channels * sizeof(unsigned char));
 }
 
 ImgLibErrorInfo imgToGrayscale(Img* img, const float factor)
@@ -198,7 +205,7 @@ ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor)
 ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 {
     unsigned char* currentData = img->data;
-    unsigned char* blurredData = malloc(img->width * img->height * img->channels * sizeof(unsigned char));
+    unsigned char* blurredData = imgDataAlloc(img);
 
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
     if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
@@ -211,7 +218,12 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
     int pIndex = 0;
     int blurredValue = 0;
     int xOffset, yOffset;
-    const int weights[3][3] = { {1, 2, 1}, {2, 4, 2}, {1, 2, 1} };
+    const int weights[3][3] = 
+    { 
+        {1, 2, 1}, 
+        {2, 4, 2}, 
+        {1, 2, 1} 
+    };
     int appliedWeightSum;
     int neighborIndex;
     unsigned char* temp;
@@ -325,7 +337,7 @@ ImgLibErrorInfo imgNegative(Img* img)
 ImgLibErrorInfo imgSobelFilter(Img* img, float factor)
 {
     ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    unsigned char* edgeData = malloc(img->width * img->height * img->channels * sizeof(unsigned char));
+    unsigned char* edgeData = imgDataAlloc(img);
     if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
         (err = memallocValidation(edgeData)).code != IMG_LIB_SUCCESS)
     {
@@ -390,6 +402,37 @@ ImgLibErrorInfo imgSobelFilter(Img* img, float factor)
 
     memcpy(img->data, edgeData, img->width * img->height * img->channels * sizeof(unsigned char));
     free(edgeData);
+
+    return err;
+}
+
+ImgLibErrorInfo imgToMirror(Img* img)
+{
+    unsigned char* tampData = imgDataAlloc(img);
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
+        (err = memallocValidation(tampData)).code != IMG_LIB_SUCCESS)
+    {
+        free(tampData);
+        return err;
+    }
+
+    int pIndex = 0;
+
+    for (int y = 0; y < img->height; y++)
+    {
+        for (int x = 0; x < img->width; x++)
+        {
+            for (int c = 0; c < img->channels; c++)
+            {
+                pIndex = (y * img->width + x) * img->channels;
+                tampData[((y + 1) * img->width - x) * img->channels + c] = img->data[pIndex + c];
+            }
+        }
+    }
+
+    memcpy(img->data, tampData, img->width * img->height * img->channels * sizeof(unsigned char));
+    free(tampData);
 
     return err;
 }
