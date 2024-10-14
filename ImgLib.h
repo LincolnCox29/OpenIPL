@@ -315,22 +315,8 @@ ImgLibErrorInfo imgNegative(Img* img)
         return err;
     }
 
-    int pIndex = 0;
-    int newColors[3] = {0,0,0};
-    for (int y = 0; y < img->height; y++)
-    {
-        for (int x = 0; x < img->width; x++)
-        {
-            pIndex = (y * img->width + x) * img->channels;
-
-            for (short i = 0; i < 3; i++)
-            {
-                int newColor = 255 - img->data[pIndex + i];
-                clampColorValue(&newColor);
-                img->data[pIndex + i] = (unsigned char)newColor;
-            }
-        }
-    }
+    for (int pIndex = 0; pIndex < img->height * img->width * img->channels; pIndex++)
+        img->data[pIndex] = (unsigned char)(255 - img->data[pIndex]);
 
     return err;
 }
