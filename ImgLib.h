@@ -314,8 +314,8 @@ ImgLibErrorInfo imgNegative(Img* img)
     {
         return err;
     }
-
-    for (int pIndex = 0; pIndex < img->height * img->width * img->channels; pIndex++)
+    int totalPixels = img->height * img->width * img->channels;
+    for (int pIndex = 0; pIndex < totalPixels; pIndex++)
         img->data[pIndex] = (unsigned char)(255 - img->data[pIndex]);
 
     return err;
