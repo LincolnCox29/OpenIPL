@@ -103,18 +103,15 @@ ImgLibErrorInfo imgToGrayscale(Img* img, const float factor)
         return err;
     }
 
-    int pIndex = 0;
-    unsigned char maxComponent = 0;
+    const int totalChannels = img->height * img->width * img->channels;
+    unsigned char maxComponent;
 
-    for (int y = 0; y < img->height; y++)
+    for (int pIndex = 0; pIndex < totalChannels; pIndex+=3)
     {
-        for (int x = 0; x < img->width; x++)
-        {
-            pIndex = (y * img->width + x) * img->channels;
-            maxComponent = MaxComponent(img->data[pIndex + 0], img->data[pIndex + 1], img->data[pIndex + 2]);
-            for (int c = 0; c < 3; c++)
-                img->data[pIndex + c] = (int)(maxComponent * factor);
-        }
+        maxComponent = (unsigned char)(MaxComponent(img->data[pIndex], img->data[pIndex + 1], img->data[pIndex + 2]) * factor);
+
+        for (int c = 0; c < 3; c++)
+            img->data[pIndex + c] = maxComponent;
     }
 
     return err;

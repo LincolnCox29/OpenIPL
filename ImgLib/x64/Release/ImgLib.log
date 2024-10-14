@@ -1,8 +1,8 @@
 ﻿  tests.c
-C:\Users\79242\Desktop\ImgLib\ImgLib.h(383,52): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\79242\Desktop\ImgLib\ImgLib.h(380,52): warning C4244: =: преобразование "double" в "int", возможна потеря данных
   Создание кода
-  2 of 191 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+  1 of 191 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    8 functions had inline decision re-evaluated but remain unchanged
+    9 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   ImgLib.vcxproj -> C:\Users\79242\Desktop\ImgLib\x64\Release\ImgLib.exe
