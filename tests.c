@@ -42,7 +42,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
     clock_t start, end;
     Img* img = loadPng("examples\\source.png");
     start = clock();
-    ImgLibErrorInfo err = func(img, 1);
+    ImgLibErrorInfo err = func(img, 0.8);
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec\n", timeSpent);
