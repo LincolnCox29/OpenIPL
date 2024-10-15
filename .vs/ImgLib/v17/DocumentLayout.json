@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|C:\\Users\\79242\\Desktop\\ImgLib\\ImgLib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:ImgLib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|C:\\Users\\79242\\Desktop\\ImgLib\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,10 +28,23 @@
               "RelativeDocumentMoniker": "ImgLib.h",
               "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\ImgLib.h",
               "RelativeToolTip": "ImgLib.h",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAAAIsAAAAAAAAA",
+              "ViewState": "AQIAAHsBAAAAAAAAAAAAAI8AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-01T08:21:53.699Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "tests.c",
+              "DocumentMoniker": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
+              "RelativeDocumentMoniker": "tests.c",
+              "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
+              "RelativeToolTip": "tests.c",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABMAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-15T11:20:04.035Z",
               "EditorCaption": ""
             }
           ]

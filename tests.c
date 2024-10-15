@@ -11,11 +11,6 @@
 
 #include <time.h>
 
-//  imgToGrayscale
-//  imgToBlackAndWhite
-//  imgAdjustBrightness
-//  imgAdjustContrast
-
 typedef ImgLibErrorInfo(*ImgOperationWithFac)(Img*, float);
 typedef ImgLibErrorInfo(*ImgOperation)(Img*);
 
@@ -47,7 +42,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
     clock_t start, end;
     Img* img = loadPng("examples\\source.png");
     start = clock();
-    ImgLibErrorInfo err = func(img, 0.9);
+    ImgLibErrorInfo err = func(img, 1);
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec\n", timeSpent);

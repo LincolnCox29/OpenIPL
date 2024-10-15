@@ -1,7 +1,6 @@
 ﻿  tests.c
 C:\Users\79242\Desktop\ImgLib\ImgLib.h(135,84): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\79242\Desktop\ImgLib\ImgLib.h(377,52): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\79242\Desktop\ImgLib\tests.c(50,37): warning C4305: функция: усечение из "double" в "float"
+C:\Users\79242\Desktop\ImgLib\ImgLib.h(370,52): warning C4244: =: преобразование "double" в "int", возможна потеря данных
   Создание кода
   0 of 191 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
