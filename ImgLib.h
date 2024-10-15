@@ -173,11 +173,18 @@ ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor)
 
     int pIndex = 0;
     const int totalChannels = img->height * img->width * img->channels;
+<<<<<<< HEAD
     int newValue;
 
     for (int cIndex = 0; cIndex < totalChannels; cIndex++)
     {
         newValue = (int)((img->data[cIndex] - MID_COLOR_VALUE) * factor + MID_COLOR_VALUE);
+=======
+
+    for (int cIndex = 0; cIndex < totalChannels; cIndex++)
+    {
+        int newValue = (int)((img->data[cIndex] - MID_COLOR_VALUE) * factor + MID_COLOR_VALUE);
+>>>>>>> fafa25e4fa2f076d12909ff26389abc98e0fb146
         clampColorValue(&newValue);
         img->data[cIndex] = (unsigned char)newValue;
     }
