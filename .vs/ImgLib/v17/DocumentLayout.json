@@ -5,13 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|C:\\Users\\79242\\Desktop\\ImgLib\\ImgLib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:ImgLib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|C:\\Users\\79242\\Desktop\\KonataDancingOpenGL\\stb_image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|C:\\Users\\79242\\Desktop\\ImgLib\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,36 +24,10 @@
               "RelativeDocumentMoniker": "ImgLib.h",
               "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\ImgLib.h",
               "RelativeToolTip": "ImgLib.h",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAGAAAAA8AAAA",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAAAIsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-01T08:21:53.699Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "stb_image.h",
-              "DocumentMoniker": "C:\\Users\\79242\\Desktop\\KonataDancingOpenGL\\stb_image.h",
-              "RelativeDocumentMoniker": "..\\KonataDancingOpenGL\\stb_image.h",
-              "ToolTip": "C:\\Users\\79242\\Desktop\\KonataDancingOpenGL\\stb_image.h",
-              "RelativeToolTip": "..\\KonataDancingOpenGL\\stb_image.h",
-              "ViewState": "AQIAALMBAAAAAAAAAAAAAMgBAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-13T10:44:22.901Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "tests.c",
-              "DocumentMoniker": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
-              "RelativeDocumentMoniker": "tests.c",
-              "ToolTip": "C:\\Users\\79242\\Desktop\\ImgLib\\tests.c",
-              "RelativeToolTip": "tests.c",
-              "ViewState": "AQIAABkAAAAAAAAAAAAawDEAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-12T11:45:53.375Z",
               "EditorCaption": ""
             }
           ]

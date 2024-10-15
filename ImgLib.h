@@ -126,19 +126,16 @@ ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
         return err;
     }
 
-    int brightness;
-    int pIndex = 0;
+    float brightness;
+    const int totalChannels = img->height * img->width * img->channels;
+    const float threshold = MID_COLOR_VALUE * factor;
 
-    for (int y = 0; y < img->height; y++)
+    for(int pIndex = 0; pIndex < totalChannels; pIndex += 3)
     {
-        for (int x = 0; x < img->width; x++)
-        {
-            pIndex = (y * img->width + x) * img->channels;
-            brightness = (int)(0.299 * img->data[pIndex + 0] + 0.587 * img->data[pIndex + 1] + 0.114 * img->data[pIndex + 2]);
-            brightness > (int)(MID_COLOR_VALUE * factor)
-                ? memset(&img->data[pIndex], MAX_COLOR_VALUE, 3)
-                : memset(&img->data[pIndex], MIN_COLOR_VALUE, 3);
-        }
+        brightness = 0.299 * img->data[pIndex + 0] + 0.587 * img->data[pIndex + 1] + 0.114 * img->data[pIndex + 2];
+        brightness > threshold
+            ? memset(&img->data[pIndex], MAX_COLOR_VALUE, 3)
+            : memset(&img->data[pIndex], MIN_COLOR_VALUE, 3);
     }
 
     return err;
