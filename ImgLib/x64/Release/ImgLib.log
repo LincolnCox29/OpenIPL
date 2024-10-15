@@ -3,8 +3,7 @@ C:\Users\79242\Desktop\ImgLib\ImgLib.h(135,84): warning C4244: =: преобра
 C:\Users\79242\Desktop\ImgLib\ImgLib.h(365,52): warning C4244: =: преобразование "double" в "int", возможна потеря данных
 C:\Users\79242\Desktop\ImgLib\tests.c(45,37): warning C4305: функция: усечение из "double" в "float"
   Создание кода
-  0 of 191 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 191 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   ImgLib.vcxproj -> C:\Users\79242\Desktop\ImgLib\x64\Release\ImgLib.exe
