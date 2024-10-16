@@ -59,6 +59,7 @@ int main() {
 - **imgSobelFilter(Img* img, float factor):** Applies the Sobel filter to detect edges in an image. The `sensitivityFactor` adjusts the strength of the gradient. A higher value enhances edge visibility, while a lower value reduces sensitivity to less distinct edges. This filter calculates the horizontal and vertical gradients using Sobel operators and combines them to highlight areas of high intensity change.
 - **imgNegative(Img* img):** Inverts the colors of the image, creating a negative effect by subtracting each color component (red, green, blue) from 255.
 - **imgToMirror(Img* img):** Creates a mirrored version of the image by flipping it horizontally.
+- **imgTurn90(Img* img):** Rotates the image by 90 degrees.
 
 ## 🛠 License
 
