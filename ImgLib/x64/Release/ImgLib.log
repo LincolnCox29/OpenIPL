@@ -1,9 +1,10 @@
 ﻿  tests.c
 C:\Users\79242\Desktop\ImgLib\ImgLib.h(136,84): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\79242\Desktop\ImgLib\ImgLib.h(366,52): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\79242\Desktop\ImgLib\ImgLib.h(362,52): warning C4244: =: преобразование "double" в "int", возможна потеря данных
 C:\Users\79242\Desktop\ImgLib\tests.c(46,37): warning C4305: функция: усечение из "double" в "float"
   Создание кода
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 192 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  0 of 192 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   ImgLib.vcxproj -> C:\Users\79242\Desktop\ImgLib\x64\Release\ImgLib.exe
