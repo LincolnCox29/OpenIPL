@@ -9,10 +9,12 @@ ImgLib provides various functions for working with images, such as converting to
 ## Project Structure
 
 ```
-/path/to/your/project
+../ImgLib/
 ├── CMakeLists.txt      # CMake file for building
 ├── ImgLib.c            # Source file of the library
-└── ImgLib.h            # Header file of the library
+├── ImgLib.h            # Header file of the library
+├── stb_image.h         # File for load img
+└── stb_image_write.h   # File for write img 
 ```
 
 ## Requirements
