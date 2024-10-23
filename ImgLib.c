@@ -4,6 +4,12 @@
 #include <math.h>
 #include <string.h>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
+
 #define MID_COLOR_VALUE 128
 #define MAX_COLOR_VALUE 255
 #define MIN_COLOR_VALUE 0
@@ -16,6 +22,18 @@ static ImgLibErrorInfo memallocValidation(const unsigned char* imgData);
 static ImgLibErrorInfo absValidation(const ImgLibErrorCode code, const char* message, const bool errorCondition);
 static void clampColorValue(int* value);
 static inline void* imgDataAlloc(Img* img);
+
+void writePng(const char* path, Img img)
+{
+    stbi_write_png(path, img.width, img.height, img.channels, img.data, img.width * img.channels);
+}
+
+Img* loadPng(const char* path)
+{
+    Img* img = malloc(sizeof(Img));
+    img->data = stbi_load(path, &img->width, &img->height, &img->channels, 0);
+    return img;
+}
 
 static ImgLibErrorInfo imgDataValidation(const unsigned char* data)
 {

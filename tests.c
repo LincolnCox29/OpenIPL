@@ -1,10 +1,4 @@
-﻿#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
-
-#include "ImgLib.h"
+﻿#include "ImgLib.h"
 
 #include <stdio.h>
 #include <time.h>
@@ -85,16 +79,4 @@ void gaussianBlurTest(unsigned iterations, char* outputPath)
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
     writePng(outputPath, *img);
     free(img->data);
-}
-
-void writePng(const char* path, Img img)
-{
-    stbi_write_png(path,img.width, img.height, img.channels, img.data, img.width * img.channels);
-}
-
-Img* loadPng(const char* path)
-{
-    Img* img = malloc(sizeof(Img));
-    img->data = stbi_load(path, &img->width, &img->height, &img->channels, 0);
-    return img;
 }

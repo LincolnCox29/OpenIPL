@@ -20,7 +20,8 @@ typedef struct
     const char* message;
 } ImgLibErrorInfo;
 
-// Function prototypes
+void writePng(const char* path, Img img);
+Img* loadPng(const char* path);
 ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);

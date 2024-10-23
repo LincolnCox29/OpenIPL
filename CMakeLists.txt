@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(ImgLib VERSION 1.0 LANGUAGES C)
+project(ImgLibProject)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+set(CMAKE_C_STANDARD 99)
 
-add_library(ImgLib STATIC ImgLib.c)
-
-set_target_properties(ImgLib PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin
-    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib
+set(SOURCE_FILES
+    ImgLib.h
+    ImgLib.c
 )
 
-set_target_properties(ImgLib PROPERTIES VERSION ${PROJECT_VERSION})
+add_library(ImgLib STATIC ${SOURCE_FILES})
+
+target_include_directories(ImgLib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
