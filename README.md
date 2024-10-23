@@ -60,13 +60,18 @@ Example usage:
 
 ```c
 #include "ImgLib.h"
+#include <stdio.h>
 
-int main() {
-    // Example of using library functions
-    Img img;
-    imgToGrayscale(&img, 0.5);
-    imgAdjustBrightness(&img, 1.2);
-    // Other functions...
+int main()
+{
+    Img* img = loadPng("img.png");
+    ImgLibErrorInfo err;
+    if ((err = imgSepiaFilter(img)).code != IMG_LIB_SUCCESS)
+    {
+        printf("ERR MSG: %s", err.message);
+        return 1;
+    }
+    writePng("out.png", *img);
     return 0;
 }
 ```
