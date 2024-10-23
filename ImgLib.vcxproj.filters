@@ -18,6 +18,9 @@
     <ClCompile Include="tests.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="ImgLib.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\KonataDancingOpenGL\stb_image.h">

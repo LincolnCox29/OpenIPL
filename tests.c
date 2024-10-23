@@ -1,14 +1,12 @@
-﻿#include <stdio.h>
-
-#define STB_IMAGE_IMPLEMENTATION
+﻿#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-#define IMG_LIB_IMPLEMENTATION
 #include "ImgLib.h"
 
+#include <stdio.h>
 #include <time.h>
 
 typedef ImgLibErrorInfo(*ImgOperationWithFac)(Img*, float);
@@ -43,7 +41,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
     clock_t start, end;
     Img* img = loadPng("examples\\source.png");
     start = clock();
-    ImgLibErrorInfo err = func(img, 0.7);
+    ImgLibErrorInfo err = func(img, 0.7f);
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);

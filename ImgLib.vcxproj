@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ImgLib.c" />
     <ClCompile Include="tests.c" />
   </ItemGroup>
   <ItemGroup>
