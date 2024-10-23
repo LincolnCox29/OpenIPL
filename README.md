@@ -1,49 +1,70 @@
 # ImgLib
 
-**ImgLib** is an open-source image processing library that supports various image formats. The library provides functions for image transformations such as converting to grayscale or black and white. It is recommended to use **ImgLib** in conjunction with the [stb_image](https://github.com/nothings/stb) library (for loading images) and [stb_image_write](https://github.com/nothings/stb) library (for saving images).
+ImgLib is a C library for image processing.
 
-## 📥 Installation
+## Description
 
-1. Download and add `ImgLib.h` to your project directory.
-2. Include the library in your code by adding the following lines:
+ImgLib provides various functions for working with images, such as converting to grayscale, black and white images, adjusting brightness and contrast, applying filters, and more.
 
-```c
-#define IMG_LIB_IMPLEMENTATION
-#include "ImgLib.h"
+## Project Structure
+
+```
+/path/to/your/project
+├── CMakeLists.txt      # CMake file for building
+├── ImgLib.c            # Source file of the library
+└── ImgLib.h            # Header file of the library
 ```
 
-## 🚀 Usage
+## Requirements
 
-After installation, you can use the library's functions for image processing. For example:
+- CMake (version 3.10 or higher)
+- C compiler (e.g., GCC, Clang, or MSVC)
+
+## Building
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone 'https://github.com/LincolnCox29/ImgLib'
+   cd <repo-directory>
+   ```
+
+2. **Create a build directory**:
+
+   ```bash
+   mkdir build
+   cd build
+   ```
+
+3. **Run CMake to generate build files**:
+
+   ```bash
+   cmake ..
+   ```
+
+4. **Build the project**:
+
+   ```bash
+   cmake --build .
+   ```
+
+After building, the compiled static library `ImgLib.lib` will be located in the `lib` directory.
+
+## Usage
+
+To use the library in your project, include the header file `ImgLib.h` and compile with `ImgLib.lib`.
+
+Example usage:
 
 ```c
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
-
-#define IMG_LIB_IMPLEMENTATION
 #include "ImgLib.h"
 
 int main() {
+    // Example of using library functions
     Img img;
-    img.data = stbi_load("image.png", &img.width, &img.height, &img.channels, 0);
-    
-    if (img.data == NULL) {
-        printf("Error loading image\n");
-        return 1;
-    }
-
-    ImgLibErrorInfo err = imgToGrayscale(&img, 1.0f);
-    if (err.code != IMG_LIB_SUCCESS) {
-        printf("Error: %s\n", err.message);
-        return 1;
-    }
-
-    stbi_write_png("output.png", img.width, img.height, img.channels, img.data, img.width * img.channels);
-    stbi_image_free(img.data);
-
+    imgToGrayscale(&img, 0.5);
+    imgAdjustBrightness(&img, 1.2);
+    // Other functions...
     return 0;
 }
 ```
@@ -62,9 +83,8 @@ int main() {
 - **imgTurn90(Img* img):** Rotates the image by 90 degrees.
 
 ## 🛠 License
-
-**ImgLib** is released under the MIT license, allowing free use in both commercial and non-commercial projects.
-
+```
+ImgLib is released under the MIT license, allowing free use in both commercial and non-commercial projects.
 ```
 
 ### Notes:
