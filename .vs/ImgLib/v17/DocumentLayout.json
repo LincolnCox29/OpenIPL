@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "tests.c",
               "ToolTip": "Z:\\Projects\\ImgLib\\tests.c",
               "RelativeToolTip": "tests.c",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-10-24T03:55:24.431Z",
               "IsPinned": true,
@@ -48,8 +48,7 @@
               "RelativeToolTip": "ImgLib.c",
               "ViewState": "AgIAAKgBAAAAAAAAAAAgwLEBAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-24T03:35:57.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T03:35:57.208Z"
             },
             {
               "$type": "Document",
@@ -61,8 +60,7 @@
               "RelativeToolTip": "ImgLib.h",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-24T03:34:43.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T03:34:43.758Z"
             }
           ]
         }

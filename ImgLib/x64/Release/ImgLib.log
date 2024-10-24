@@ -1,0 +1,9 @@
+﻿  ImgLib.c
+  tests.c
+Z:\Projects\ImgLib\ImgLib.c(451,34): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+Z:\Projects\ImgLib\tests.c(46,5): warning C4013: free: нет определения; предполагается "extern" с возвратом типа "int"
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 216 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  ImgLib.vcxproj -> Z:\Projects\ImgLib\x64\Release\ImgLib.exe
