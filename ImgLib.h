@@ -30,6 +30,7 @@ typedef struct
 
 void writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type);
 Img* loadImg(const char* path);
+ImgLibErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor);
 ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);

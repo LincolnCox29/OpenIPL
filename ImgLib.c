@@ -102,7 +102,7 @@ ImgLibErrorInfo imgToGrayscale(Img* img, const float factor)
     const int totalChannels = img->height * img->width * img->channels;
     unsigned char maxComponent;
 
-    for (int pIndex = 0; pIndex < totalChannels; pIndex += 3)
+    for (int pIndex = 0; pIndex < totalChannels; pIndex += img->channels)
     {
         maxComponent = (unsigned char)(MaxComponent(img->data[pIndex], img->data[pIndex + 1], img->data[pIndex + 2]) * factor);
 
@@ -126,7 +126,7 @@ ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor)
     const int totalChannels = img->height * img->width * img->channels;
     const float threshold = MID_COLOR_VALUE * factor;
 
-    for (int pIndex = 0; pIndex < totalChannels; pIndex += 3)
+    for (int pIndex = 0; pIndex < totalChannels; pIndex += img->channels)
     {
         brightness = 0.299f * img->data[pIndex + 0] + 0.587f * img->data[pIndex + 1] + 0.114f * img->data[pIndex + 2];
         brightness > threshold
@@ -262,7 +262,7 @@ ImgLibErrorInfo imgSepiaFilter(Img* img)
     const int totalChannels = img->height * img->width * img->channels;
     int newColors[3] = { 0,0,0 };
 
-    for (int pIndex = 0; pIndex < totalChannels; pIndex += 3)
+    for (int pIndex = 0; pIndex < totalChannels; pIndex += img->channels)
     {
         newColors[0] = (int)(
             (0.393 * img->data[pIndex]) + (0.769 * img->data[pIndex + 1]) + (0.189 * img->data[pIndex + 2]));
@@ -427,6 +427,33 @@ ImgLibErrorInfo imgTurn90(Img* img)
     img->data = rotatedData;
     img->width = newWidth;
     img->height = newHeight;
+
+    return err;
+}
+
+ImgLibErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor)
+{
+    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+        return err;
+
+    const int totalPixels = img->height * img->width;
+    const int channels = img->channels;
+    float filter[3] = { rFactor, gFactor, bFactor };
+    int newColor;
+    int colorIndex;
+
+    for (int pIndex = 0; pIndex < totalPixels; pIndex++)
+    {
+        for (short i = 0; i < 3; i++)
+        {
+            colorIndex = pIndex * channels + i;
+            newColor = filter[i] * img->data[colorIndex];
+
+            clampColorValue(&newColor);
+            img->data[colorIndex] = (unsigned char)newColor;
+        }
+    }
 
     return err;
 }

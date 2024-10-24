@@ -9,6 +9,7 @@ typedef ImgLibErrorInfo(*ImgOperation)(Img*);
 void absTestWithFac(ImgOperationWithFac func, char* outputPath);
 void absTest(ImgOperation func, char* outputPath);
 void gaussianBlurTest(unsigned iterations, char* outputPath);
+void tintTest(float rF, float gF, float bF, char* outputPath);
 
 int main() //tests
 {
@@ -24,6 +25,8 @@ int main() //tests
     absTest(imgTurn90, "examples\\imgTurn90.png");
 
     gaussianBlurTest(50u, "examples\\GaussianBlur.png");
+
+    tintTest(1.2f, 1.0f, 0.8f, "examples\\tint.png");
 
     return 0;
 }
@@ -77,4 +80,22 @@ void gaussianBlurTest(unsigned iterations, char* outputPath)
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
     writeImg(outputPath, *img, PNG);
     free(img->data);
+}
+
+void tintTest(float rF, float gF, float bF, char* outputPath)
+{
+        clock_t start, end;
+        ImgLibErrorInfo err;
+        Img* img = loadImg("examples\\source.png");
+        start = clock();
+        if ((err = imgTint(img, rF, gF, bF)).code != 0)
+        {
+            printf("code: %d msg: %s", err.code, err.message);
+            return;
+        }
+        end = clock();
+        double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
+        printf("time: %f sec ---> %s\n", timeSpent, outputPath);
+        writeImg(outputPath, *img, PNG);
+        free(img->data);
 }
