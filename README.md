@@ -64,14 +64,14 @@ Example usage:
 
 int main()
 {
-    Img* img = loadPng("img.png");
+    Img* img = loadImg("s.png");
     ImgLibErrorInfo err;
     if ((err = imgSepiaFilter(img)).code != IMG_LIB_SUCCESS)
     {
         printf("ERR MSG: %s", err.message);
         return 1;
     }
-    writePng("out.png", *img);
+    writeImg("out.png", *img, PNG);
     return 0;
 }
 ```
@@ -88,6 +88,37 @@ int main()
 - **imgNegative(Img* img):** Inverts the colors of the image, creating a negative effect by subtracting each color component (red, green, blue) from 255.
 - **imgToMirror(Img* img):** Creates a mirrored version of the image by flipping it horizontally.
 - **imgTurn90(Img* img):** Rotates the image by 90 degrees.
+  
+---
+
+### **writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type):**
+Saves an image to a file in the specified format.
+
+- **path**: The file path where the image will be saved.
+- **img**: The image to be saved (structure containing the width, height, channels, and pixel data).
+- **type**: The format in which to save the image. This can be one of the following:
+    - `PNG`: Saves the image in PNG format using `stbi_write_png`.
+    - `JPEG`: Saves the image in JPEG format using `stbi_write_jpg` with a quality factor of 100.
+    - `BMP`: Saves the image in BMP format using `stbi_write_bmp`.
+    - `TGA`: Saves the image in TGA format using `stbi_write_tga`.
+
+---
+
+### **loadImg(const char* path):**
+Loads an image from the specified file.
+
+- **path**: The file path of the image to load.
+- **Returns**: A pointer to an `Img` structure that contains the loaded image data, including its width, height, and number of channels. The image data is stored in `img->data`.
+
+Example:
+```c
+Img* img = loadImg("input.png");
+if (img->data) {
+    // Image successfully loaded, now you can process or save it
+} else {
+    printf("Failed to load image\n");
+}
+```
 
 ## 🛠 License
 ```
