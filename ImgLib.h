@@ -14,14 +14,22 @@ typedef enum
     IMG_LIB_ERROR_MEMORY_ALLOCATION,
 } ImgLibErrorCode;
 
+typedef enum
+{
+    PNG = 0,
+    JPEG,
+    BMP,
+    TGA
+} IMG_LIB_IMG_TYPE;
+
 typedef struct
 {
     ImgLibErrorCode code;
     const char* message;
 } ImgLibErrorInfo;
 
-void writePng(const char* path, Img img);
-Img* loadPng(const char* path);
+void writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type);
+Img* loadImg(const char* path);
 ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
 ImgLibErrorInfo imgToBlackAndWhite(Img* img, const float factor);
 ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);

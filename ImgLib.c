@@ -23,12 +23,26 @@ static ImgLibErrorInfo absValidation(const ImgLibErrorCode code, const char* mes
 static void clampColorValue(int* value);
 static inline void* imgDataAlloc(Img* img);
 
-void writePng(const char* path, Img img)
+void writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type)
 {
-    stbi_write_png(path, img.width, img.height, img.channels, img.data, img.width * img.channels);
+    switch (type)
+    {
+        case PNG:
+            stbi_write_png(path, img.width, img.height, img.channels, img.data, img.width * img.channels);
+            break;
+        case JPEG:
+            stbi_write_jpg(path, img.width, img.height, img.channels, img.data, 100);
+            break;
+        case BMP:
+            stbi_write_bmp(path, img.width, img.height, img.channels, img.data);
+            break;
+        case TGA:
+            stbi_write_tga(path, img.width, img.height, img.channels, img.data);
+            break;
+    }
 }
 
-Img* loadPng(const char* path)
+Img* loadImg(const char* path)
 {
     Img* img = malloc(sizeof(Img));
     img->data = stbi_load(path, &img->width, &img->height, &img->channels, 0);
@@ -340,7 +354,7 @@ ImgLibErrorInfo imgSobelFilter(Img* img, float factor)
                     }
                 }
 
-                newValue = (float)(sqrt(gx * gx + gy * gy)) * factor;
+                newValue = (int)((float)(sqrt(gx * gx + gy * gy)) * factor);
                 clampColorValue(&newValue);
                 edgeData[pIndex + c] = (unsigned char)newValue;
             }
