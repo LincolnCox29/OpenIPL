@@ -153,9 +153,3 @@ if (img->data) {
 ```
 ImgLib is released under the MIT license, allowing free use in both commercial and non-commercial projects.
 ```
-
-### Notes:
-- **Installation**: Clearly outlines the steps for installing the library, including the necessary `#define IMG_LIB_IMPLEMENTATION`.
-- **Usage**: Includes a usage example demonstrating how to load an image using `stb_image`, process it with `ImgLib`, and save it using `stb_image_write`.
-- **Documentation**: Briefly describes the main functions, explaining their purpose.
-- **License**: States that the library is released under the MIT license.
