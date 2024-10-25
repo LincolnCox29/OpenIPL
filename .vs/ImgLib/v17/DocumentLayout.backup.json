@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "Z:\\Projects\\ImgLib\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\tools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\tools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\tools.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\tools.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\ImgLib.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\ImgLib.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "tools.c",
-              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\tools.c",
-              "RelativeDocumentMoniker": "src\\tools.c",
-              "ToolTip": "Z:\\Projects\\ImgLib\\src\\tools.c",
-              "RelativeToolTip": "src\\tools.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-25T09:17:13.097Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "tools.h",
-              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\tools.h",
-              "RelativeDocumentMoniker": "src\\tools.h",
-              "ToolTip": "Z:\\Projects\\ImgLib\\src\\tools.h",
-              "RelativeToolTip": "src\\tools.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-25T09:17:07.901Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "tests.c",
-              "DocumentMoniker": "Z:\\Projects\\ImgLib\\tests.c",
-              "RelativeDocumentMoniker": "tests.c",
-              "ToolTip": "Z:\\Projects\\ImgLib\\tests.c",
-              "RelativeToolTip": "tests.c",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ImgLib.c",
+              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\ImgLib.c",
+              "RelativeDocumentMoniker": "src\\ImgLib.c",
+              "ToolTip": "Z:\\Projects\\ImgLib\\src\\ImgLib.c",
+              "RelativeToolTip": "src\\ImgLib.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-25T09:14:48.393Z",
+              "WhenOpened": "2024-10-25T09:18:30.099Z",
               "EditorCaption": ""
             }
           ]

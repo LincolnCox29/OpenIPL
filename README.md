@@ -11,7 +11,7 @@ ImgLib provides various functions for working with images, such as converting to
 ```
 ../ImgLib/
 ├── CMakeLists.txt
-├── src/
+└── src/
     ├── errors.c
     ├── errors.h
     ├── ImgLib.c
