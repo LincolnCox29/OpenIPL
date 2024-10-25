@@ -1,0 +1,10 @@
+^Z:\PROJECTS\IMGLIB\BUILD\CMAKEFILES\6A97ED7B4E994BE4ABE13C607C1ACC50\GENERATE.STAMP.RULE
+setlocal
+Z:\Programs\cmake\bin\cmake.exe -SZ:/Projects/ImgLib -BZ:/Projects/ImgLib/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file Z:/Projects/ImgLib/build/ImgLib.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

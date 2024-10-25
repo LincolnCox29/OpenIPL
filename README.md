@@ -10,11 +10,39 @@ ImgLib provides various functions for working with images, such as converting to
 
 ```
 ../ImgLib/
-├── CMakeLists.txt      # CMake file for building
-├── ImgLib.c            # Source file of the library
-├── ImgLib.h            # Header file of the library
-├── stb_image.h         # File for load img
-└── stb_image_write.h   # File for write img 
+├── CMakeLists.txt
+├── src/
+    ├── errors.c
+    ├── errors.h
+    ├── ImgLib.c
+    ├── ImgLib.h
+    ├── stb_image.h
+    ├── stb_image_write.h
+    ├── tools.c
+    ├── tools.h
+    └── operations/
+        ├── adjustBrightness.c
+        ├── adjustBrightness.h
+        ├── adjustContrast.c
+        ├── adjustContrast.h
+        ├── gaussianBlur.c
+        ├── gaussianBlur.h
+        ├── grayscale.c
+        ├── grayscale.h
+        ├── negative.c
+        ├── negative.h
+        ├── sepiaFilter.c
+        ├── sepiaFilter.h
+        ├── sobelFilter.c
+        ├── sobelFilter.h
+        ├── tint.c
+        ├── tint.h
+        ├── toBlackAndWhite.c
+        ├── toBlackAndWhite.h
+        ├── toMirror.c
+        ├── toMirror.h
+        ├── Turn90.c
+        └── Turn90.h
 ```
 
 ## Requirements
@@ -59,19 +87,19 @@ To use the library in your project, include the header file `ImgLib.h` and compi
 Example usage:
 
 ```c
-#include "ImgLib.h"
+#include "src/ImgLib.h"
 #include <stdio.h>
 
 int main()
 {
-    Img* img = loadImg("s.png");
+    Img* img = loadImg("src.png");
     ImgLibErrorInfo err;
-    if ((err = imgSepiaFilter(img)).code != IMG_LIB_SUCCESS)
+    if ((err = imgAdjustContrast(img, 0.8f)).code != IMG_LIB_SUCCESS)
     {
         printf("ERR MSG: %s", err.message);
         return 1;
     }
-    writeImg("out.png", *img, PNG);
+    writeImg("out.png", *img);
     return 0;
 }
 ```

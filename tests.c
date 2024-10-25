@@ -1,5 +1,6 @@
-﻿#include "ImgLib.h"
+﻿#include "src/ImgLib.h"
 
+#include <CL/cl.h>
 #include <stdio.h>
 #include <time.h>
 
@@ -42,7 +43,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
     if (err.code != 0)
         printf("code: %d msg: %s", err.code, err.message);
-    writeImg(outputPath, *img, PNG);
+    writeImg(outputPath, *img);
     free(img->data);
 }
 
@@ -60,7 +61,7 @@ void absTest(ImgOperation func, char* outputPath)
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
-    writeImg(outputPath, *img, PNG);
+    writeImg(outputPath, *img);
     free(img->data);
 }
 
@@ -78,7 +79,7 @@ void gaussianBlurTest(unsigned iterations, char* outputPath)
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
-    writeImg(outputPath, *img, PNG);
+    writeImg(outputPath, *img);
     free(img->data);
 }
 
@@ -96,6 +97,6 @@ void tintTest(float rF, float gF, float bF, char* outputPath)
         end = clock();
         double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
         printf("time: %f sec ---> %s\n", timeSpent, outputPath);
-        writeImg(outputPath, *img, PNG);
+        writeImg(outputPath, *img);
         free(img->data);
 }

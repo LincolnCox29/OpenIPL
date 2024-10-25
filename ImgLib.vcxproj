@@ -18,6 +18,41 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\errors.c" />
+    <ClCompile Include="src\ImgLib.c" />
+    <ClCompile Include="src\operations\adjustBrightness.c" />
+    <ClCompile Include="src\operations\adjustContrast.c" />
+    <ClCompile Include="src\operations\gaussianBlur.c" />
+    <ClCompile Include="src\operations\grayscale.c" />
+    <ClCompile Include="src\operations\negative.c" />
+    <ClCompile Include="src\operations\sepiaFilter.c" />
+    <ClCompile Include="src\operations\sobelFilter.c" />
+    <ClCompile Include="src\operations\tint.c" />
+    <ClCompile Include="src\operations\toBlackAndWhite.c" />
+    <ClCompile Include="src\operations\toMirror.c" />
+    <ClCompile Include="src\operations\Turn90.c" />
+    <ClCompile Include="src\tools.c" />
+    <ClCompile Include="tests.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\errors.h" />
+    <ClInclude Include="src\ImgLib.h" />
+    <ClInclude Include="src\operations\adjustBrightness.h" />
+    <ClInclude Include="src\operations\adjustContrast.h" />
+    <ClInclude Include="src\operations\gaussianBlur.h" />
+    <ClInclude Include="src\operations\grayscale.h" />
+    <ClInclude Include="src\operations\negative.h" />
+    <ClInclude Include="src\operations\sepiaFilter.h" />
+    <ClInclude Include="src\operations\sobelFilter.h" />
+    <ClInclude Include="src\operations\tint.h" />
+    <ClInclude Include="src\operations\toBlackAndWhite.h" />
+    <ClInclude Include="src\operations\toMirror.h" />
+    <ClInclude Include="src\operations\Turn90.h" />
+    <ClInclude Include="src\stb_image.h" />
+    <ClInclude Include="src\stb_image_write.h" />
+    <ClInclude Include="src\tools.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -104,10 +139,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Z:\Projects\libs\OpenCL-SDK-v2024.05.08-Win-x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>Z:\Projects\libs\OpenCL-SDK-v2024.05.08-Win-x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -118,23 +156,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Z:\Projects\libs\OpenCL-SDK-v2024.05.08-Win-x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>Z:\Projects\libs\OpenCL-SDK-v2024.05.08-Win-x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="ImgLib.c" />
-    <ClCompile Include="tests.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\KonataDancingOpenGL\stb_image.h" />
-    <ClInclude Include="ImgLib.h" />
-    <ClInclude Include="stb_image_write.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
