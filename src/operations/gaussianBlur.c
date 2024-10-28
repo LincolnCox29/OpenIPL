@@ -1,6 +1,7 @@
 #include "gaussianBlur.h"
 #include "../errors.h"
 #include "../tools.h"
+#include "../simde/x86/sse2.h"
 
 ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 {
@@ -15,59 +16,56 @@ ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
         return err;
     }
 
-    int pIndex = 0;
-    int blurredValue = 0;
-    int xOffset, yOffset;
-    const int weights[3][3] =
-    {
+    const int weights[3][3] = {
         {1, 2, 1},
         {2, 4, 2},
         {1, 2, 1}
     };
-    int appliedWeightSum;
-    int neighborIndex;
+    int weightSum = 16;
+
     unsigned char* temp;
 
-    while (0 != iterations--)
+    while (iterations-- > 0)
     {
-        for (int y = 0; y < img->height; y++)
+        for (int y = 1; y < img->height - 1; y++)
         {
-            for (int x = 0; x < img->width; x++)
+            for (int x = 1; x < img->width - 1; x++)
             {
-                pIndex = (y * img->width + x) * img->channels;
+                int pIndex = (y * img->width + x) * img->channels;
+
                 for (int c = 0; c < 3; c++)
                 {
-                    blurredValue = 0;
-                    appliedWeightSum = 0;
-
+                    simde__m128i sum = simde_mm_setzero_si128();
                     for (int ky = -1; ky <= 1; ky++)
                     {
-                        yOffset = y + ky;
-                        if (yOffset < 0 || yOffset >= img->height)
-                            continue;
+                        int yOffset = y + ky;
 
                         for (int kx = -1; kx <= 1; kx++)
                         {
-                            xOffset = x + kx;
-                            if (xOffset < 0 || xOffset >= img->width)
-                                continue;
+                            int xOffset = x + kx;
+                            int neighborIndex = (yOffset * img->width + xOffset) * img->channels;
+                            int weight = weights[ky + 1][kx + 1];
 
-                            neighborIndex = (yOffset * img->width + xOffset) * img->channels;
-                            blurredValue += currentData[neighborIndex + c] * weights[ky + 1][kx + 1];
-                            appliedWeightSum += weights[ky + 1][kx + 1];
+                            simde__m128i pixelValue = simde_mm_set1_epi32(currentData[neighborIndex + c] * weight);
+                            sum = simde_mm_add_epi32(sum, pixelValue);
                         }
                     }
-                    blurredValue /= appliedWeightSum;
+
+                    int blurredValue = simde_mm_cvtsi128_si32(sum) / weightSum;
                     clampColorValue(&blurredValue);
                     blurredData[pIndex + c] = (unsigned char)blurredValue;
                 }
             }
         }
+
         temp = currentData;
         currentData = blurredData;
         blurredData = temp;
     }
-    free(blurredData);
 
+    if (iterations % 2 == 0) 
+        memcpy(img->data, currentData, img->width * img->height * img->channels);
+
+    free(blurredData);
     return err;
 }

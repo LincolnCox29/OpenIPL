@@ -14,3 +14,4 @@ add_library(ImgLib STATIC ${SOURCE_FILES})
 
 target_include_directories(ImgLib PUBLIC ${SOURCE_DIR})
 target_include_directories(ImgLib PUBLIC ${SOURCE_DIR}/operations)
+target_include_directories(ImgLib PUBLIC ${SOURCE_DIR}/simde/x86)

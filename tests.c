@@ -1,6 +1,4 @@
 ﻿#include "src/ImgLib.h"
-
-#include <CL/cl.h>
 #include <stdio.h>
 #include <time.h>
 

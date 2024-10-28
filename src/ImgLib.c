@@ -1,5 +1,4 @@
 #include "ImgLib.h"
-#include "CL/cl.h"
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
@@ -43,19 +42,6 @@ ImgLibErrorInfo writeImg(const char* path, Img img)
     }
     else
         return (ImgLibErrorInfo) { IMG_LIB_ERROR_FILE_PATH_DOES_NOT_EXIST, "File path does not have an extension!" };
-}
-
-ImgLibErrorInfo initImgLib()
-{
-    cl_platform_id platform;
-    cl_device_id device;
-    cl_int err;
-
-    err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
-    if (err == CL_DEVICE_NOT_FOUND)
-    {
-        err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_CPU, 1, &device, NULL);
-    }
 }
 
 Img* loadImg(const char* path)

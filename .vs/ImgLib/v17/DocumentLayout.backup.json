@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "Z:\\Projects\\ImgLib\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\ImgLib.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\ImgLib.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\tools.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\tools.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\tools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\tools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,12 +35,61 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "tests.c",
+              "DocumentMoniker": "Z:\\Projects\\ImgLib\\tests.c",
+              "RelativeDocumentMoniker": "tests.c",
+              "ToolTip": "Z:\\Projects\\ImgLib\\tests.c",
+              "RelativeToolTip": "tests.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-28T05:37:15.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "gaussianBlur.c",
+              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\operations\\gaussianBlur.c",
+              "RelativeDocumentMoniker": "src\\operations\\gaussianBlur.c",
+              "ToolTip": "Z:\\Projects\\ImgLib\\src\\operations\\gaussianBlur.c",
+              "RelativeToolTip": "src\\operations\\gaussianBlur.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-28T05:34:42.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "tools.h",
+              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\tools.h",
+              "RelativeDocumentMoniker": "src\\tools.h",
+              "ToolTip": "Z:\\Projects\\ImgLib\\src\\tools.h",
+              "RelativeToolTip": "src\\tools.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-28T05:34:15.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "tools.c",
+              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\tools.c",
+              "RelativeDocumentMoniker": "src\\tools.c",
+              "ToolTip": "Z:\\Projects\\ImgLib\\src\\tools.c",
+              "RelativeToolTip": "src\\tools.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-28T05:34:13.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ImgLib.c",
               "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\ImgLib.c",
               "RelativeDocumentMoniker": "src\\ImgLib.c",
               "ToolTip": "Z:\\Projects\\ImgLib\\src\\ImgLib.c",
               "RelativeToolTip": "src\\ImgLib.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-10-25T09:18:30.099Z",
               "EditorCaption": ""
