@@ -11,45 +11,18 @@ ImgLib leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywher
 
 ```
 ../ImgLib/
+├── README.md
 ├── CMakeLists.txt
+├── tests.c
 └── src/
-    ├── errors.c
-    ├── errors.h
-    ├── ImgLib.c
-    ├── ImgLib.h
-    ├── stb_image.h
-    ├── stb_image_write.h
-    ├── tools.c
-    ├── tools.h
-    └── operations/
-        ├── adjustBrightness.c
-        ├── adjustBrightness.h
-        ├── adjustContrast.c
-        ├── adjustContrast.h
-        ├── gaussianBlur.c
-        ├── gaussianBlur.h
-        ├── grayscale.c
-        ├── grayscale.h
-        ├── negative.c
-        ├── negative.h
-        ├── sepiaFilter.c
-        ├── sepiaFilter.h
-        ├── sobelFilter.c
-        ├── sobelFilter.h
-        ├── tint.c
-        ├── tint.h
-        ├── toBlackAndWhite.c
-        ├── toBlackAndWhite.h
-        ├── toMirror.c
-        ├── toMirror.h
-        ├── Turn90.c
-        └── Turn90.h
+    ├── operations/
+    └── simde/
 ```
 
 ## Requirements
 
-- CMake (version 3.10 or higher)
-- C compiler (e.g., GCC, Clang, or MSVC)
+- [CMake](https://cmake.org/download/) (version 3.10 or higher)
+- C compiler (e.g., [GCC](https://gcc.gnu.org/releases.html), [Clang](https://releases.llvm.org/), or MSVC)
 
 ## Building
 
