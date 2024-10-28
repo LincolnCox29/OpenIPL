@@ -69,13 +69,13 @@ ImgLib provides various functions for working with images, such as converting to
 3. **Run CMake to generate build files**:
 
    ```bash
-   cmake ..
+   cmake -DCMAKE_BUILD_TYPE=Release ..
    ```
 
 4. **Build the project**:
 
    ```bash
-   cmake --build .
+   cmake --build . --config Release
    ```
 
 After building, the compiled static library `ImgLib.lib` will be located in the `lib` directory.

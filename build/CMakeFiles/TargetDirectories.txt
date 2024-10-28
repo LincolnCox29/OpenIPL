@@ -1,3 +1,0 @@
-Z:/Projects/ImgLib/build/CMakeFiles/ImgLib.dir
-Z:/Projects/ImgLib/build/CMakeFiles/ALL_BUILD.dir
-Z:/Projects/ImgLib/build/CMakeFiles/ZERO_CHECK.dir
