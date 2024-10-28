@@ -5,6 +5,7 @@ ImgLib is a C library for image processing.
 ## Description
 
 ImgLib provides various functions for working with images, such as converting to grayscale, black and white images, adjusting brightness and contrast, applying filters, and more.
+ImgLib leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywhere/simde?ysclid=m2swyts7k7237665902) library to enable cross-platform parallelized calculations, optimizing processing speed and efficiency.
 
 ## Project Structure
 
