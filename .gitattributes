@@ -1,3 +1,4 @@
 # Specify C source files
 *.c linguist-language=C
 *.h linguist-language=C
+CMakeLists.txt linguist-language=CMake
