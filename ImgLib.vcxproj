@@ -23,6 +23,7 @@
     <ClCompile Include="src\ImgLib.c" />
     <ClCompile Include="src\operations\adjustBrightness.c" />
     <ClCompile Include="src\operations\adjustContrast.c" />
+    <ClCompile Include="src\operations\bilinearInterpolation.c" />
     <ClCompile Include="src\operations\gaussianBlur.c" />
     <ClCompile Include="src\operations\grayscale.c" />
     <ClCompile Include="src\operations\negative.c" />
@@ -40,6 +41,7 @@
     <ClInclude Include="src\ImgLib.h" />
     <ClInclude Include="src\operations\adjustBrightness.h" />
     <ClInclude Include="src\operations\adjustContrast.h" />
+    <ClInclude Include="src\operations\bilinearInterpolation.h" />
     <ClInclude Include="src\operations\gaussianBlur.h" />
     <ClInclude Include="src\operations\grayscale.h" />
     <ClInclude Include="src\operations\negative.h" />

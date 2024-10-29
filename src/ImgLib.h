@@ -28,3 +28,4 @@ ImgLibErrorInfo imgNegative(Img* img);
 ImgLibErrorInfo imgSobelFilter(Img* img, float factor);
 ImgLibErrorInfo imgToMirror(Img* img);
 ImgLibErrorInfo imgTurn90(Img* img);
+ImgLibErrorInfo imgBilinearInterpolation(Img* img, int height, int width);

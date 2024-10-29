@@ -1,6 +1,7 @@
 ﻿#include "src/ImgLib.h"
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 
 typedef ImgLibErrorInfo(*ImgOperationWithFac)(Img*, float);
 typedef ImgLibErrorInfo(*ImgOperation)(Img*);
@@ -9,6 +10,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath);
 void absTest(ImgOperation func, char* outputPath);
 void gaussianBlurTest(unsigned iterations, char* outputPath);
 void tintTest(float rF, float gF, float bF, char* outputPath);
+void bilinearInterpolationTest(int h, int w, char* outputPath);
 
 int main() //tests
 {
@@ -22,6 +24,8 @@ int main() //tests
     absTest(imgNegative, "examples\\Negative.png");
     absTest(imgToMirror, "examples\\imgToMirror.png");
     absTest(imgTurn90, "examples\\imgTurn90.png");
+
+    bilinearInterpolationTest(256, 200, "examples\\bilinearInterpolation.png");
 
     gaussianBlurTest(50u, "examples\\GaussianBlur.png");
 
@@ -97,4 +101,22 @@ void tintTest(float rF, float gF, float bF, char* outputPath)
         printf("time: %f sec ---> %s\n", timeSpent, outputPath);
         writeImg(outputPath, *img);
         free(img->data);
+}
+
+void bilinearInterpolationTest(int h, int w, char* outputPath)
+{
+    clock_t start, end;
+    ImgLibErrorInfo err;
+    Img* img = loadImg("examples\\source.png");
+    start = clock();
+    if ((err = imgBilinearInterpolation(img, h, w)).code != 0)
+    {
+        printf("code: %d msg: %s", err.code, err.message);
+        return;
+    }
+    end = clock();
+    double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("time: %f sec ---> %s\n", timeSpent, outputPath);
+    writeImg(outputPath, *img);
+    free(img->data);
 }

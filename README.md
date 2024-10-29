@@ -91,6 +91,7 @@ int main()
 - **imgToMirror(Img* img):** Creates a mirrored version of the image by flipping it horizontally.
 - **imgTurn90(Img* img):** Rotates the image by 90 degrees.
 - **imgTint(Img* img, float rFactor, float gFactor, float bFactor):** Applies a color tint to the image by scaling each of the red, green, and blue channels independently. The `rFactor`, `gFactor`, and `bFactor` parameters adjust the intensity of the respective color channels. A factor greater than 1.0 increases the intensity of the color, while a factor less than 1.0 reduces it. Pixel values are clamped between 0 and 255 to ensure valid color representation.
+- **imgBilinearInterpolation(Img* img, int newHeight, int newWidth):** Resizes the image to the specified `height` and `width` using bilinear interpolation.
   
 ---
 

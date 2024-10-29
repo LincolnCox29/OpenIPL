@@ -60,6 +60,9 @@
     <ClCompile Include="src\operations\tint.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\operations\bilinearInterpolation.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ImgLib.h">
@@ -108,6 +111,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\operations\tint.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\operations\bilinearInterpolation.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
