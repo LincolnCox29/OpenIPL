@@ -81,18 +81,150 @@ int main()
 ## 📚 Documentation
 
 - **imgToGrayscale(Img* img, float factor):** Converts an image to grayscale. The factor adjusts the degree of conversion.
-- **imgToBlackAndWhite(Img* img, float factor):** Converts an image to black and white. The factor adjusts the brightness threshold.
-- **imgAdjustBrightness(Img* img, float factor):** Adjusts the brightness of the image. The factor scales the brightness of each pixel, where `factor > 1.0` increases brightness, and `factor < 1.0` decreases it. Pixel values are clamped between 0 and 255.
-- **imgAdjustContrast(Img* img, float factor):** Adjusts the contrast of the image. The factor modifies the contrast where 1.0 keeps it unchanged, values greater than 1.0 increase contrast, and values less than 1.0 decrease it.
-- **imgGaussianBlur(Img* img, unsigned iterations):** Applies Gaussian blur to the image. The `iterations` parameter controls how many times the blur is applied; more iterations result in a stronger blur effect.
-- **imgSepiaFilter(Img* img):** Applies a sepia tone effect to the image. This filter modifies the red, green, and blue color channels to create a warm, vintage look.
-- **imgSobelFilter(Img* img, float factor):** Applies the Sobel filter to detect edges in an image. The `sensitivityFactor` adjusts the strength of the gradient. A higher value enhances edge visibility, while a lower value reduces sensitivity to less distinct edges. This filter calculates the horizontal and vertical gradients using Sobel operators and combines them to highlight areas of high intensity change.
-- **imgNegative(Img* img):** Inverts the colors of the image, creating a negative effect by subtracting each color component (red, green, blue) from 255.
-- **imgToMirror(Img* img):** Creates a mirrored version of the image by flipping it horizontally.
-- **imgTurn90(Img* img):** Rotates the image by 90 degrees.
-- **imgTint(Img* img, float rFactor, float gFactor, float bFactor):** Applies a color tint to the image by scaling each of the red, green, and blue channels independently. The `rFactor`, `gFactor`, and `bFactor` parameters adjust the intensity of the respective color channels. A factor greater than 1.0 increases the intensity of the color, while a factor less than 1.0 reduces it. Pixel values are clamped between 0 and 255 to ensure valid color representation.
-- **imgBilinearInterpolation(Img* img, int newHeight, int newWidth):** Resizes the image to the specified `height` and `width` using bilinear interpolation.
   
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Grayscale.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgToBlackAndWhite(Img* img, float factor):** Converts an image to black and white. The factor adjusts the brightness threshold.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/BlackAndWhite.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgAdjustBrightness(Img* img, float factor):** Adjusts the brightness of the image. The factor scales the brightness of each pixel, where `factor > 1.0` increases brightness, and `factor < 1.0` decreases it. Pixel values are clamped between 0 and 255.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Brightness.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgAdjustContrast(Img* img, float factor):** Adjusts the contrast of the image. The factor modifies the contrast where 1.0 keeps it unchanged, values greater than 1.0 increase contrast, and values less than 1.0 decrease it.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Contrast.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgGaussianBlur(Img* img, unsigned iterations):** Applies Gaussian blur to the image. The `iterations` parameter controls how many times the blur is applied; more iterations result in a stronger blur effect.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/GaussianBlur.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgSepiaFilter(Img* img):** Applies a sepia tone effect to the image. This filter modifies the red, green, and blue color channels to create a warm, vintage look.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/SepiaFilter.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgSobelFilter(Img* img, float factor):** Applies the Sobel filter to detect edges in an image. The `sensitivityFactor` adjusts the strength of the gradient. A higher value enhances edge visibility, while a lower value reduces sensitivity to less distinct edges. This filter calculates the horizontal and vertical gradients using Sobel operators and combines them to highlight areas of high intensity change.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/SobelFilter.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgNegative(Img* img):** Inverts the colors of the image, creating a negative effect by subtracting each color component (red, green, blue) from 255.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Negative.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgToMirror(Img* img):** Creates a mirrored version of the image by flipping it horizontally.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/imgToMirror.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgTurn90(Img* img):** Rotates the image by 90 degrees.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/imgTurn90.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgTint(Img* img, float rFactor, float gFactor, float bFactor):** Applies a color tint to the image by scaling each of the red, green, and blue channels independently. The `rFactor`, `gFactor`, and `bFactor` parameters adjust the intensity of the respective color channels. A factor greater than 1.0 increases the intensity of the color, while a factor less than 1.0 reduces it. Pixel values are clamped between 0 and 255 to ensure valid color representation.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/tint.png" width="300"></td>
+    </tr>
+  </table>
+
+- **imgBilinearInterpolation(Img* img, int newHeight, int newWidth):** Resizes the image to the specified `height` and `width` using bilinear interpolation.
+
 ---
 
 ### **writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type):**
