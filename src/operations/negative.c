@@ -3,10 +3,10 @@
 #include "../tools.h"
 
 
-ImgLibErrorInfo imgNegative(Img* img)
+OpenIPLErrorInfo imgNegative(Img* img)
 {
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
     {
         return err;
     }

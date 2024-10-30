@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgSobelFilter(Img* img, float factor);
+OpenIPLErrorInfo imgSobelFilter(Img* img, float factor);

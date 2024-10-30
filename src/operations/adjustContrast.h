@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgAdjustContrast(Img* img, const float factor);
+OpenIPLErrorInfo imgAdjustContrast(Img* img, const float factor);

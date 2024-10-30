@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgToGrayscale(Img* img, const float factor);
+OpenIPLErrorInfo imgToGrayscale(Img* img, const float factor);

@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgSepiaFilter(Img* img);
+OpenIPLErrorInfo imgSepiaFilter(Img* img);

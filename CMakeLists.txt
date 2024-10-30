@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(ImgLib)
+project(OpenIPL)
 
 set(CMAKE_C_STANDARD 99)
 
@@ -10,8 +10,8 @@ file(GLOB_RECURSE SOURCE_FILES
     ${SOURCE_DIR}/*.c
 )
 
-add_library(ImgLib STATIC ${SOURCE_FILES})
+add_library(OpenIPL STATIC ${SOURCE_FILES})
 
-target_include_directories(ImgLib PUBLIC ${SOURCE_DIR})
-target_include_directories(ImgLib PUBLIC ${SOURCE_DIR}/operations)
-target_include_directories(ImgLib PUBLIC ${SOURCE_DIR}/simde/x86)
+target_include_directories(OpenIPL PUBLIC ${SOURCE_DIR})
+target_include_directories(OpenIPL PUBLIC ${SOURCE_DIR}/operations)
+target_include_directories(OpenIPL PUBLIC ${SOURCE_DIR}/simde/x86)

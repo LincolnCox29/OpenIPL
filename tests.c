@@ -1,10 +1,10 @@
-﻿#include "src/ImgLib.h"
+﻿#include "src/OpenIPL.h"
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 
-typedef ImgLibErrorInfo(*ImgOperationWithFac)(Img*, float);
-typedef ImgLibErrorInfo(*ImgOperation)(Img*);
+typedef OpenIPLErrorInfo(*ImgOperationWithFac)(Img*, float);
+typedef OpenIPLErrorInfo(*ImgOperation)(Img*);
 
 void absTestWithFac(ImgOperationWithFac func, char* outputPath);
 void absTest(ImgOperation func, char* outputPath);
@@ -39,7 +39,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
     clock_t start, end;
     Img* img = loadImg("examples\\source.png");
     start = clock();
-    ImgLibErrorInfo err = func(img, 0.7f);
+    OpenIPLErrorInfo err = func(img, 0.8f);
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
@@ -52,7 +52,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
 void absTest(ImgOperation func, char* outputPath)
 {
     clock_t start, end;
-    ImgLibErrorInfo err;
+    OpenIPLErrorInfo err;
     Img* img = loadImg("examples\\source.png");
     start = clock();
     if ((err = func(img)).code != 0)
@@ -70,7 +70,7 @@ void absTest(ImgOperation func, char* outputPath)
 void gaussianBlurTest(unsigned iterations, char* outputPath)
 {
     clock_t start, end;
-    ImgLibErrorInfo err;
+    OpenIPLErrorInfo err;
     Img* img = loadImg("examples\\source.png");
     start = clock();
     if ((err = imgGaussianBlur(img, iterations)).code != 0)
@@ -88,7 +88,7 @@ void gaussianBlurTest(unsigned iterations, char* outputPath)
 void tintTest(float rF, float gF, float bF, char* outputPath)
 {
         clock_t start, end;
-        ImgLibErrorInfo err;
+        OpenIPLErrorInfo err;
         Img* img = loadImg("examples\\source.png");
         start = clock();
         if ((err = imgTint(img, rF, gF, bF)).code != 0)
@@ -106,7 +106,7 @@ void tintTest(float rF, float gF, float bF, char* outputPath)
 void bilinearInterpolationTest(int h, int w, char* outputPath)
 {
     clock_t start, end;
-    ImgLibErrorInfo err;
+    OpenIPLErrorInfo err;
     Img* img = loadImg("examples\\source.png");
     start = clock();
     if ((err = imgBilinearInterpolation(img, h, w)).code != 0)

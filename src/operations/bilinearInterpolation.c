@@ -2,12 +2,12 @@
 #include "../errors.h"
 #include "../tools.h"
 
-ImgLibErrorInfo imgBilinearInterpolation(Img* img, int height, int width)
+OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width)
 {
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
     unsigned char* newData = (unsigned char*)malloc(height * width * img->channels);
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
-        ((err = memallocValidation(newData)).code != IMG_LIB_SUCCESS ||
+    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
+        ((err = memallocValidation(newData)).code != OIPL_SUCCESS ||
         (img->height == height && img->width == width)))
     {
         return err;

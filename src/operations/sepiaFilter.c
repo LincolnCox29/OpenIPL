@@ -2,10 +2,10 @@
 #include "../errors.h"
 #include "../tools.h"
 
-ImgLibErrorInfo imgSepiaFilter(Img* img)
+OpenIPLErrorInfo imgSepiaFilter(Img* img)
 {
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
     {
         return err;
     }

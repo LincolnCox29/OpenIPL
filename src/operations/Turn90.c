@@ -2,14 +2,14 @@
 #include "../errors.h"
 #include "../tools.h"
 
-ImgLibErrorInfo imgTurn90(Img* img)
+OpenIPLErrorInfo imgTurn90(Img* img)
 {
     const int newWidth = img->height;
     const int newHeight = img->width;
     unsigned char* rotatedData = (unsigned char*)malloc(newWidth * newHeight * img->channels * sizeof(unsigned char));
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
-        (err = memallocValidation(rotatedData)).code != IMG_LIB_SUCCESS)
+    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
+        (err = memallocValidation(rotatedData)).code != OIPL_SUCCESS)
         return err;
 
     int pIndex;

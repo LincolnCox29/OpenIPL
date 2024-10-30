@@ -1,16 +1,16 @@
-# ImgLib
+# OpenIPL
 
-ImgLib is a C library for image processing.
+OpenIPL(Open Image Processing Library) is a C library for image processing.
 
 ## Description
 
-ImgLib provides various functions for working with images, such as converting to grayscale, black and white images, adjusting brightness and contrast, applying filters, and more.
-ImgLib leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywhere/simde?ysclid=m2swyts7k7237665902) library to enable cross-platform parallelized calculations, optimizing processing speed and efficiency.
+OpenIPL provides various functions for working with images, such as converting to grayscale, black and white images, adjusting brightness and contrast, applying filters, and more.
+OpenIPL leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywhere/simde?ysclid=m2swyts7k7237665902) library to enable cross-platform parallelized calculations, optimizing processing speed and efficiency.
 
 ## Project Structure
 
 ```
-../ImgLib/
+../OpenIPL/
 ├── README.md
 ├── CMakeLists.txt
 ├── tests.c
@@ -29,7 +29,7 @@ ImgLib leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywher
 1. **Clone the repository**:
 
    ```bash
-   git clone 'https://github.com/LincolnCox29/ImgLib'
+   git clone 'https://github.com/LincolnCox29/OpenIPL'
    cd <repo-directory>
    ```
 
@@ -52,22 +52,22 @@ ImgLib leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywher
    cmake --build . --config Release
    ```
 
-After building, the compiled static library `ImgLib.lib` will be located in the `lib` directory.
+After building, the compiled static library `OpenIPL.lib` will be located in the `lib` directory.
 
 ## Usage
 
-To use the library in your project, include the header file `ImgLib.h` and compile with `ImgLib.lib`.
+To use the library in your project, include the header file `OpenIPL.h` and compile with `OpenIPL.lib`.
 
 Example usage:
 
 ```c
-#include "src/ImgLib.h"
+#include "src/OpenIPL.h"
 #include <stdio.h>
 
 int main()
 {
     Img* img = loadImg("src.png");
-    ImgLibErrorInfo err;
+    OpenIPLErrorInfo err;
     if ((err = imgAdjustContrast(img, 0.8f)).code != IMG_LIB_SUCCESS)
     {
         printf("ERR MSG: %s", err.message);
@@ -126,5 +126,5 @@ if (img->data) {
 
 ## 🛠 License
 ```
-ImgLib is released under the MIT license, allowing free use in both commercial and non-commercial projects.
+OpenIPL is released under the MIT license, allowing free use in both commercial and non-commercial projects.
 ```

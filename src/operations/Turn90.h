@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgTurn90(Img* img);
+OpenIPLErrorInfo imgTurn90(Img* img);

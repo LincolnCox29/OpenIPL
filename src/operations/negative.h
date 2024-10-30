@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgNegative(Img* img);
+OpenIPLErrorInfo imgNegative(Img* img);

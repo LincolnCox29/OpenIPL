@@ -1,4 +1,4 @@
-#include "ImgLib.h"
+#include "OpenIPL.h"
 #include <stdio.h>
 #include "stdlib.h"
 

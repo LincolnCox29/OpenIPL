@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgToMirror(Img* img);
+OpenIPLErrorInfo imgToMirror(Img* img);

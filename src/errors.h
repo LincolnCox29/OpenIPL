@@ -2,23 +2,23 @@
 
 typedef enum
 {
-    IMG_LIB_SUCCESS = 0,
-    IMG_LIB_ERROR_LOADING_IMAGE,
-    IMG_LIB_ERROR_NEGATIVE_FACTOR,
-    IMG_LIB_ERROR_MEMORY_ALLOCATION,
-    IMG_LIB_ERROR_UNSUPPORTED_IMAGE_FORMAT,
-    IMG_LIB_ERROR_FILE_PATH_DOES_NOT_EXIST
-} ImgLibErrorCode;
+    OIPL_SUCCESS = 0,
+    OIPL_ERROR_LOADING_IMAGE,
+    OIPL_ERROR_NEGATIVE_FACTOR,
+    OIPL_ERROR_MEMORY_ALLOCATION,
+    OIPL_ERROR_UNSUPPORTED_IMAGE_FORMAT,
+    OIPL_ERROR_FILE_PATH_DOES_NOT_EXIST
+} OpenIPLErrorCode;
 
 typedef struct
 {
-    ImgLibErrorCode code;
+    OpenIPLErrorCode code;
     const char* message;
-} ImgLibErrorInfo;
+} OpenIPLErrorInfo;
 
 #define VALIDATE_CONDITION(condition, errorCode, errorMessage) \
-    (condition) ? (ImgLibErrorInfo) { errorCode, errorMessage } : (ImgLibErrorInfo) { IMG_LIB_SUCCESS, NULL }
+    (condition) ? (OpenIPLErrorInfo) { errorCode, errorMessage } : (OpenIPLErrorInfo) { OIPL_SUCCESS, NULL }
 
-ImgLibErrorInfo imgDataValidation(const unsigned char* data);
-ImgLibErrorInfo factorValidation(const float factor);
-ImgLibErrorInfo memallocValidation(const unsigned char* imgData);
+OpenIPLErrorInfo imgDataValidation(const unsigned char* data);
+OpenIPLErrorInfo factorValidation(const float factor);
+OpenIPLErrorInfo memallocValidation(const unsigned char* imgData);

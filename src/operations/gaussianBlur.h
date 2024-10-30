@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations);
+OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations);

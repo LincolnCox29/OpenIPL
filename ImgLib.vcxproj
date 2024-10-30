@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\errors.c" />
-    <ClCompile Include="src\ImgLib.c" />
+    <ClCompile Include="src\OpenIPL.c" />
     <ClCompile Include="src\operations\adjustBrightness.c" />
     <ClCompile Include="src\operations\adjustContrast.c" />
     <ClCompile Include="src\operations\bilinearInterpolation.c" />
@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\errors.h" />
-    <ClInclude Include="src\ImgLib.h" />
+    <ClInclude Include="src\OpenIPL.h" />
     <ClInclude Include="src\operations\adjustBrightness.h" />
     <ClInclude Include="src\operations\adjustContrast.h" />
     <ClInclude Include="src\operations\bilinearInterpolation.h" />

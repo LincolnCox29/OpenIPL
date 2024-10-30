@@ -3,14 +3,14 @@
 #include "../tools.h"
 #include "../simde/x86/sse2.h"
 
-ImgLibErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
+OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 {
     unsigned char* currentData = img->data;
     unsigned char* blurredData = imgDataAlloc(img);
 
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
-        (err = memallocValidation(blurredData)).code != IMG_LIB_SUCCESS)
+    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
+        (err = memallocValidation(blurredData)).code != OIPL_SUCCESS)
     {
         free(blurredData);
         return err;

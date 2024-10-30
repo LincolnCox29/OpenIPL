@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgToBlackAndWhite(Img img, const float factor);
+OpenIPLErrorInfo imgToBlackAndWhite(Img img, const float factor);

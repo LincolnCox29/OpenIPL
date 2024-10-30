@@ -2,10 +2,10 @@
 #include "../errors.h"
 #include "../tools.h"
 
-ImgLibErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor)
+OpenIPLErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor)
 {
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS)
+    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
         return err;
 
     const int totalPixels = img->height * img->width;

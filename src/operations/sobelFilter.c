@@ -2,12 +2,12 @@
 #include "../errors.h"
 #include "../tools.h"
 
-ImgLibErrorInfo imgSobelFilter(Img* img, float factor)
+OpenIPLErrorInfo imgSobelFilter(Img* img, float factor)
 {
-    ImgLibErrorInfo err = { IMG_LIB_SUCCESS, NULL };
+    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
     unsigned char* edgeData = imgDataAlloc(img);
-    if ((err = imgDataValidation(img->data)).code != IMG_LIB_SUCCESS ||
-        (err = memallocValidation(edgeData)).code != IMG_LIB_SUCCESS)
+    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
+        (err = memallocValidation(edgeData)).code != OIPL_SUCCESS)
     {
         free(edgeData);
         return err;

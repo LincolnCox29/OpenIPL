@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgBilinearInterpolation(Img* img, int height, int width);
+OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width);

@@ -2,4 +2,4 @@
 
 #include "../tools.h"
 
-ImgLibErrorInfo imgAdjustBrightness(Img* img, const float factor);
+OpenIPLErrorInfo imgAdjustBrightness(Img* img, const float factor);
