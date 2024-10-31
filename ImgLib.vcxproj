@@ -28,6 +28,7 @@
     <ClCompile Include="src\operations\grayscale.c" />
     <ClCompile Include="src\operations\negative.c" />
     <ClCompile Include="src\operations\sepiaFilter.c" />
+    <ClCompile Include="src\operations\sharpen.c" />
     <ClCompile Include="src\operations\sobelFilter.c" />
     <ClCompile Include="src\operations\tint.c" />
     <ClCompile Include="src\operations\toBlackAndWhite.c" />
@@ -46,6 +47,7 @@
     <ClInclude Include="src\operations\grayscale.h" />
     <ClInclude Include="src\operations\negative.h" />
     <ClInclude Include="src\operations\sepiaFilter.h" />
+    <ClInclude Include="src\operations\sharpen.h" />
     <ClInclude Include="src\operations\sobelFilter.h" />
     <ClInclude Include="src\operations\tint.h" />
     <ClInclude Include="src\operations\toBlackAndWhite.h" />
