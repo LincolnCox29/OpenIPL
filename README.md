@@ -61,14 +61,14 @@ To use the library in your project, include the header file `OpenIPL.h` and comp
 Example usage:
 
 ```c
-#include "src/OpenIPL.h"
+#include "OpenIPL.h"
 #include <stdio.h>
 
 int main()
 {
     Img* img = loadImg("src.png");
-    OpenIPLErrorInfo err;
-    if ((err = imgAdjustContrast(img, 0.8f)).code != IMG_LIB_SUCCESS)
+    OpenIPLErrorInfo err = imgBilinearInterpolation(img, 256, 256);
+    if (err.code != OIPL_SUCCESS)
     {
         printf("ERR MSG: %s", err.message);
         return 1;
