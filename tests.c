@@ -24,6 +24,7 @@ int main() //tests
     absTest(imgNegative, "examples\\Negative.png");
     absTest(imgToMirror, "examples\\imgToMirror.png");
     absTest(imgTurn90, "examples\\imgTurn90.png");
+    absTest(imgSharpen, "examples\\imgSharpen.png");
 
     bilinearInterpolationTest(256, 200, "examples\\bilinearInterpolation.png");
 

@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\OpenIPL.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\OpenIPL.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OpenIPL.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\OpenIPL.h",
+              "RelativeDocumentMoniker": "src\\OpenIPL.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\OpenIPL.h",
+              "RelativeToolTip": "src\\OpenIPL.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-31T03:54:19.687Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,22 +41,9 @@
               "RelativeDocumentMoniker": "tests.c",
               "ToolTip": "Z:\\Projects\\OpenIPL\\tests.c",
               "RelativeToolTip": "tests.c",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-10-31T02:02:32.965Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "gaussianBlur.c",
-              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c",
-              "RelativeDocumentMoniker": "src\\operations\\gaussianBlur.c",
-              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c",
-              "RelativeToolTip": "src\\operations\\gaussianBlur.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-31T01:59:19.355Z",
               "EditorCaption": ""
             }
           ]

@@ -29,3 +29,4 @@ OpenIPLErrorInfo imgSobelFilter(Img* img, float factor);
 OpenIPLErrorInfo imgToMirror(Img* img);
 OpenIPLErrorInfo imgTurn90(Img* img);
 OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width);
+OpenIPLErrorInfo imgSharpen(Img* img);
