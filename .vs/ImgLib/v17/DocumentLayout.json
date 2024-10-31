@@ -1,12 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "Z:\\Projects\\ImgLib\\",
-  "Documents": [],
+  "WorkspaceRootPath": "Z:\\Projects\\OpenIPL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "tests.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\tests.c",
+              "RelativeDocumentMoniker": "tests.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\tests.c",
+              "RelativeToolTip": "tests.c",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-31T02:02:32.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "gaussianBlur.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c",
+              "RelativeDocumentMoniker": "src\\operations\\gaussianBlur.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c",
+              "RelativeToolTip": "src\\operations\\gaussianBlur.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-31T01:59:19.355Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

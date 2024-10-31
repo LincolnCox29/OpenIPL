@@ -1,26 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "Z:\\Projects\\ImgLib\\",
+  "WorkspaceRootPath": "Z:\\Projects\\OpenIPL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\errors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\errors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\OpenIPL.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\OpenIPL.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\tools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\tools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\src\\tools.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\tools.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\ImgLib\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,66 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "errors.h",
-              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\errors.h",
-              "RelativeDocumentMoniker": "src\\errors.h",
-              "ToolTip": "Z:\\Projects\\ImgLib\\src\\errors.h",
-              "RelativeToolTip": "src\\errors.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-30T04:48:29.377Z",
+              "Title": "tests.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\tests.c",
+              "RelativeDocumentMoniker": "tests.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\tests.c",
+              "RelativeToolTip": "tests.c",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-31T02:02:32.965Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "OpenIPL.c",
-              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\OpenIPL.c",
-              "RelativeDocumentMoniker": "src\\OpenIPL.c",
-              "ToolTip": "Z:\\Projects\\ImgLib\\src\\OpenIPL.c*",
-              "RelativeToolTip": "src\\OpenIPL.c*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAQAAAAAAAAAA==",
+              "Title": "gaussianBlur.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c",
+              "RelativeDocumentMoniker": "src\\operations\\gaussianBlur.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c",
+              "RelativeToolTip": "src\\operations\\gaussianBlur.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-30T04:47:19.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "tools.h",
-              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\tools.h",
-              "RelativeDocumentMoniker": "src\\tools.h",
-              "ToolTip": "Z:\\Projects\\ImgLib\\src\\tools.h",
-              "RelativeToolTip": "src\\tools.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-30T04:45:52.694Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "tools.c",
-              "DocumentMoniker": "Z:\\Projects\\ImgLib\\src\\tools.c",
-              "RelativeDocumentMoniker": "src\\tools.c",
-              "ToolTip": "Z:\\Projects\\ImgLib\\src\\tools.c",
-              "RelativeToolTip": "src\\tools.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-30T04:45:23.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "tests.c",
-              "DocumentMoniker": "Z:\\Projects\\ImgLib\\tests.c",
-              "RelativeDocumentMoniker": "tests.c",
-              "ToolTip": "Z:\\Projects\\ImgLib\\tests.c",
-              "RelativeToolTip": "tests.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-29T13:30:13.935Z",
+              "WhenOpened": "2024-10-31T01:59:19.355Z",
               "EditorCaption": ""
             }
           ]
