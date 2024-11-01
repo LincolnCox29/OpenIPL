@@ -4,7 +4,7 @@
 
 OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width)
 {
-    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    OpenIPLErrorInfo err = SUCCESS;
     unsigned char* newData = (unsigned char*)malloc(height * width * img->channels);
     if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
         ((err = memallocValidation(newData)).code != OIPL_SUCCESS ||

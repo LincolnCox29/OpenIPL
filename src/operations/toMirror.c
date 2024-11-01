@@ -4,7 +4,7 @@
 
 OpenIPLErrorInfo imgToMirror(Img* img)
 {
-    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    OpenIPLErrorInfo err = SUCCESS;
     if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
         return err;
 

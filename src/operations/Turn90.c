@@ -7,7 +7,7 @@ OpenIPLErrorInfo imgTurn90(Img* img)
     const int newWidth = img->height;
     const int newHeight = img->width;
     unsigned char* rotatedData = (unsigned char*)malloc(newWidth * newHeight * img->channels * sizeof(unsigned char));
-    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    OpenIPLErrorInfo err = SUCCESS;
     if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
         (err = memallocValidation(rotatedData)).code != OIPL_SUCCESS)
         return err;

@@ -13,7 +13,7 @@ OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
     unsigned char* currentData = img->data;
     unsigned char* blurredData = imgDataAlloc(img);
 
-    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    OpenIPLErrorInfo err = SUCCESS;
     if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
         (err = memallocValidation(blurredData)).code != OIPL_SUCCESS)
     {

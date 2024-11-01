@@ -4,7 +4,7 @@
 
 OpenIPLErrorInfo imgSobelFilter(Img* img, float factor)
 {
-    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    OpenIPLErrorInfo err = SUCCESS;
     unsigned char* edgeData = imgDataAlloc(img);
     if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
         (err = memallocValidation(edgeData)).code != OIPL_SUCCESS)

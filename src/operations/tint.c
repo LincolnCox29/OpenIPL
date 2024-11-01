@@ -4,7 +4,7 @@
 
 OpenIPLErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor)
 {
-    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    OpenIPLErrorInfo err = SUCCESS;
     if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
         return err;
 

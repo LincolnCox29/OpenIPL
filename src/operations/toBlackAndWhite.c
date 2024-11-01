@@ -4,7 +4,7 @@
 
 OpenIPLErrorInfo imgToBlackAndWhite(Img* img, const float factor)
 {
-    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    OpenIPLErrorInfo err = SUCCESS;
     if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
         (err = factorValidation(factor)).code != OIPL_SUCCESS)
     {

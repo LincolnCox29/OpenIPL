@@ -8,7 +8,7 @@ OpenIPLErrorInfo imgSharpen(Img* img)
     unsigned char* currentData = img->data;
     unsigned char* sharpenedData = imgDataAlloc(img);
 
-    OpenIPLErrorInfo err = { OIPL_SUCCESS, NULL };
+    OpenIPLErrorInfo err = SUCCESS;
     if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
         (err = memallocValidation(sharpenedData)).code != OIPL_SUCCESS)
     {

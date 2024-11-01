@@ -4,7 +4,7 @@
 OpenIPLErrorInfo imgDataValidation(const unsigned char* data)
 {
     return VALIDATE_CONDITION(data == NULL, OIPL_ERROR_LOADING_IMAGE,
-        "The specified path may be invalid or the file may not exist. Please check the file path and permissions.\n");
+        "The specified path may be invalid or the file may not exist. Please check the file path and permissions.");
 }
 
 OpenIPLErrorInfo factorValidation(const float factor)
