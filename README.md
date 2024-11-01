@@ -223,18 +223,18 @@ int main()
     </tr>
   </table>
 
-- **imgSharpen(Img img):* Applies a sharpening filter to the image, enhancing the edges and fine details. This effect is achieved by using a convolution kernel that increases the contrast of neighboring pixels.
-  
-<table> 
-    <tr> 
-        <td style="text-align: center;">Original Image</td> 
-        <td style="text-align: center;">Modified Image</td>
-    </tr> 
-    <tr> 
-        <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td> 
-        <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Sharpen.png" width="300"></td> 
-    </tr> 
-</table>
+- **imgSharpen(Img img):** Applies a sharpening filter to the image, enhancing the edges and fine details. This effect is achieved by using a convolution kernel that increases the contrast of neighboring pixels.
+
+  <table> 
+      <tr> 
+          <td style="text-align: center;">Original Image</td> 
+          <td style="text-align: center;">Modified Image</td>
+      </tr> 
+      <tr> 
+          <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td> 
+          <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Sharpen.png" width="300"></td> 
+      </tr> 
+  </table>
 
 - **imgBilinearInterpolation(Img* img, int newHeight, int newWidth):** Resizes the image to the specified `height` and `width` using bilinear interpolation.
 
