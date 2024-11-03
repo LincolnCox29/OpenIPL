@@ -198,7 +198,6 @@ int main()
   </table>
 
 - **imgTurn90(Img* img):** Rotates the image by 90 degrees.
-
 - **imgTint(Img* img, float rFactor, float gFactor, float bFactor):** Applies a color tint to the image by scaling each of the red, green, and blue channels independently. The `rFactor`, `gFactor`, and `bFactor` parameters adjust the intensity of the respective color channels. A factor greater than 1.0 increases the intensity of the color, while a factor less than 1.0 reduces it. Pixel values are clamped between 0 and 255 to ensure valid color representation.
 
   <table>
@@ -229,7 +228,7 @@ int main()
 
 ---
 
-### **writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type):**
+### **writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type):*
 Saves an image to a file in the specified format.
 
 - **path**: The file path where the image will be saved.
@@ -242,7 +241,7 @@ Saves an image to a file in the specified format.
 
 ---
 
-### **loadImg(const char* path):**
+### **loadImg(const char* path):*
 Loads an image from the specified file.
 
 - **path**: The file path of the image to load.
@@ -260,7 +259,7 @@ if (img->data) {
 
 ---
 
-### **imgFree(Img* img):**
+### **imgFree(Img* img):*
 Frees the memory allocated for an image structure and its associated pixel data.
 
 - **img**: A pointer to the `Img` structure whose memory is to be freed. This structure typically contains the image's width, height, channels, and a pointer to the pixel data.
