@@ -269,6 +269,8 @@ if (img->data) {
 }
 ```
 
+---
+
 ### **imgFree(Img* img):**
 Frees the memory allocated for an image structure and its associated pixel data.
 
