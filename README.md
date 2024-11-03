@@ -232,7 +232,7 @@ int main()
       </tr> 
       <tr> 
           <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td> 
-          <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Sharpen.png" width="300"></td> 
+          <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/imgSharpen.png" width="300"></td> 
       </tr> 
   </table>
 
@@ -259,6 +259,16 @@ Loads an image from the specified file.
 - **path**: The file path of the image to load.
 - **Returns**: A pointer to an `Img` structure that contains the loaded image data, including its width, height, and number of channels. The image data is stored in `img->data`.
 
+Example:
+```c
+Img* img = loadImg("input.png");
+if (img->data) {
+    // Image successfully loaded, now you can process or save it
+} else {
+    printf("Failed to load image\n");
+}
+```
+
 ### **imgFree(Img* img):**
 Frees the memory allocated for an image structure and its associated pixel data.
 
@@ -279,16 +289,6 @@ Frees the memory allocated for an image structure and its associated pixel data.
     ```
 
 - **Note**: It is important to call `imgFree()` after you are done working with an `Img` structure to avoid memory leaks.
-
-Example:
-```c
-Img* img = loadImg("input.png");
-if (img->data) {
-    // Image successfully loaded, now you can process or save it
-} else {
-    printf("Failed to load image\n");
-}
-```
 
 ## 🛠 License
 ```
