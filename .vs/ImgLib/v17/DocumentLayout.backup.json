@@ -1,12 +1,559 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "Z:\\Projects\\OpenIPL\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\OpenIPL.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\OpenIPL.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\OpenIPL.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\OpenIPL.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\gaussianBlur.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\grayscale.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\grayscale.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\errors.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\errors.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\bilinearInterpolation.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\bilinearInterpolation.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\adjustContrast.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\adjustContrast.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\adjustBrightness.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\adjustBrightness.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:tests.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\tools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\tools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\Turn90.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\Turn90.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\toMirror.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\toMirror.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\tint.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\tint.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\stb_image_write.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\stb_image_write.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\sobelFilter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\sobelFilter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\sharpen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\sharpen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\sepiaFilter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\sepiaFilter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\negative.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\negative.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\grayscale.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\grayscale.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\gaussianBlur.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\errors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\errors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\bilinearInterpolation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\bilinearInterpolation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\adjustContrast.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\adjustContrast.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\adjustBrightness.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\adjustBrightness.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\sobelFilter.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\sobelFilter.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\sharpen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\sharpen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\sepiaFilter.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\sepiaFilter.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\negative.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\negative.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\Turn90.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\Turn90.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\tools.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\tools.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\toMirror.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\toMirror.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\toBlackAndWhite.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\toBlackAndWhite.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|Z:\\Projects\\OpenIPL\\src\\operations\\tint.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{991D848C-DC00-4200-96AF-11DFC42D82DF}|ImgLib.vcxproj|solutionrelative:src\\operations\\tint.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Turn90.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\Turn90.h",
+              "RelativeDocumentMoniker": "src\\operations\\Turn90.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\Turn90.h",
+              "RelativeToolTip": "src\\operations\\Turn90.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:47:03.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "bilinearInterpolation.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\bilinearInterpolation.h",
+              "RelativeDocumentMoniker": "src\\operations\\bilinearInterpolation.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\bilinearInterpolation.h",
+              "RelativeToolTip": "src\\operations\\bilinearInterpolation.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:46.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "adjustContrast.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\adjustContrast.h",
+              "RelativeDocumentMoniker": "src\\operations\\adjustContrast.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\adjustContrast.h",
+              "RelativeToolTip": "src\\operations\\adjustContrast.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:46.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "tests.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\tests.c",
+              "RelativeDocumentMoniker": "tests.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\tests.c",
+              "RelativeToolTip": "tests.c",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAACIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:44:26.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "tools.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\tools.h",
+              "RelativeDocumentMoniker": "src\\tools.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\tools.h",
+              "RelativeToolTip": "src\\tools.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:47:01.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "adjustBrightness.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\adjustBrightness.c",
+              "RelativeDocumentMoniker": "src\\operations\\adjustBrightness.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\adjustBrightness.c",
+              "RelativeToolTip": "src\\operations\\adjustBrightness.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:42:11.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "adjustContrast.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\adjustContrast.c",
+              "RelativeDocumentMoniker": "src\\operations\\adjustContrast.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\adjustContrast.c",
+              "RelativeToolTip": "src\\operations\\adjustContrast.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:42:30.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "bilinearInterpolation.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\bilinearInterpolation.c",
+              "RelativeDocumentMoniker": "src\\operations\\bilinearInterpolation.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\bilinearInterpolation.c",
+              "RelativeToolTip": "src\\operations\\bilinearInterpolation.c",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAgAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:42:47.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "errors.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\errors.c",
+              "RelativeDocumentMoniker": "src\\errors.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\errors.c",
+              "RelativeToolTip": "src\\errors.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:30:06.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OpenIPL.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\OpenIPL.c",
+              "RelativeDocumentMoniker": "src\\OpenIPL.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\OpenIPL.c",
+              "RelativeToolTip": "src\\OpenIPL.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:29:01.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "gaussianBlur.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c",
+              "RelativeDocumentMoniker": "src\\operations\\gaussianBlur.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.c",
+              "RelativeToolTip": "src\\operations\\gaussianBlur.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:43:08.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "grayscale.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\grayscale.c",
+              "RelativeDocumentMoniker": "src\\operations\\grayscale.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\grayscale.c",
+              "RelativeToolTip": "src\\operations\\grayscale.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:43:29.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OpenIPL.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\OpenIPL.h",
+              "RelativeDocumentMoniker": "src\\OpenIPL.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\OpenIPL.h",
+              "RelativeToolTip": "src\\OpenIPL.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-03T02:41:23.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "grayscale.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\grayscale.h",
+              "RelativeDocumentMoniker": "src\\operations\\grayscale.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\grayscale.h",
+              "RelativeToolTip": "src\\operations\\grayscale.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:50.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "gaussianBlur.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.h",
+              "RelativeDocumentMoniker": "src\\operations\\gaussianBlur.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\gaussianBlur.h",
+              "RelativeToolTip": "src\\operations\\gaussianBlur.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:51.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "negative.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\negative.h",
+              "RelativeDocumentMoniker": "src\\operations\\negative.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\negative.h",
+              "RelativeToolTip": "src\\operations\\negative.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:52.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "sepiaFilter.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\sepiaFilter.h",
+              "RelativeDocumentMoniker": "src\\operations\\sepiaFilter.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\sepiaFilter.h",
+              "RelativeToolTip": "src\\operations\\sepiaFilter.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:53.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "sharpen.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\sharpen.h",
+              "RelativeDocumentMoniker": "src\\operations\\sharpen.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\sharpen.h",
+              "RelativeToolTip": "src\\operations\\sharpen.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:54.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "sobelFilter.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\sobelFilter.h",
+              "RelativeDocumentMoniker": "src\\operations\\sobelFilter.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\sobelFilter.h",
+              "RelativeToolTip": "src\\operations\\sobelFilter.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:55.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "stb_image_write.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\stb_image_write.h",
+              "RelativeDocumentMoniker": "src\\stb_image_write.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\stb_image_write.h",
+              "RelativeToolTip": "src\\stb_image_write.h",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:55.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "tint.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\tint.h",
+              "RelativeDocumentMoniker": "src\\operations\\tint.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\tint.h",
+              "RelativeToolTip": "src\\operations\\tint.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:59.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "toMirror.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\toMirror.h",
+              "RelativeDocumentMoniker": "src\\operations\\toMirror.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\toMirror.h",
+              "RelativeToolTip": "src\\operations\\toMirror.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:47:00.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "adjustBrightness.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\adjustBrightness.h",
+              "RelativeDocumentMoniker": "src\\operations\\adjustBrightness.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\adjustBrightness.h",
+              "RelativeToolTip": "src\\operations\\adjustBrightness.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:46:44.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "negative.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\negative.c",
+              "RelativeDocumentMoniker": "src\\operations\\negative.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\negative.c",
+              "RelativeToolTip": "src\\operations\\negative.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:43:38.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "errors.h",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\errors.h",
+              "RelativeDocumentMoniker": "src\\errors.h",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\errors.h",
+              "RelativeToolTip": "src\\errors.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T12:30:15.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Turn90.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\Turn90.c",
+              "RelativeDocumentMoniker": "src\\operations\\Turn90.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\Turn90.c",
+              "RelativeToolTip": "src\\operations\\Turn90.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:44:56.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "sepiaFilter.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\sepiaFilter.c",
+              "RelativeDocumentMoniker": "src\\operations\\sepiaFilter.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\sepiaFilter.c",
+              "RelativeToolTip": "src\\operations\\sepiaFilter.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:43:56.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "sharpen.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\sharpen.c",
+              "RelativeDocumentMoniker": "src\\operations\\sharpen.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\sharpen.c",
+              "RelativeToolTip": "src\\operations\\sharpen.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:44:04.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "sobelFilter.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\sobelFilter.c",
+              "RelativeDocumentMoniker": "src\\operations\\sobelFilter.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\sobelFilter.c",
+              "RelativeToolTip": "src\\operations\\sobelFilter.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:44:18.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "tools.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\tools.c",
+              "RelativeDocumentMoniker": "src\\tools.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\tools.c",
+              "RelativeToolTip": "src\\tools.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:44:54.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "toMirror.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\toMirror.c",
+              "RelativeDocumentMoniker": "src\\operations\\toMirror.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\toMirror.c",
+              "RelativeToolTip": "src\\operations\\toMirror.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:44:46.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "toBlackAndWhite.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\toBlackAndWhite.c",
+              "RelativeDocumentMoniker": "src\\operations\\toBlackAndWhite.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\toBlackAndWhite.c",
+              "RelativeToolTip": "src\\operations\\toBlackAndWhite.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:44:40.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "tint.c",
+              "DocumentMoniker": "Z:\\Projects\\OpenIPL\\src\\operations\\tint.c",
+              "RelativeDocumentMoniker": "src\\operations\\tint.c",
+              "ToolTip": "Z:\\Projects\\OpenIPL\\src\\operations\\tint.c",
+              "RelativeToolTip": "src\\operations\\tint.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-01T12:44:31.618Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

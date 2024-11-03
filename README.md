@@ -259,6 +259,27 @@ Loads an image from the specified file.
 - **path**: The file path of the image to load.
 - **Returns**: A pointer to an `Img` structure that contains the loaded image data, including its width, height, and number of channels. The image data is stored in `img->data`.
 
+### **imgFree(Img* img):**
+Frees the memory allocated for an image structure and its associated pixel data.
+
+- **img**: A pointer to the `Img` structure whose memory is to be freed. This structure typically contains the image's width, height, channels, and a pointer to the pixel data.
+- **Details**: 
+    - The function first checks if the `img` pointer is `NULL` to avoid errors.
+    - It releases the memory allocated for the pixel data (`img->data`) using `free()`.
+    - It sets `img->data` to `NULL` to prevent dangling pointers.
+    - If the `Img` structure itself was dynamically allocated, it will also be freed.
+
+- **Example Usage**:
+    ```c
+    Img* image = loadImg("path/to/image.png");
+    if (image != NULL) {
+        // Process the image as needed
+        imgFree(image); // Properly frees the allocated memory
+    }
+    ```
+
+- **Note**: It is important to call `imgFree()` after you are done working with an `Img` structure to avoid memory leaks.
+
 Example:
 ```c
 Img* img = loadImg("input.png");

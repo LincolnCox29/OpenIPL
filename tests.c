@@ -47,7 +47,7 @@ void absTestWithFac(ImgOperationWithFac func, char* outputPath)
     if (err.code != 0)
         printf("code: %d msg: %s", err.code, err.message);
     writeImg(outputPath, *img);
-    free(img->data);
+    imgFree(img);
 }
 
 void absTest(ImgOperation func, char* outputPath)
@@ -65,7 +65,7 @@ void absTest(ImgOperation func, char* outputPath)
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
     writeImg(outputPath, *img);
-    free(img->data);
+    imgFree(img);
 }
 
 void gaussianBlurTest(unsigned iterations, char* outputPath)
@@ -83,25 +83,25 @@ void gaussianBlurTest(unsigned iterations, char* outputPath)
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
     writeImg(outputPath, *img);
-    free(img->data);
+    imgFree(img);
 }
 
 void tintTest(float rF, float gF, float bF, char* outputPath)
 {
-        clock_t start, end;
-        OpenIPLErrorInfo err;
-        Img* img = loadImg("examples\\source.png");
-        start = clock();
-        if ((err = imgTint(img, rF, gF, bF)).code != 0)
-        {
-            printf("code: %d msg: %s", err.code, err.message);
-            return;
-        }
-        end = clock();
-        double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
-        printf("time: %f sec ---> %s\n", timeSpent, outputPath);
-        writeImg(outputPath, *img);
-        free(img->data);
+    clock_t start, end;
+    OpenIPLErrorInfo err;
+    Img* img = loadImg("examples\\source.png");
+    start = clock();
+    if ((err = imgTint(img, rF, gF, bF)).code != 0)
+    {
+        printf("code: %d msg: %s", err.code, err.message);
+        return;
+    }
+    end = clock();
+    double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("time: %f sec ---> %s\n", timeSpent, outputPath);
+    writeImg(outputPath, *img);
+    imgFree(img);
 }
 
 void bilinearInterpolationTest(int h, int w, char* outputPath)
@@ -119,5 +119,5 @@ void bilinearInterpolationTest(int h, int w, char* outputPath)
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
     writeImg(outputPath, *img);
-    free(img->data);
+    imgFree(img);
 }

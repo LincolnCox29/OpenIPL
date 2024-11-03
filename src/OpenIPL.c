@@ -50,3 +50,12 @@ Img* loadImg(const char* path)
     img->data = stbi_load(path, &img->width, &img->height, &img->channels, 0);
     return img;
 }
+
+void imgFree(Img* img)
+{
+    if (img == NULL) 
+        return;
+    free(img->data);
+    img->data = NULL;
+    free(img);
+}
