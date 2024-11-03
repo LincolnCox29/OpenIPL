@@ -4,7 +4,7 @@
 OpenIPLErrorInfo imgDataValidation(const unsigned char* data)
 {
     return VALIDATE_CONDITION(data == NULL, OIPL_ERROR_LOADING_IMAGE,
-        "The specified path may be invalid or the file may not exist. Please check the file path and permissions.");
+        "The specified path may be invalid or the file may not exist. Please check the file path and permissions.\n");
 }
 
 OpenIPLErrorInfo factorValidation(const float factor)
@@ -16,5 +16,5 @@ OpenIPLErrorInfo factorValidation(const float factor)
 OpenIPLErrorInfo memallocValidation(const unsigned char* imgData)
 {
     return VALIDATE_CONDITION(imgData == NULL, OIPL_ERROR_MEMORY_ALLOCATION,
-        "Memory allocation failed.");
+        "Memory allocation failed.\n");
 }

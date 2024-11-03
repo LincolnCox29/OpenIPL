@@ -21,9 +21,9 @@ typedef struct
 
 #define SUCCESS (OpenIPLErrorInfo) { OIPL_SUCCESS, NULL }
 
-#define UNSUPPORTED_IMAGE_FORMAT (OpenIPLErrorInfo) { OIPL_ERROR_UNSUPPORTED_IMAGE_FORMAT, "Unsupported image format." }
+#define UNSUPPORTED_IMAGE_FORMAT (OpenIPLErrorInfo) { OIPL_ERROR_UNSUPPORTED_IMAGE_FORMAT, "Unsupported image format.\n" }
 
-#define FILE_PATH_DOES_NOT_EXIST (OpenIPLErrorInfo) { OIPL_ERROR_FILE_PATH_DOES_NOT_EXIST, "File path does not have an extension!" }
+#define FILE_PATH_DOES_NOT_EXIST (OpenIPLErrorInfo) { OIPL_ERROR_FILE_PATH_DOES_NOT_EXIST, "File path does not have an extension!\n" }
 
 OpenIPLErrorInfo imgDataValidation(const unsigned char* data);
 OpenIPLErrorInfo factorValidation(const float factor);
