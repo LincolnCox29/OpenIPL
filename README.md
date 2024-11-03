@@ -88,8 +88,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Grayscale.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Grayscale/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Grayscale/Grayscale.png" width="300"></td>
     </tr>
   </table>
 
@@ -101,8 +101,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/BlackAndWhite.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/BlackAndWhite/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/BlackAndWhite/BlackAndWhite.png" width="300"></td>
     </tr>
   </table>
 
@@ -114,8 +114,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Brightness.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Brightness/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Brightness/Brightness.png" width="300"></td>
     </tr>
   </table>
 
@@ -127,8 +127,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Contrast.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Contrast/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Contrast/Contrast.png" width="300"></td>
     </tr>
   </table>
 
@@ -140,8 +140,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/GaussianBlur.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/GaussianBlur/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/GaussianBlur/GaussianBlur.png" width="300"></td>
     </tr>
   </table>
 
@@ -153,8 +153,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/SepiaFilter.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/SepiaFilter/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/SepiaFilter/SepiaFilter.png" width="300"></td>
     </tr>
   </table>
 
@@ -166,8 +166,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/SobelFilter.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/SobelFilter/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/SobelFilter/SobelFilter.png" width="300"></td>
     </tr>
   </table>
 
@@ -179,8 +179,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/Negative.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Negative/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Negative/Negative.png" width="300"></td>
     </tr>
   </table>
 
@@ -192,23 +192,12 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/imgToMirror.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/ToMirror/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/ToMirror/ToMirror.png" width="300"></td>
     </tr>
   </table>
 
 - **imgTurn90(Img* img):** Rotates the image by 90 degrees.
-
-  <table>
-    <tr>
-      <td style="text-align: center;">Original Image</td>
-      <td style="text-align: center;">Modified Image</td>
-    </tr>
-    <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/imgTurn90.png" width="300"></td>
-    </tr>
-  </table>
 
 - **imgTint(Img* img, float rFactor, float gFactor, float bFactor):** Applies a color tint to the image by scaling each of the red, green, and blue channels independently. The `rFactor`, `gFactor`, and `bFactor` parameters adjust the intensity of the respective color channels. A factor greater than 1.0 increases the intensity of the color, while a factor less than 1.0 reduces it. Pixel values are clamped between 0 and 255 to ensure valid color representation.
 
@@ -218,8 +207,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/tint.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Tint/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Tint/Tint.png" width="300"></td>
     </tr>
   </table>
 
@@ -231,8 +220,8 @@ int main()
           <td style="text-align: center;">Modified Image</td>
       </tr> 
       <tr> 
-          <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/source.png" width="300"></td> 
-          <td><img src="https://github.com/LincolnCox29/ImgLib/blob/master/examples/imgSharpen.png" width="300"></td> 
+          <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Sharpen/source.png" width="300"></td> 
+          <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Sharpen/Sharpen.png" width="300"></td> 
       </tr> 
   </table>
 
