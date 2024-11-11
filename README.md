@@ -226,6 +226,19 @@ int main()
 
 - **imgBilinearInterpolation(Img* img, int newHeight, int newWidth):** Resizes the image to the specified `height` and `width` using bilinear interpolation.
 
+- **imgChromaticAberration(Img* img, int shiftX, int shiftY):** Simulates a chromatic aberration effect by shifting color channels (red, green, and blue) independently. The `shiftX` and `shiftY` parameters control the horizontal and vertical offset for the color channels, creating a subtle color fringing effect similar to optical distortions often seen in lower-quality lenses. This function can be used in combination with the Gaussian blur filter to reduce artifacts, resulting in a smoother and more natural aberration effect.
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/ChromaticAberration/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/ChromaticAberration/ChromaticAberration.png" width="300"></td>
+    </tr>
+  </table>
+
 ---
 
 ### **writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type):*
