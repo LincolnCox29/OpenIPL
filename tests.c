@@ -9,6 +9,7 @@ typedef OpenIPLErrorInfo(*ImgOperation)(Img*);
 typedef OpenIPLErrorInfo(*ImgOperationWithRGB)(Img*, float, float, float);
 typedef OpenIPLErrorInfo(*ImgOperationWithSize)(Img*, int, int);
 typedef OpenIPLErrorInfo(*ImgOperationWithIterations)(Img*, unsigned);
+typedef OpenIPLErrorInfo(*ImgOperationWithShift)(Img*, int, int, int, int, float);
 
 void testFunction(void* func, int argType, char* outputPath, char* sourcePath, ...);
 
@@ -18,10 +19,11 @@ enum
     FUNC_NO_ARGS,
     FUNC_WITH_RGB,
     FUNC_WITH_SIZE,
+    FUNC_WITH_SHIFT,
     FUNC_WITH_ITERATIONS
 };
 
-int main() 
+int main()
 {
     testFunction(imgToGrayscale, FUNC_WITH_FLOAT, "examples\\Grayscale\\Grayscale.png", "examples\\Grayscale\\source.png", 0.8f);
     testFunction(imgToBlackAndWhite, FUNC_WITH_FLOAT, "examples\\BlackAndWhite\\BlackAndWhite.png", "examples\\BlackAndWhite\\source.png", 0.3f);
@@ -38,6 +40,8 @@ int main()
     testFunction(imgBilinearInterpolation, FUNC_WITH_SIZE, "examples\\BilinearInterpolation\\BilinearInterpolation.png", "examples\\BilinearInterpolation\\source.png", 256, 200);
 
     testFunction(imgGaussianBlur, FUNC_WITH_ITERATIONS, "examples\\GaussianBlur\\GaussianBlur.png", "examples\\GaussianBlur\\source.png", 50u);
+
+    testFunction(imgChromaticAberration, FUNC_WITH_SHIFT, "examples\\ChromaticAberration\\ChromaticAberration.png", "examples\\ChromaticAberration\\source.png", 5, 5, -3, 0, 0.1f);
 
     testFunction(imgTint, FUNC_WITH_RGB, "examples\\Tint\\Tint.png", "examples\\Tint\\source.png", 1.2f, 1.0f, 0.8f);
 
@@ -92,6 +96,17 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
             ImgOperationWithIterations operation = (ImgOperationWithIterations)func;
             unsigned iterations = va_arg(args, unsigned);
             err = operation(img, iterations);
+            break;
+        }
+        case FUNC_WITH_SHIFT:
+        {
+            ImgOperationWithShift operation = (ImgOperationWithShift)func;
+            int bX = va_arg(args, int);
+            int bY = va_arg(args, int);
+            int rX = va_arg(args, int);
+            int rY = va_arg(args, int);
+            float threshold = (float)va_arg(args, double);
+            err = operation(img, bX, bY, rX, rY, threshold);
             break;
         }
     }

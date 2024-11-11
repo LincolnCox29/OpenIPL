@@ -31,3 +31,4 @@ OpenIPLErrorInfo imgToMirror(Img* img);
 OpenIPLErrorInfo imgTurn90(Img* img);
 OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width);
 OpenIPLErrorInfo imgSharpen(Img* img);
+OpenIPLErrorInfo imgChromaticAberration(Img* img, int bX, int bY, int rX, int rY, float threshold);
