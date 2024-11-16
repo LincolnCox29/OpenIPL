@@ -1,4 +1,3 @@
-#include "sharpen.h"
 #include "../errors.h"
 #include "../tools.h"
 #include <string.h>

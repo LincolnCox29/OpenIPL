@@ -1,7 +1,5 @@
-#include "negative.h"
 #include "../errors.h"
 #include "../tools.h"
-
 
 OpenIPLErrorInfo imgNegative(Img* img)
 {

@@ -1,4 +1,3 @@
-#include "tint.h"
 #include "../errors.h"
 #include "../tools.h"
 

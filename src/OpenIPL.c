@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <string.h>
 #include "errors.h"
-#include "operations/grayscale.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"

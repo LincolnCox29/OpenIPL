@@ -1,4 +1,3 @@
-#include "sobelFilter.h"
 #include "../errors.h"
 #include "../tools.h"
 

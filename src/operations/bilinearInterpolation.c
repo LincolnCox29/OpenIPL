@@ -1,4 +1,3 @@
-#include "bilinearInterpolation.h"
 #include "../errors.h"
 #include "../tools.h"
 

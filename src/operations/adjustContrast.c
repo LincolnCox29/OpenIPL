@@ -1,4 +1,3 @@
-#include "adjustContrast.h"
 #include "../errors.h"
 #include "../tools.h"
 

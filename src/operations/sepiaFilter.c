@@ -1,4 +1,3 @@
-#include "sepiaFilter.h"
 #include "../errors.h"
 #include "../tools.h"
 

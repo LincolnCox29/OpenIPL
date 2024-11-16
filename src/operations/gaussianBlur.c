@@ -1,4 +1,3 @@
-#include "gaussianBlur.h"
 #include "../errors.h"
 #include "../tools.h"
 #include "../simde/x86/sse2.h"

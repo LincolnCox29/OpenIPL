@@ -41,20 +41,6 @@
   <ItemGroup>
     <ClInclude Include="src\errors.h" />
     <ClInclude Include="src\OpenIPL.h" />
-    <ClInclude Include="src\operations\adjustBrightness.h" />
-    <ClInclude Include="src\operations\adjustContrast.h" />
-    <ClInclude Include="src\operations\bilinearInterpolation.h" />
-    <ClInclude Include="src\operations\chromaticAberration.h" />
-    <ClInclude Include="src\operations\gaussianBlur.h" />
-    <ClInclude Include="src\operations\grayscale.h" />
-    <ClInclude Include="src\operations\negative.h" />
-    <ClInclude Include="src\operations\sepiaFilter.h" />
-    <ClInclude Include="src\operations\sharpen.h" />
-    <ClInclude Include="src\operations\sobelFilter.h" />
-    <ClInclude Include="src\operations\tint.h" />
-    <ClInclude Include="src\operations\toBlackAndWhite.h" />
-    <ClInclude Include="src\operations\toMirror.h" />
-    <ClInclude Include="src\operations\Turn90.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\stb_image_write.h" />
     <ClInclude Include="src\tools.h" />
