@@ -15,10 +15,10 @@ OpenIPLErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor)
 
     for (int pIndex = 0; pIndex < totalPixels; pIndex++)
     {
-        for (short i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             colorIndex = pIndex * channels + i;
-            newColor = filter[i] * img->data[colorIndex];
+            newColor = (int)(filter[i] * img->data[colorIndex]);
 
             clampColorValue(&newColor);
             img->data[colorIndex] = (unsigned char)newColor;
