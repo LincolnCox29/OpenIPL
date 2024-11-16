@@ -16,22 +16,22 @@ OpenIPLErrorInfo writeImg(const char* path, Img img)
 
     if (ext != NULL)
     {
-        if (strcmp(ext, ".png") == 0 || strcmp(ext, ".PNG") == 0)
+        if (!strcmp(ext, ".png") || !strcmp(ext, ".PNG"))
         {
             stbi_write_png(path, img.width, img.height, img.channels, img.data, img.width * img.channels);
             return SUCCESS;
         }
-        else if (strcmp(ext, ".jpg") == 0 || strcmp(ext, ".jpeg") == 0 || strcmp(ext, ".JPG") == 0 || strcmp(ext, ".JPEG") == 0)
+        else if (!strcmp(ext, ".jpg") || !strcmp(ext, ".jpeg") || !strcmp(ext, ".JPG") || !strcmp(ext, ".JPEG"))
         {
             stbi_write_jpg(path, img.width, img.height, img.channels, img.data, 100);
             return SUCCESS;
         }
-        else if (strcmp(ext, ".bmp") == 0 || strcmp(ext, ".BMP") == 0)
+        else if (!strcmp(ext, ".bmp") || !strcmp(ext, ".BMP"))
         {
             stbi_write_bmp(path, img.width, img.height, img.channels, img.data);
             return SUCCESS;
         }
-        else if (strcmp(ext, ".tga") == 0 || strcmp(ext, ".TGA") == 0)
+        else if (!strcmp(ext, ".tga") || !strcmp(ext, ".TGA"))
         {
             stbi_write_tga(path, img.width, img.height, img.channels, img.data);
             return SUCCESS;
