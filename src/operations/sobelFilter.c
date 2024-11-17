@@ -1,5 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
+#include <string.h>
+#include <math.h>
 
 OpenIPLErrorInfo imgSobelFilter(Img* img, float factor)
 {
@@ -30,6 +32,7 @@ OpenIPLErrorInfo imgSobelFilter(Img* img, float factor)
     int gx = 0, gy = 0;
     int xOffset, yOffset;
     int newValue = 0;
+    int neighborIndex;
 
     for (int y = 0; y < img->height; y++)
     {
@@ -54,7 +57,7 @@ OpenIPLErrorInfo imgSobelFilter(Img* img, float factor)
                         if (xOffset < 0 || xOffset >= img->width)
                             continue;
 
-                        int neighborIndex = (yOffset * img->width + xOffset) * img->channels;
+                        neighborIndex = (yOffset * img->width + xOffset) * img->channels;
                         gx += img->data[neighborIndex + c] * sobelX[ky + 1][kx + 1];
                         gy += img->data[neighborIndex + c] * sobelY[ky + 1][kx + 1];
                     }
