@@ -1,8 +1,9 @@
+*.py linguist-detectable=true
+*.py linguist-language=Python
+
+CMakeLists.txt linguist-detectable=true
 *.c linguist-language=C
 *.h linguist-language=C
-*.py linguist-language=Python
-CMakeLists.txt linguist-language=CMake
-*.py linguist-detectable=true
-*.c linguist-detectable=true
-*.h linguist-detectable=true
-/* linguist-detectable=true
+
+scripts/* linguist-documentation=false
+scripts/* linguist-detectable=true
