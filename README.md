@@ -12,8 +12,11 @@ OpenIPL leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywhe
 ```
 ../OpenIPL/
 ├── README.md
+├── LICENSE
 ├── CMakeLists.txt
-├── tests.c
+├── scripts/
+├   ├── tests.c
+├   └── build.py
 └── src/
     ├── operations/
     └── simde/
