@@ -18,9 +18,6 @@
     <ClCompile Include="src\errors.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="tests.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\operations\grayscale.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -67,6 +64,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\operations\chromaticAberration.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\tests.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

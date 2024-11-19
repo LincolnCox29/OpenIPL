@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="scripts\tests.c" />
     <ClCompile Include="src\errors.c" />
     <ClCompile Include="src\OpenIPL.c" />
     <ClCompile Include="src\operations\adjustBrightness.c" />
@@ -36,7 +37,6 @@
     <ClCompile Include="src\operations\toMirror.c" />
     <ClCompile Include="src\operations\Turn90.c" />
     <ClCompile Include="src\tools.c" />
-    <ClCompile Include="tests.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\errors.h" />

@@ -1,4 +1,4 @@
-﻿#include "src/OpenIPL.h"
+﻿#include "../src/OpenIPL.h"
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
