@@ -12,6 +12,7 @@ typedef OpenIPLErrorInfo(*ImgOperationWithIterations)(Img*, unsigned);
 typedef OpenIPLErrorInfo(*ImgOperationWithShift)(Img*, int, int, int, int, float);
 
 void testFunction(void* func, int argType, char* outputPath, char* sourcePath, ...);
+void printErr(OpenIPLErrorInfo* err);
 
 enum 
 {
@@ -115,11 +116,18 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
 
-    if (err.code != 0)
-        printf("code: %d msg: %s\n", err.code, err.message);
-    else 
-        writeImg(outputPath, *img);
+    if (err.code)
+        printErr(&err);
+
+    err = writeImg(outputPath, *img);
+    if (err.code)
+        printErr(&err);
 
     imgFree(img);
     va_end(args);
+}
+
+void printErr(OpenIPLErrorInfo* err)
+{
+    printf("code: %d msg: %s\n", err->code, err->message);
 }
