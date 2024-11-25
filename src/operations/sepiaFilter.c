@@ -3,11 +3,8 @@
 
 OpenIPLErrorInfo imgSepiaFilter(Img* img)
 {
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
-    {
-        return err;
-    }
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     const int totalChannels = img->height * img->width * img->channels;
     int newColors[3] = { 0,0,0 };
@@ -28,5 +25,5 @@ OpenIPLErrorInfo imgSepiaFilter(Img* img)
         }
     }
 
-    return err;
+    return SUCCESS;
 }

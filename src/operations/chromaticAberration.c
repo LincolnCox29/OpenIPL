@@ -7,9 +7,8 @@
 
 OpenIPLErrorInfo imgChromaticAberration(Img* img, const int bX, const int bY, const int rX, const int rY, const float threshold)
 {
-    OpenIPLErrorInfo err;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
-        return err;
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     Img sobelImg;
     sobelImg.width = img->width;
@@ -18,7 +17,8 @@ OpenIPLErrorInfo imgChromaticAberration(Img* img, const int bX, const int bY, co
     sobelImg.data = imgDataAlloc(img);
     memcpy(sobelImg.data, img->data, img->width * img->height * img->channels * sizeof(unsigned char));
 
-    if ((err = imgSobelFilter(&sobelImg, 0.5f)).code != OIPL_SUCCESS)
+    OpenIPLErrorInfo err = imgSobelFilter(&sobelImg, 0.5f);
+    if (err.code)
         return err;
 
     int index, bxShift, byShift, rxShift, ryShift;
@@ -44,6 +44,7 @@ OpenIPLErrorInfo imgChromaticAberration(Img* img, const int bX, const int bY, co
             }
         }
     }
+
     free(sobelImg.data);
     return err;
 }

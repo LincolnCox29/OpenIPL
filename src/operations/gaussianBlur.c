@@ -12,13 +12,13 @@ OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
     unsigned char* currentData = img->data;
     unsigned char* blurredData = imgDataAlloc(img);
 
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
-        (err = memallocValidation(blurredData)).code != OIPL_SUCCESS)
+    if (blurredData == NULL)
     {
         free(blurredData);
-        return err;
+        return FAILED_MEMORY_ALLOCATION;
     }
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     const int weights[3][3] = 
     {
@@ -106,5 +106,5 @@ OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
         memcpy(img->data, currentData, img->width * img->height * img->channels);
 
     free(blurredData);
-    return err;
+    return SUCCESS;
 }

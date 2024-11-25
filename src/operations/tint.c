@@ -3,9 +3,8 @@
 
 OpenIPLErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor)
 {
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
-        return err;
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     const int totalPixels = img->height * img->width;
     const int channels = img->channels;
@@ -25,5 +24,5 @@ OpenIPLErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor)
         }
     }
 
-    return err;
+    return SUCCESS;
 }

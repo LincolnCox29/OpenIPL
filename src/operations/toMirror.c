@@ -3,9 +3,8 @@
 
 OpenIPLErrorInfo imgToMirror(Img* img)
 {
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
-        return err;
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     int pIndex = 0;
     unsigned char tempData;
@@ -27,5 +26,5 @@ OpenIPLErrorInfo imgToMirror(Img* img)
         }
     }
 
-    return err;
+    return SUCCESS;
 }

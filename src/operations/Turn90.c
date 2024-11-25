@@ -17,10 +17,13 @@ OpenIPLErrorInfo imgTurn90(Img* img)
 
     unsigned char* rotatedData = (unsigned char*)malloc(newWidth * newHeight * img->channels * sizeof(unsigned char));
 
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
-        (err = memallocValidation(rotatedData)).code != OIPL_SUCCESS)
-        return err;
+    if (rotatedData == NULL)
+    {
+        free(rotatedData);
+        return FAILED_MEMORY_ALLOCATION;
+    }
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     for (int y = 0; y < img->height; y++)
         for (int x = 0; x < img->width; x++)
@@ -32,5 +35,5 @@ OpenIPLErrorInfo imgTurn90(Img* img)
     img->width = newWidth;
     img->height = newHeight;
 
-    return err;
+    return SUCCESS;
 }

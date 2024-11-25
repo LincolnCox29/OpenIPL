@@ -3,12 +3,10 @@
 
 OpenIPLErrorInfo imgAdjustContrast(Img* img, const float factor)
 {
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
-        (err = factorValidation(factor)).code != OIPL_SUCCESS)
-    {
-        return err;
-    }
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
+    if (factor < 0)
+        return NEGATIVE_FACTOR;
 
     int pIndex = 0;
     const int totalChannels = img->height * img->width * img->channels;
@@ -21,5 +19,5 @@ OpenIPLErrorInfo imgAdjustContrast(Img* img, const float factor)
         img->data[cIndex] = (unsigned char)newValue;
     }
 
-    return err;
+    return SUCCESS;
 }

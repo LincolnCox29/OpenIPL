@@ -7,13 +7,13 @@ OpenIPLErrorInfo imgSharpen(Img* img)
     unsigned char* currentData = img->data;
     unsigned char* sharpenedData = imgDataAlloc(img);
 
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
-        (err = memallocValidation(sharpenedData)).code != OIPL_SUCCESS)
+    if (sharpenedData == NULL)
     {
         free(sharpenedData);
-        return err;
+        return FAILED_MEMORY_ALLOCATION;
     }
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     const int weights[3][3] = {
         { 0, -1,  0},
@@ -50,5 +50,5 @@ OpenIPLErrorInfo imgSharpen(Img* img)
 
     memcpy(img->data, sharpenedData, img->width * img->height * img->channels);
     free(sharpenedData);
-    return err;
+    return SUCCESS;
 }

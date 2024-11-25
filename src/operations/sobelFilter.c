@@ -5,14 +5,15 @@
 
 OpenIPLErrorInfo imgSobelFilter(Img* img, float factor)
 {
-    OpenIPLErrorInfo err = SUCCESS;
     unsigned char* edgeData = imgDataAlloc(img);
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
-        (err = memallocValidation(edgeData)).code != OIPL_SUCCESS)
+
+    if (edgeData == NULL)
     {
         free(edgeData);
-        return err;
+        return FAILED_MEMORY_ALLOCATION;
     }
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     const int sobelX[3][3] =
     {
@@ -73,5 +74,5 @@ OpenIPLErrorInfo imgSobelFilter(Img* img, float factor)
     memcpy(img->data, edgeData, img->width * img->height * img->channels * sizeof(unsigned char));
     free(edgeData);
 
-    return err;
+    return SUCCESS;
 }

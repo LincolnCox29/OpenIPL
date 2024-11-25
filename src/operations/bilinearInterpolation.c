@@ -3,14 +3,12 @@
 
 OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width)
 {
-    OpenIPLErrorInfo err = SUCCESS;
     unsigned char* newData = (unsigned char*)malloc(height * width * img->channels);
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
-        ((err = memallocValidation(newData)).code != OIPL_SUCCESS ||
-        (img->height == height && img->width == width)))
-    {
-        return err;
-    }
+
+    if (newData == NULL)
+        return FAILED_MEMORY_ALLOCATION;
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     float scaleX = (float)img->width / width;
     float scaleY = (float)img->height / height;
@@ -52,5 +50,5 @@ OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width)
     img->width = width;
     img->height = height;
 
-    return err;
+    return SUCCESS;
 }

@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="scripts\tests.c" />
-    <ClCompile Include="src\errors.c" />
     <ClCompile Include="src\OpenIPL.c" />
     <ClCompile Include="src\operations\adjustBrightness.c" />
     <ClCompile Include="src\operations\adjustContrast.c" />

@@ -3,12 +3,10 @@
 
 OpenIPLErrorInfo imgToBlackAndWhite(Img* img, const float factor)
 {
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
-        (err = factorValidation(factor)).code != OIPL_SUCCESS)
-    {
-        return err;
-    }
+    if (factor < 0)
+        return NEGATIVE_FACTOR;
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     float brightness;
     const int totalChannels = img->height * img->width * img->channels;
@@ -22,5 +20,5 @@ OpenIPLErrorInfo imgToBlackAndWhite(Img* img, const float factor)
             : memset(&img->data[pIndex], MIN_COLOR_VALUE, 3);
     }
 
-    return err;
+    return SUCCESS;
 }

@@ -3,12 +3,10 @@
 
 OpenIPLErrorInfo imgToGrayscale(Img* img, const float factor)
 {
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS ||
-        (err = factorValidation(factor)).code != OIPL_SUCCESS)
-    {
-        return err;
-    }
+    if (factor < 0)
+        return NEGATIVE_FACTOR;
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
 
     const int totalChannels = img->height * img->width * img->channels;
     unsigned char maxComponent;
@@ -21,5 +19,5 @@ OpenIPLErrorInfo imgToGrayscale(Img* img, const float factor)
             img->data[pIndex + c] = maxComponent;
     }
 
-    return err;
+    return SUCCESS;
 }

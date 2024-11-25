@@ -3,14 +3,12 @@
 
 OpenIPLErrorInfo imgNegative(Img* img)
 {
-    OpenIPLErrorInfo err = SUCCESS;
-    if ((err = imgDataValidation(img->data)).code != OIPL_SUCCESS)
-    {
-        return err;
-    }
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
+
     int totalPixels = img->height * img->width * img->channels;
     for (int pIndex = 0; pIndex < totalPixels; pIndex++)
         img->data[pIndex] = (unsigned char)(255 - img->data[pIndex]);
 
-    return err;
+    return SUCCESS;
 }
