@@ -33,4 +33,4 @@ OpenIPLErrorInfo imgTurn90(Img* img);
 OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width);
 OpenIPLErrorInfo imgSharpen(Img* img);
 OpenIPLErrorInfo imgChromaticAberration(Img* img, int bX, int bY, int rX, int rY, float threshold);
-OpenIPLErrorInfo imgAddText(Img* img, int x, int y, char* text, unsigned fontSize, const OIPLFont* font);
+OpenIPLErrorInfo imgAddText(Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPLFont* font, int r, int g, int b);

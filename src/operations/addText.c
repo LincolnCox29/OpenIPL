@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-OpenIPLErrorInfo imgAddText(Img* img, int x, int y, char* text, unsigned fontSize, const OIPLFont* font)
+OpenIPLErrorInfo imgAddText(Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPLFont* font, int r, int g, int b)
 {
     if (!img || !img->data)
         return ERROR_LOADING_IMAGE;
@@ -14,10 +14,35 @@ OpenIPLErrorInfo imgAddText(Img* img, int x, int y, char* text, unsigned fontSiz
     float scale = fontGetScaleForPixelHeight(font, (float)fontSize);
     int ascent, descent, lineGap;
     stbtt_GetFontVMetrics(&font->fontInfo, &ascent, &descent, &lineGap);
-    int baseline = (int)(ascent * scale);
 
-    int penX = x;
-    int penY = y + baseline;
+    int lineHeight = (int)((ascent - descent + lineGap) * scale);
+
+    int textWidth = 0;
+    for (size_t i = 0; text[i] != '\0'; i++)
+    {
+        if (text[i] == ' ')
+        {
+            int advanceWidth, leftSideBearing;
+            stbtt_GetCodepointHMetrics(&font->fontInfo, text[i], &advanceWidth, &leftSideBearing);
+            textWidth += (int)(advanceWidth * scale);
+        }
+        else
+        {
+            int advanceWidth, leftSideBearing;
+            stbtt_GetCodepointHMetrics(&font->fontInfo, text[i], &advanceWidth, &leftSideBearing);
+
+            if (text[i + 1])
+            {
+                int kern = stbtt_GetCodepointKernAdvance(&font->fontInfo, text[i], text[i + 1]);
+                textWidth += (int)(kern * scale);
+            }
+
+            textWidth += (int)(advanceWidth * scale);
+        }
+    }
+
+    int penX = centerX - textWidth / 2;
+    int penY = centerY - lineHeight / 2 + (int)(ascent * scale);
 
     for (size_t i = 0; text[i] != '\0'; i++)
     {
@@ -48,9 +73,9 @@ OpenIPLErrorInfo imgAddText(Img* img, int x, int y, char* text, unsigned fontSiz
                     int index = (imgY * img->width + imgX) * img->channels;
                     unsigned char glyphValue = glyphBitmap[gy * width + gx];
 
-                    img->data[index] = (img->data[index] * (255 - glyphValue) + 0 * glyphValue) / 255;         // Red
-                    img->data[index + 1] = (img->data[index + 1] * (255 - glyphValue) + 0 * glyphValue) / 255; // Green
-                    img->data[index + 2] = (img->data[index + 2] * (255 - glyphValue) + 0 * glyphValue) / 255; // Blue
+                    img->data[index] = (img->data[index] * (255 - glyphValue) + r * glyphValue) / 255;         // Red
+                    img->data[index + 1] = (img->data[index + 1] * (255 - glyphValue) + g * glyphValue) / 255; // Green
+                    img->data[index + 2] = (img->data[index + 2] * (255 - glyphValue) + b * glyphValue) / 255; // Blue
                 }
             }
         }
@@ -60,7 +85,7 @@ OpenIPLErrorInfo imgAddText(Img* img, int x, int y, char* text, unsigned fontSiz
 
         penX += (int)(advanceWidth * scale);
 
-        if (text[i + 1]) 
+        if (text[i + 1])
         {
             int kern = stbtt_GetCodepointKernAdvance(&font->fontInfo, text[i], text[i + 1]);
             penX += (int)(kern * scale);

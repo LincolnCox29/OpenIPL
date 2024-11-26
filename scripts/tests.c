@@ -11,7 +11,7 @@ typedef OpenIPLErrorInfo(*ImgOperationWithRGB)(Img*, float, float, float);
 typedef OpenIPLErrorInfo(*ImgOperationWithSize)(Img*, int, int);
 typedef OpenIPLErrorInfo(*ImgOperationWithIterations)(Img*, unsigned);
 typedef OpenIPLErrorInfo(*ImgOperationWithShift)(Img*, int, int, int, int, float);
-typedef OpenIPLErrorInfo(*ImgOperationWithFont)(Img*, int, int, char*, unsigned, OIPLFont*);
+typedef OpenIPLErrorInfo(*ImgOperationWithFont)(Img*, int, int, char*, unsigned, OIPLFont*, int, int, int);
 
 void testFunction(void* func, int argType, char* outputPath, char* sourcePath, ...);
 void printErr(OpenIPLErrorInfo* err);
@@ -49,7 +49,7 @@ int main()
 
     testFunction(imgTint, FUNC_WITH_RGB, "examples\\Tint\\Tint.png", "examples\\Tint\\source.png", 1.2f, 1.0f, 0.8f);
 
-    testFunction(imgAddText, FUNC_WITH_FONT, "examples\\AddText\\AddText.png", "examples\\AddText\\source.png", 240, 600, "Hello world", 70);
+    testFunction(imgAddText, FUNC_WITH_FONT, "examples\\AddText\\AddText.png", "examples\\AddText\\source.png", 350, 800, "Hello world", 100, 255, 255, 255);
 
     return 0;
 }
@@ -129,13 +129,16 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
             int y = va_arg(args, int);
             char* text = va_arg(args, char*);
             unsigned size = va_arg(args, unsigned);
+            int r = va_arg(args, int);
+            int g = va_arg(args, int);
+            int b = va_arg(args, int);
 
             OIPLFont font;
             err = fontLoadFromFile("examples\\AddText\\Lobster-Regular.ttf", &font);
             if (err.code)
                 goto error;
              
-            err = operation(img, x, y, text, size, &font);
+            err = operation(img, x, y, text, size, &font, r, g, b);
             if (err.code)
                 goto error;
 
