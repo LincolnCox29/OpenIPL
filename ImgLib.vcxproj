@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="scripts\tests.c" />
+    <ClCompile Include="src\font.c" />
     <ClCompile Include="src\OpenIPL.c" />
+    <ClCompile Include="src\operations\addText.c" />
     <ClCompile Include="src\operations\adjustBrightness.c" />
     <ClCompile Include="src\operations\adjustContrast.c" />
     <ClCompile Include="src\operations\bilinearInterpolation.c" />
@@ -39,9 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\errors.h" />
+    <ClInclude Include="src\font.h" />
     <ClInclude Include="src\OpenIPL.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\stb_image_write.h" />
+    <ClInclude Include="src\stb_truetype.h" />
     <ClInclude Include="src\tools.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

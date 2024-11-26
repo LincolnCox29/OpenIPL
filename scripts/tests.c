@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 typedef OpenIPLErrorInfo(*ImgOperationWithFac)(Img*, float);
 typedef OpenIPLErrorInfo(*ImgOperation)(Img*);
@@ -10,6 +11,7 @@ typedef OpenIPLErrorInfo(*ImgOperationWithRGB)(Img*, float, float, float);
 typedef OpenIPLErrorInfo(*ImgOperationWithSize)(Img*, int, int);
 typedef OpenIPLErrorInfo(*ImgOperationWithIterations)(Img*, unsigned);
 typedef OpenIPLErrorInfo(*ImgOperationWithShift)(Img*, int, int, int, int, float);
+typedef OpenIPLErrorInfo(*ImgOperationWithFont)(Img*, int, int, char*, unsigned, OIPLFont*);
 
 void testFunction(void* func, int argType, char* outputPath, char* sourcePath, ...);
 void printErr(OpenIPLErrorInfo* err);
@@ -21,7 +23,8 @@ enum
     FUNC_WITH_RGB,
     FUNC_WITH_SIZE,
     FUNC_WITH_SHIFT,
-    FUNC_WITH_ITERATIONS
+    FUNC_WITH_ITERATIONS,
+    FUNC_WITH_FONT
 };
 
 int main()
@@ -46,10 +49,12 @@ int main()
 
     testFunction(imgTint, FUNC_WITH_RGB, "examples\\Tint\\Tint.png", "examples\\Tint\\source.png", 1.2f, 1.0f, 0.8f);
 
+    testFunction(imgAddText, FUNC_WITH_FONT, "examples\\AddText\\AddText.png", "examples\\AddText\\source.png", 240, 600, "Hello world", 70);
+
     return 0;
 }
 
-void testFunction(void* func, int argType, char* outputPath, char* sourcePath, ...) 
+void testFunction(void* func, int argType, char* outputPath, char* sourcePath, ...)
 {
     va_list args;
     va_start(args, sourcePath);
@@ -58,24 +63,31 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
     Img* img = loadImg(sourcePath);
     OpenIPLErrorInfo err;
 
+    if (!img) 
+    {
+        printf("Error: Unable to load image from %s\n", sourcePath);
+        va_end(args);
+        return;
+    }
+
     start = clock();
 
-    switch (argType) 
+    switch (argType)
     {
-        case FUNC_WITH_FLOAT: 
+        case FUNC_WITH_FLOAT:
         {
             ImgOperationWithFac operation = (ImgOperationWithFac)func;
             float fac = (float)va_arg(args, double);
             err = operation(img, fac);
             break;
         }
-        case FUNC_NO_ARGS: 
+        case FUNC_NO_ARGS:
         {
             ImgOperation operation = (ImgOperation)func;
             err = operation(img);
             break;
         }
-        case FUNC_WITH_RGB: 
+        case FUNC_WITH_RGB:
         {
             ImgOperationWithRGB operation = (ImgOperationWithRGB)func;
             float rF = (float)va_arg(args, double);
@@ -84,7 +96,7 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
             err = operation(img, rF, gF, bF);
             break;
         }
-        case FUNC_WITH_SIZE: 
+        case FUNC_WITH_SIZE:
         {
             ImgOperationWithSize operation = (ImgOperationWithSize)func;
             int h = va_arg(args, int);
@@ -92,7 +104,7 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
             err = operation(img, h, w);
             break;
         }
-        case FUNC_WITH_ITERATIONS: 
+        case FUNC_WITH_ITERATIONS:
         {
             ImgOperationWithIterations operation = (ImgOperationWithIterations)func;
             unsigned iterations = va_arg(args, unsigned);
@@ -110,12 +122,33 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
             err = operation(img, bX, bY, rX, rY, threshold);
             break;
         }
+        case FUNC_WITH_FONT:
+        {
+            ImgOperationWithFont operation = (ImgOperationWithFont)func;
+            int x = va_arg(args, int);
+            int y = va_arg(args, int);
+            char* text = va_arg(args, char*);
+            unsigned size = va_arg(args, unsigned);
+
+            OIPLFont font;
+            err = fontLoadFromFile("examples\\AddText\\Lobster-Regular.ttf", &font);
+            if (err.code)
+                goto error;
+             
+            err = operation(img, x, y, text, size, &font);
+            if (err.code)
+                goto error;
+
+            free(font.fontBuffer);
+            break;
+        }
     }
 
     end = clock();
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
 
+    error:
     if (err.code)
         printErr(&err);
 

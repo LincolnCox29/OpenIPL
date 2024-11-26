@@ -1,6 +1,7 @@
 #pragma once
 
 #include "errors.h"
+#include "font.h"
 
 #define MID_COLOR_VALUE 128
 #define MAX_COLOR_VALUE 255
@@ -32,3 +33,4 @@ OpenIPLErrorInfo imgTurn90(Img* img);
 OpenIPLErrorInfo imgBilinearInterpolation(Img* img, int height, int width);
 OpenIPLErrorInfo imgSharpen(Img* img);
 OpenIPLErrorInfo imgChromaticAberration(Img* img, int bX, int bY, int rX, int rY, float threshold);
+OpenIPLErrorInfo imgAddText(Img* img, int x, int y, char* text, unsigned fontSize, const OIPLFont* font);
