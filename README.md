@@ -244,7 +244,7 @@ int main()
 
 ---
 
-### **writeImg(const char* path, Img img, const IMG_LIB_IMG_TYPE type):*
+### **writeImg(const char* path, Img img):*
 Saves an image to a file in the specified format.
 
 - **path**: The file path where the image will be saved.
