@@ -244,6 +244,66 @@ int main()
 
 ---
 
+- **imgAddText(Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPLFont* font, int r, int g, int b):**  
+  Renders text onto an image at the specified position and size. The text is centered at `(centerX, centerY)` with the given `fontSize`, using the provided `OIPLFont`. The `r`, `g`, and `b` parameters define the text color in RGB. 
+
+### Parameters:
+- **`img`**: Pointer to the target image.
+- **`centerX, centerY`**: Coordinates where the text is centered.
+- **`text`**: Null-terminated string to render.
+- **`fontSize`**: Size of the text in pixels.
+- **`font`**: Pointer to the `OIPLFont` structure containing font data.
+- **`r, g, b`**: Color values (0-255) for the red, green, and blue channels of the text.
+
+### Description:
+- The function calculates the text width and line height based on the font's metrics and scales it according to the desired font size.  
+- The text is rendered character by character, blending it with the background. Each glyph is placed at its computed position, ensuring proper spacing and kerning.  
+- Color blending ensures that the text appears anti-aliased on the image.
+
+### Example Usage:
+```c
+#include "OpenIPL.h"
+#include <stdio.h>
+
+int main()
+{
+    OpenIPLErrorInfo err;
+    Img* img = loadImg("src.png");
+
+    OIPLFont font;
+    err = fontLoadFromFile("Lobster-Regular.ttf", &font);
+    if (err.code)
+    {
+        printf("ERR --> COD: %d MSG: %s", err.code, err.message);
+        return 1;
+    }
+    
+    int halfWidth = (int)(img->width / 2);
+    err = imgAddText(img, halfWidth, 400, "Test Text", 60, &font, 0, 0, 0);
+    if (err.code)
+    {
+        printf("ERR --> COD: %d MSG: %s", err.code, err.message);
+        return 1;
+    }
+
+    writeImg("out.png", *img);
+    return 0;
+}
+```
+
+  <table>
+    <tr>
+      <td style="text-align: center;">Original Image</td>
+      <td style="text-align: center;">Modified Image</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/AddText/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/AddText/AddText.png" width="300"></td>
+    </tr>
+  </table>
+
+---
+
 ### **writeImg(const char* path, Img img):*
 Saves an image to a file in the specified format.
 
