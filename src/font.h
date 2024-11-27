@@ -2,7 +2,6 @@
 #define FONT_H
 
 #include "stb_truetype.h"
-#include "errors.h"
 
 typedef struct OIPLFont 
 {
@@ -10,7 +9,7 @@ typedef struct OIPLFont
     unsigned char* fontBuffer;
 } OIPLFont;
 
-OpenIPLErrorInfo fontLoadFromFile(const char* path, OIPLFont* font);
+OIPLFont* fontLoadFromFile(const char* path);
 void fontFree(OIPLFont* font);
 float fontGetScaleForPixelHeight(OIPLFont* font, float pixelHeight);
 

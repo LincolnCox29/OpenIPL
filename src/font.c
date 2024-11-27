@@ -5,14 +5,13 @@
 #include <string.h>
 #include "errors.h"
 
-OpenIPLErrorInfo fontLoadFromFile(const char* path, OIPLFont* font)
+OIPLFont* fontLoadFromFile(const char* path)
 {
-    if (!font)
-        return FAILED_MEMORY_ALLOCATION;
+    OIPLFont* font = (OIPLFont*)malloc(sizeof(OIPLFont));
 
     FILE* file = fopen(path, "rb");
     if (!file)
-        return FILE_PATH_DOES_NOT_EXIST;
+        return NULL;
 
     fseek(file, 0, SEEK_END);
     size_t size = ftell(file);
@@ -22,7 +21,7 @@ OpenIPLErrorInfo fontLoadFromFile(const char* path, OIPLFont* font)
     if (!buffer)
     {
         fclose(file);
-        return FAILED_MEMORY_ALLOCATION;
+        return NULL;
     }
 
     fread(buffer, 1, size, file);
@@ -31,11 +30,12 @@ OpenIPLErrorInfo fontLoadFromFile(const char* path, OIPLFont* font)
     if (!stbtt_InitFont(&font->fontInfo, buffer, stbtt_GetFontOffsetForIndex(buffer, 0)))
     {
         free(buffer);
-        return UNSUPPORTED_IMAGE_FORMAT;
+        free(font);
+        return NULL;
     }
 
     font->fontBuffer = buffer;
-    return SUCCESS;
+    return font;
 }
 
 void fontFree(OIPLFont* font) 

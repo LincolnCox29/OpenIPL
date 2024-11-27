@@ -11,6 +11,9 @@ OpenIPLErrorInfo imgAddText(Img* img, int centerX, int centerY, char* text, unsi
     if (!img || !img->data)
         return ERROR_LOADING_IMAGE;
 
+    if (!font)
+        return FAILED_MEMORY_ALLOCATION;
+
     float scale = fontGetScaleForPixelHeight(font, (float)fontSize);
     int ascent, descent, lineGap;
     stbtt_GetFontVMetrics(&font->fontInfo, &ascent, &descent, &lineGap);

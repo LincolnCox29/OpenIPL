@@ -133,16 +133,10 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
             int g = va_arg(args, int);
             int b = va_arg(args, int);
 
-            OIPLFont font;
-            err = fontLoadFromFile("examples\\AddText\\Lobster-Regular.ttf", &font);
-            if (err.code)
-                goto error;
+            OIPLFont* font = fontLoadFromFile("examples\\AddText\\Lobster-Regular.ttf");
              
-            err = operation(img, x, y, text, size, &font, r, g, b);
-            if (err.code)
-                goto error;
+            err = operation(img, x, y, text, size, font, r, g, b);
 
-            free(font.fontBuffer);
             break;
         }
     }
@@ -151,7 +145,6 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
     double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("time: %f sec ---> %s\n", timeSpent, outputPath);
 
-    error:
     if (err.code)
         printErr(&err);
 
