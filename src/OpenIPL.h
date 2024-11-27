@@ -18,7 +18,7 @@ void clampColorValue(int* value);
 void imgFree(Img* img);
 unsigned char MaxComponent(unsigned char r, unsigned char g, unsigned char b);
 Img* loadImg(const char* path);
-OpenIPLErrorInfo writeImg(const char* path, Img img);
+OpenIPLErrorInfo writeImg(const char* path, Img* img);
 OpenIPLErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor);
 OpenIPLErrorInfo imgToGrayscale(Img* img, const float factor);
 OpenIPLErrorInfo imgToBlackAndWhite(Img* img, const float factor);

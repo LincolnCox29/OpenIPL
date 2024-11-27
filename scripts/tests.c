@@ -148,7 +148,7 @@ void testFunction(void* func, int argType, char* outputPath, char* sourcePath, .
     if (err.code)
         printErr(&err);
 
-    err = writeImg(outputPath, *img);
+    err = writeImg(outputPath, img);
     if (err.code)
         printErr(&err);
 
