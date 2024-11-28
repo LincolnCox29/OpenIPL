@@ -29,6 +29,8 @@ OpenIPL leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywhe
 
 ## Building
 
+### Manual Build
+
 1. **Clone the repository**:
 
    ```bash
@@ -55,7 +57,28 @@ OpenIPL leverages the [SIMDe (SIMD Everywhere)](https://github.com/simd-everywhe
    cmake --build . --config Release
    ```
 
+### Automatic Build (Recommended)
+
+For convenience, you can use the provided Python script to automate the entire build process:
+
+1. Simply run the script:
+
+   ```bash
+   python OpenIPL/scripts/build.py
+   ```
+
+   This script will:
+   - Create the build directory.
+   - Configure the project with CMake.
+   - Build the project in Release mode.
+
+2. Make sure Python is installed on your system. If it’s not, you can download it [here](https://www.python.org/).
+
+---
+
 After building, the compiled static library `OpenIPL.lib` will be located in the `lib` directory.
+
+---
 
 ## Usage
 
