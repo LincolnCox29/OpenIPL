@@ -67,16 +67,28 @@ Example usage:
 #include "OpenIPL.h"
 #include <stdio.h>
 
+#define printError(errPtr) (printf("ERR --> CODE: %d MSG: %s\n", (errPtr)->code, (errPtr)->message))
+
 int main()
 {
+    OpenIPLErrorInfo err;
     Img* img = loadImg("src.png");
-    OpenIPLErrorInfo err = imgBilinearInterpolation(img, 256, 256);
-    if (err.code != OIPL_SUCCESS)
+	
+    err = imgAdjustBrightness(img, 1.5f);
+    if (err.code)
     {
-        printf("ERR MSG: %s", err.message);
+        imgFree(img);
+        printError(&err);
         return 1;
     }
-    writeImg("out.png", *img);
+
+    err = writeImg("out.png", img);
+    imgFree(img);
+    if (err.code)
+    {
+        printError(&err);
+        return 1;
+    }
     return 0;
 }
 ```
@@ -265,29 +277,32 @@ int main()
 #include "OpenIPL.h"
 #include <stdio.h>
 
+#define printError(errPtr) (printf("ERR --> CODE: %d MSG: %s\n", (errPtr)->code, (errPtr)->message))
+
 int main()
 {
     OpenIPLErrorInfo err;
     Img* img = loadImg("src.png");
-
-    OIPLFont font;
-    err = fontLoadFromFile("Lobster-Regular.ttf", &font);
-    if (err.code)
-    {
-        printf("ERR --> COD: %d MSG: %s", err.code, err.message);
-        return 1;
-    }
-    
+    OIPLFont* font = fontLoadFromFile("font.ttf");
+	
     int halfWidth = (int)(img->width / 2);
-    err = imgAddText(img, halfWidth, 400, "Test Text", 60, &font, 0, 0, 0);
+    err = imgAddText(img, halfWidth, 800, "Test Text", 75, font, 255, 255, 255);
     if (err.code)
     {
-        printf("ERR --> COD: %d MSG: %s", err.code, err.message);
+        imgFree(img);
+        fontFree(font);
+        printError(&err);
         return 1;
     }
 
-    writeImg("out.png", *img);
-    return 0;
+    err = writeImg("out.png", img);
+    imgFree(img);
+    fontFree(font);
+    if (err.code)
+    {
+        printError(&err);
+        return 1;
+    }
 }
 ```
 

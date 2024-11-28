@@ -12,7 +12,7 @@ OpenIPLErrorInfo imgAddText(Img* img, int centerX, int centerY, char* text, unsi
         return ERROR_LOADING_IMAGE;
 
     if (!font)
-        return FAILED_MEMORY_ALLOCATION;
+        return FILE_PATH_DOES_NOT_EXIST;
 
     float scale = fontGetScaleForPixelHeight(font, (float)fontSize);
     int ascent, descent, lineGap;
