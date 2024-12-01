@@ -5,6 +5,8 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#define _CRT_SECURE_NO_WARNINGS
+
 typedef OpenIPLErrorInfo(*ImgOperationWithFac)(Img*, float);
 typedef OpenIPLErrorInfo(*ImgOperation)(Img*);
 typedef OpenIPLErrorInfo(*ImgOperationWithRGB)(Img*, float, float, float);
@@ -13,7 +15,7 @@ typedef OpenIPLErrorInfo(*ImgOperationWithIterations)(Img*, unsigned);
 typedef OpenIPLErrorInfo(*ImgOperationWithShift)(Img*, int, int, int, int, float);
 typedef OpenIPLErrorInfo(*ImgOperationWithFont)(Img*, int, int, char*, unsigned, OIPLFont*, int, int, int);
 
-void testFunction(void* func, int argType, char* outputPath, char* sourcePath, ...);
+void testFunction(void* func, int argType, char* operationName, ...);
 void printErr(OpenIPLErrorInfo* err);
 
 enum 
@@ -29,35 +31,41 @@ enum
 
 int main()
 {
-    testFunction(imgToGrayscale, FUNC_WITH_FLOAT, "examples\\Grayscale\\Grayscale.png", "examples\\Grayscale\\source.png", 0.8f);
-    testFunction(imgToBlackAndWhite, FUNC_WITH_FLOAT, "examples\\BlackAndWhite\\BlackAndWhite.png", "examples\\BlackAndWhite\\source.png", 0.3f);
-    testFunction(imgAdjustBrightness, FUNC_WITH_FLOAT, "examples\\Brightness\\Brightness.png", "examples\\Brightness\\source.png", 0.7f);
-    testFunction(imgAdjustContrast, FUNC_WITH_FLOAT, "examples\\Contrast\\Contrast.png", "examples\\Contrast\\source.png", 0.7f);
-    testFunction(imgSobelFilter, FUNC_WITH_FLOAT, "examples\\SobelFilter\\SobelFilter.png", "examples\\SobelFilter\\source.png", 0.4f);
+    testFunction(imgToGrayscale, FUNC_WITH_FLOAT, "Grayscale", 0.8f);
+    testFunction(imgToBlackAndWhite, FUNC_WITH_FLOAT, "BlackAndWhite", 0.3f);
+    testFunction(imgAdjustBrightness, FUNC_WITH_FLOAT, "Brightness", 0.7f);
+    testFunction(imgAdjustContrast, FUNC_WITH_FLOAT, "Contrast", 0.7f);
+    testFunction(imgSobelFilter, FUNC_WITH_FLOAT, "SobelFilter", 0.4f);
 
-    testFunction(imgSepiaFilter, FUNC_NO_ARGS, "examples\\SepiaFilter\\SepiaFilter.png", "examples\\SepiaFilter\\source.png");
-    testFunction(imgNegative, FUNC_NO_ARGS, "examples\\Negative\\Negative.png", "examples\\Negative\\source.png");
-    testFunction(imgToMirror, FUNC_NO_ARGS, "examples\\ToMirror\\ToMirror.png", "examples\\ToMirror\\source.png");
-    testFunction(imgTurn90, FUNC_NO_ARGS, "examples\\Turn90\\Turn90.png", "examples\\Turn90\\source.png");
-    testFunction(imgSharpen, FUNC_NO_ARGS, "examples\\Sharpen\\Sharpen.png", "examples\\Sharpen\\source.png");
+    testFunction(imgSepiaFilter, FUNC_NO_ARGS, "SepiaFilter");
+    testFunction(imgNegative, FUNC_NO_ARGS, "Negative");
+    testFunction(imgToMirror, FUNC_NO_ARGS, "ToMirror");
+    testFunction(imgTurn90, FUNC_NO_ARGS, "Turn90");
+    testFunction(imgSharpen, FUNC_NO_ARGS, "Sharpen");
 
-    testFunction(imgBilinearInterpolation, FUNC_WITH_SIZE, "examples\\BilinearInterpolation\\BilinearInterpolation.png", "examples\\BilinearInterpolation\\source.png", 256, 200);
+    testFunction(imgBilinearInterpolation, FUNC_WITH_SIZE, "BilinearInterpolation", 256, 200);
 
-    testFunction(imgGaussianBlur, FUNC_WITH_ITERATIONS, "examples\\GaussianBlur\\GaussianBlur.png", "examples\\GaussianBlur\\source.png", 50u);
+    testFunction(imgGaussianBlur, FUNC_WITH_ITERATIONS, "GaussianBlur", 50u);
 
-    testFunction(imgChromaticAberration, FUNC_WITH_SHIFT, "examples\\ChromaticAberration\\ChromaticAberration.png", "examples\\ChromaticAberration\\source.png", 5, 5, -3, 0, 0.1f);
+    testFunction(imgChromaticAberration, FUNC_WITH_SHIFT, "ChromaticAberration", 5, 5, -3, 0, 0.1f);
 
-    testFunction(imgTint, FUNC_WITH_RGB, "examples\\Tint\\Tint.png", "examples\\Tint\\source.png", 1.2f, 1.0f, 0.8f);
+    testFunction(imgTint, FUNC_WITH_RGB, "Tint", 1.2f, 1.0f, 0.8f);
 
-    testFunction(imgAddText, FUNC_WITH_FONT, "examples\\AddText\\AddText.png", "examples\\AddText\\source.png", 350, 800, "Hello world", 100, 255, 255, 255);
+    testFunction(imgAddText, FUNC_WITH_FONT, "AddText", 350, 800, "Hello world", 100, 255, 255, 255);
 
     return 0;
 }
 
-void testFunction(void* func, int argType, char* outputPath, char* sourcePath, ...)
+void testFunction(void* func, int argType, char* operationName, ...)
 {
+    char outputPath[128];
+    snprintf(outputPath, sizeof(outputPath), "examples\\%s\\%s.png", operationName, operationName);
+
+    char sourcePath[128];
+    snprintf(sourcePath, sizeof(sourcePath), "examples\\%s\\source.png", operationName);
+
     va_list args;
-    va_start(args, sourcePath);
+    va_start(args, operationName);
 
     clock_t start, end;
     Img* img = loadImg(sourcePath);
