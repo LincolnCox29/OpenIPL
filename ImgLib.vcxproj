@@ -37,6 +37,7 @@
     <ClCompile Include="src\operations\toBlackAndWhite.c" />
     <ClCompile Include="src\operations\toMirror.c" />
     <ClCompile Include="src\operations\Turn90.c" />
+    <ClCompile Include="src\operations\vignette.c" />
     <ClCompile Include="src\tools.c" />
   </ItemGroup>
   <ItemGroup>

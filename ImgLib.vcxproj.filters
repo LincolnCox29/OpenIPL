@@ -72,6 +72,9 @@
     <ClCompile Include="src\operations\addText.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\operations\vignette.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stb_image.h">

@@ -36,6 +36,7 @@ int main()
     testFunction(imgAdjustBrightness, FUNC_WITH_FLOAT, "Brightness", 0.7f);
     testFunction(imgAdjustContrast, FUNC_WITH_FLOAT, "Contrast", 0.7f);
     testFunction(imgSobelFilter, FUNC_WITH_FLOAT, "SobelFilter", 0.4f);
+    testFunction(imgVignette, FUNC_WITH_FLOAT, "Vignette", 0.8f);
 
     testFunction(imgSepiaFilter, FUNC_NO_ARGS, "SepiaFilter");
     testFunction(imgNegative, FUNC_NO_ARGS, "Negative");

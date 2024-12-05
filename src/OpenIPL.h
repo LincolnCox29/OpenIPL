@@ -24,6 +24,7 @@ OpenIPLErrorInfo imgToGrayscale(Img* img, const float factor);
 OpenIPLErrorInfo imgToBlackAndWhite(Img* img, const float factor);
 OpenIPLErrorInfo imgAdjustBrightness(Img* img, const float factor);
 OpenIPLErrorInfo imgAdjustContrast(Img* img, const float factor);
+OpenIPLErrorInfo imgVignette(Img* img, float factor);
 OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations);
 OpenIPLErrorInfo imgSepiaFilter(Img* img);
 OpenIPLErrorInfo imgNegative(Img* img);

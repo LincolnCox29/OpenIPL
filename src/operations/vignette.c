@@ -1,0 +1,39 @@
+#include "../errors.h"
+#include "../tools.h"
+#include <math.h>
+
+inline void applyVignette(unsigned char* channelPtr, double factor)
+{
+    int newValue = (int)(*channelPtr * factor);
+    *channelPtr = (unsigned char)(newValue > 255 ? 255 : newValue);
+}
+
+OpenIPLErrorInfo imgVignette(Img* img, float factor)
+{
+    if (img->data == NULL)
+        return ERROR_LOADING_IMAGE;
+    if (factor < 0.0f)
+        return NEGATIVE_FACTOR;
+
+    const double halfW = img->width / 2.0;
+    const double halfH = img->height / 2.0;
+    const double maxDistance = sqrt(halfW * halfW + halfH * halfH);
+
+    for (int y = 0; y < img->height; y++)
+    {
+        for (int x = 0; x < img->width; x++)
+        {
+            int pIndex = (y * img->width + x) * img->channels;
+
+            double distance = sqrt((x - halfW) * (x - halfW) + (y - halfH) * (y - halfH));
+            double vignetteFactor = 1.0 - (distance / maxDistance) * factor;
+            if (vignetteFactor < 0.0) vignetteFactor = 0.0;
+
+            applyVignette(&img->data[pIndex], vignetteFactor);
+            applyVignette(&img->data[pIndex + 1], vignetteFactor);
+            applyVignette(&img->data[pIndex + 2], vignetteFactor);
+        }
+    }
+
+    return SUCCESS;
+}
