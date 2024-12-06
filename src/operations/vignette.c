@@ -8,11 +8,13 @@ inline void applyVignette(unsigned char* channelPtr, double factor)
     *channelPtr = (unsigned char)(newValue > 255 ? 255 : newValue);
 }
 
-OpenIPLErrorInfo imgVignette(Img* img, float factor)
+#define DISTANCE(x, y, halfW, halfH) (sqrt((x - halfW) * (x - halfW) + (y - halfH) * (y - halfH)))
+
+OpenIPLErrorInfo imgVignette(Img* img, float intensity, float curve)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;
-    if (factor < 0.0f)
+    if (intensity < 0.0f || curve <= 0.0f)
         return NEGATIVE_FACTOR;
 
     const double halfW = img->width / 2.0;
@@ -25,8 +27,9 @@ OpenIPLErrorInfo imgVignette(Img* img, float factor)
         {
             int pIndex = (y * img->width + x) * img->channels;
 
-            double distance = sqrt((x - halfW) * (x - halfW) + (y - halfH) * (y - halfH));
-            double vignetteFactor = 1.0 - (distance / maxDistance) * factor;
+            double distanceFactor = DISTANCE(x, y, halfW, halfH) / maxDistance;
+
+            double vignetteFactor = 1.0 - pow(distanceFactor, curve) * intensity;
             if (vignetteFactor < 0.0) vignetteFactor = 0.0;
 
             applyVignette(&img->data[pIndex], vignetteFactor);

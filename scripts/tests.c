@@ -8,6 +8,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 typedef OpenIPLErrorInfo(*ImgOperationWithFac)(Img*, float);
+typedef OpenIPLErrorInfo(*ImgOperationWith2Fac)(Img*, float, float);
 typedef OpenIPLErrorInfo(*ImgOperation)(Img*);
 typedef OpenIPLErrorInfo(*ImgOperationWithRGB)(Img*, float, float, float);
 typedef OpenIPLErrorInfo(*ImgOperationWithSize)(Img*, int, int);
@@ -21,6 +22,7 @@ void printErr(OpenIPLErrorInfo* err);
 enum 
 {
     FUNC_WITH_FLOAT,
+    FUNC_WITH_2_FLOAT,
     FUNC_NO_ARGS,
     FUNC_WITH_RGB,
     FUNC_WITH_SIZE,
@@ -36,13 +38,14 @@ int main()
     testFunction(imgAdjustBrightness, FUNC_WITH_FLOAT, "Brightness", 0.7f);
     testFunction(imgAdjustContrast, FUNC_WITH_FLOAT, "Contrast", 0.7f);
     testFunction(imgSobelFilter, FUNC_WITH_FLOAT, "SobelFilter", 0.4f);
-    testFunction(imgVignette, FUNC_WITH_FLOAT, "Vignette", 0.8f);
 
     testFunction(imgSepiaFilter, FUNC_NO_ARGS, "SepiaFilter");
     testFunction(imgNegative, FUNC_NO_ARGS, "Negative");
     testFunction(imgToMirror, FUNC_NO_ARGS, "ToMirror");
     testFunction(imgTurn90, FUNC_NO_ARGS, "Turn90");
     testFunction(imgSharpen, FUNC_NO_ARGS, "Sharpen");
+
+    testFunction(imgVignette, FUNC_WITH_2_FLOAT, "Vignette", 0.8f, 1.4f);
 
     testFunction(imgBilinearInterpolation, FUNC_WITH_SIZE, "BilinearInterpolation", 256, 200);
 
@@ -88,6 +91,14 @@ void testFunction(void* func, int argType, char* operationName, ...)
             ImgOperationWithFac operation = (ImgOperationWithFac)func;
             float fac = (float)va_arg(args, double);
             err = operation(img, fac);
+            break;
+        }
+        case FUNC_WITH_2_FLOAT:
+        {
+            ImgOperationWith2Fac operation = (ImgOperationWith2Fac)func;
+            float fac1 = (float)va_arg(args, double);
+            float fac2 = (float)va_arg(args, double);
+            err = operation(img, fac1, fac2);
             break;
         }
         case FUNC_NO_ARGS:
