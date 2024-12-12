@@ -1,6 +1,5 @@
 #include "../errors.h"
 #include "../tools.h"
-#include "../simde/x86/sse2.h"
 
 inline int reflect(int pos, int max) 
 {
@@ -40,7 +39,7 @@ OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 
                 for (int c = 0; c < 3; c++)
                 {
-                    simde__m128i sum = simde_mm_setzero_si128();
+                    int sum = 0;
                     for (int ky = -1; ky <= 1; ky++)
                     {
                         int yOffset = y + ky;
@@ -51,12 +50,12 @@ OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
                             int neighborIndex = (yOffset * img->width + xOffset) * img->channels;
                             int weight = weights[ky + 1][kx + 1];
 
-                            simde__m128i pixelValue = simde_mm_set1_epi32(currentData[neighborIndex + c] * weight);
-                            sum = simde_mm_add_epi32(sum, pixelValue);
+                            int pixelValue = currentData[neighborIndex + c] * weight;
+                            sum = sum + pixelValue;
                         }
                     }
 
-                    int blurredValue = simde_mm_cvtsi128_si32(sum) / weightSum;
+                    int blurredValue = sum / weightSum;
                     clampColorValue(&blurredValue);
                     blurredData[pIndex + c] = (unsigned char)blurredValue;
                 }
@@ -74,7 +73,7 @@ OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
 
                 for (int c = 0; c < 3; c++)
                 {
-                    simde__m128i sum = simde_mm_setzero_si128();
+                    int sum = 0;
                     for (int ky = -1; ky <= 1; ky++)
                     {
                         int yOffset = reflect(y + ky, img->height);
@@ -85,12 +84,12 @@ OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
                             int neighborIndex = (yOffset * img->width + xOffset) * img->channels;
                             int weight = weights[ky + 1][kx + 1];
 
-                            simde__m128i pixelValue = simde_mm_set1_epi32(currentData[neighborIndex + c] * weight);
-                            sum = simde_mm_add_epi32(sum, pixelValue);
+                            int pixelValue = currentData[neighborIndex + c] * weight;
+                            sum = sum +pixelValue;
                         }
                     }
 
-                    int blurredValue = simde_mm_cvtsi128_si32(sum) / weightSum;
+                    int blurredValue = sum / weightSum;
                     clampColorValue(&blurredValue);
                     blurredData[pIndex + c] = (unsigned char)blurredValue;
                 }
