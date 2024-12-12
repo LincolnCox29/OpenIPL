@@ -1,6 +1,6 @@
 ## 📚 Documentation
 
-- **imgToGrayscale(Img* img, float factor):** Converts an image to grayscale. The factor adjusts the degree of conversion.
+- imgToGrayscale(Img* img, float factor): Converts an image to grayscale. The factor adjusts the degree of conversion.
   
   <table>
     <tr>
@@ -13,7 +13,7 @@
     </tr>
   </table>
 
-- **imgToBlackAndWhite(Img* img, float factor):** Converts an image to black and white. The factor adjusts the brightness threshold.
+- imgToBlackAndWhite(Img* img, float factor): Converts an image to black and white. The factor adjusts the brightness threshold.
 
   <table>
     <tr>
@@ -26,7 +26,7 @@
     </tr>
   </table>
 
-- **imgAdjustBrightness(Img* img, float factor):** Adjusts the brightness of the image. The factor scales the brightness of each pixel, where `factor > 1.0` increases brightness, and `factor < 1.0` decreases it. Pixel values are clamped between 0 and 255.
+- imgAdjustBrightness(Img* img, float factor): Adjusts the brightness of the image. The factor scales the brightness of each pixel, where `factor > 1.0` increases brightness, and `factor < 1.0` decreases it. Pixel values are clamped between 0 and 255.
 
   <table>
     <tr>
@@ -39,7 +39,7 @@
     </tr>
   </table>
 
-- **imgAdjustContrast(Img* img, float factor):** Adjusts the contrast of the image. The factor modifies the contrast where 1.0 keeps it unchanged, values greater than 1.0 increase contrast, and values less than 1.0 decrease it.
+- imgAdjustContrast(Img* img, float factor): Adjusts the contrast of the image. The factor modifies the contrast where 1.0 keeps it unchanged, values greater than 1.0 increase contrast, and values less than 1.0 decrease it.
 
   <table>
     <tr>
@@ -52,7 +52,7 @@
     </tr>
   </table>
 
-- **imgGaussianBlur(Img* img, unsigned iterations):** Applies Gaussian blur to the image. The `iterations` parameter controls how many times the blur is applied; more iterations result in a stronger blur effect.
+- imgGaussianBlur(Img* img, unsigned iterations): Applies Gaussian blur to the image. The `iterations` parameter controls how many times the blur is applied; more iterations result in a stronger blur effect.
 
   <table>
     <tr>
@@ -65,7 +65,7 @@
     </tr>
   </table>
 
-- **imgSepiaFilter(Img* img):** Applies a sepia tone effect to the image. This filter modifies the red, green, and blue color channels to create a warm, vintage look.
+- imgSepiaFilter(Img* img): Applies a sepia tone effect to the image. This filter modifies the red, green, and blue color channels to create a warm, vintage look.
 
   <table>
     <tr>
@@ -78,7 +78,7 @@
     </tr>
   </table>
 
-- **imgSobelFilter(Img* img, float factor):** Applies the Sobel filter to detect edges in an image. The `sensitivityFactor` adjusts the strength of the gradient. A higher value enhances edge visibility, while a lower value reduces sensitivity to less distinct edges. This filter calculates the horizontal and vertical gradients using Sobel operators and combines them to highlight areas of high intensity change.
+- imgSobelFilter(Img* img, float factor): Applies the Sobel filter to detect edges in an image. The `sensitivityFactor` adjusts the strength of the gradient. A higher value enhances edge visibility, while a lower value reduces sensitivity to less distinct edges. This filter calculates the horizontal and vertical gradients using Sobel operators and combines them to highlight areas of high intensity change.
 
   <table>
     <tr>
@@ -91,7 +91,7 @@
     </tr>
   </table>
 
-- **imgNegative(Img* img):** Inverts the colors of the image, creating a negative effect by subtracting each color component (red, green, blue) from 255.
+- imgNegative(Img* img): Inverts the colors of the image, creating a negative effect by subtracting each color component (red, green, blue) from 255.
 
   <table>
     <tr>
@@ -104,7 +104,7 @@
     </tr>
   </table>
 
-- **imgToMirror(Img* img):** Creates a mirrored version of the image by flipping it horizontally.
+- imgToMirror(Img* img): Creates a mirrored version of the image by flipping it horizontally.
 
   <table>
     <tr>
@@ -117,8 +117,8 @@
     </tr>
   </table>
 
-- **imgTurn90(Img* img):** Rotates the image by 90 degrees.
-- **imgTint(Img* img, float rFactor, float gFactor, float bFactor):** Applies a color tint to the image by scaling each of the red, green, and blue channels independently. The `rFactor`, `gFactor`, and `bFactor` parameters adjust the intensity of the respective color channels. A factor greater than 1.0 increases the intensity of the color, while a factor less than 1.0 reduces it. Pixel values are clamped between 0 and 255 to ensure valid color representation.
+- imgTurn90(Img* img): Rotates the image by 90 degrees.
+- imgTint(Img* img, float rFactor, float gFactor, float bFactor): Applies a color tint to the image by scaling each of the red, green, and blue channels independently. The `rFactor`, `gFactor`, and `bFactor` parameters adjust the intensity of the respective color channels. A factor greater than 1.0 increases the intensity of the color, while a factor less than 1.0 reduces it. Pixel values are clamped between 0 and 255 to ensure valid color representation.
 
   <table>
     <tr>
@@ -131,7 +131,7 @@
     </tr>
   </table>
 
-- **imgSharpen(Img img):** Applies a sharpening filter to the image, enhancing the edges and fine details. This effect is achieved by using a convolution kernel that increases the contrast of neighboring pixels.
+- imgSharpen(Img* img): Applies a sharpening filter to the image, enhancing the edges and fine details. This effect is achieved by using a convolution kernel that increases the contrast of neighboring pixels.
 
   <table> 
       <tr> 
@@ -144,9 +144,9 @@
       </tr> 
   </table>
 
-- **imgBilinearInterpolation(Img* img, int newHeight, int newWidth):** Resizes the image to the specified `height` and `width` using bilinear interpolation.
+- imgBilinearInterpolation(Img* img, int newHeight, int newWidth): Resizes the image to the specified `height` and `width` using bilinear interpolation.
 
-- **imgChromaticAberration(Img* img, int shiftX, int shiftY):** Simulates a chromatic aberration effect by shifting color channels (red, green, and blue) independently. The `shiftX` and `shiftY` parameters control the horizontal and vertical offset for the color channels, creating a subtle color fringing effect similar to optical distortions often seen in lower-quality lenses. This function can be used in combination with the Gaussian blur filter to reduce artifacts, resulting in a smoother and more natural aberration effect.
+- imgChromaticAberration(Img* img, int shiftX, int shiftY): Simulates a chromatic aberration effect by shifting color channels (red, green, and blue) independently. The `shiftX` and `shiftY` parameters control the horizontal and vertical offset for the color channels, creating a subtle color fringing effect similar to optical distortions often seen in lower-quality lenses. This function can be used in combination with the Gaussian blur filter to reduce artifacts, resulting in a smoother and more natural aberration effect.
 
   <table>
     <tr>
@@ -161,7 +161,7 @@
 
 ---
 
-- **imgAddText(Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPLFont* font, int r, int g, int b):**  
+- imgAddText(Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPLFont* font, int r, int g, int b):  
   Renders text onto an image at the specified position and size. The text is centered at `(centerX, centerY)` with the given `fontSize`, using the provided `OIPLFont`. The `r`, `g`, and `b` parameters define the text color in RGB. 
 
 ### Parameters:
@@ -224,7 +224,7 @@ int main()
 
 ---
 
-### **writeImg(const char* path, Img img):*
+### writeImg(const char* path, Img* img):
 Saves an image to a file in the specified format.
 
 - **path**: The file path where the image will be saved.
@@ -237,7 +237,7 @@ Saves an image to a file in the specified format.
 
 ---
 
-### **loadImg(const char* path):*
+### loadImg(const char* path):
 Loads an image from the specified file.
 
 - **path**: The file path of the image to load.
@@ -255,7 +255,7 @@ if (img->data) {
 
 ---
 
-### **imgFree(Img* img):*
+### imgFree(Img* img):
 Frees the memory allocated for an image structure and its associated pixel data.
 
 - **img**: A pointer to the `Img` structure whose memory is to be freed. This structure typically contains the image's width, height, channels, and a pointer to the pixel data.
