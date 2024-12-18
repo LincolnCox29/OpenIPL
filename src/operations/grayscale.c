@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo imgToGrayscale(Img* img, const float factor)
+OpenIPLErrorInfo OIPL_ToGrayscale(Img* img, const float factor)
 {
     if (factor < 0)
         return NEGATIVE_FACTOR;

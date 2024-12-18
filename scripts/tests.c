@@ -33,29 +33,29 @@ enum
 
 int main()
 {
-    testFunction(imgToGrayscale, FUNC_WITH_FLOAT, "Grayscale", 0.8f);
-    testFunction(imgToBlackAndWhite, FUNC_WITH_FLOAT, "BlackAndWhite", 0.3f);
-    testFunction(imgAdjustBrightness, FUNC_WITH_FLOAT, "Brightness", 0.7f);
-    testFunction(imgAdjustContrast, FUNC_WITH_FLOAT, "Contrast", 0.7f);
-    testFunction(imgSobelFilter, FUNC_WITH_FLOAT, "SobelFilter", 0.4f);
+    testFunction(OIPL_ToGrayscale, FUNC_WITH_FLOAT, "Grayscale", 0.8f);
+    testFunction(OIPL_ToBlackAndWhite, FUNC_WITH_FLOAT, "BlackAndWhite", 0.3f);
+    testFunction(OIPL_AdjustBrightness, FUNC_WITH_FLOAT, "Brightness", 0.7f);
+    testFunction(OIPL_AdjustContrast, FUNC_WITH_FLOAT, "Contrast", 0.7f);
+    testFunction(OIPL_SobelFilter, FUNC_WITH_FLOAT, "SobelFilter", 0.4f);
 
-    testFunction(imgSepiaFilter, FUNC_NO_ARGS, "SepiaFilter");
-    testFunction(imgNegative, FUNC_NO_ARGS, "Negative");
-    testFunction(imgToMirror, FUNC_NO_ARGS, "ToMirror");
-    testFunction(imgTurn90, FUNC_NO_ARGS, "Turn90");
-    testFunction(imgSharpen, FUNC_NO_ARGS, "Sharpen");
+    testFunction(OIPL_SepiaFilter, FUNC_NO_ARGS, "SepiaFilter");
+    testFunction(OIPL_Negative, FUNC_NO_ARGS, "Negative");
+    testFunction(OIPL_ToMirror, FUNC_NO_ARGS, "ToMirror");
+    testFunction(OIPL_Turn90, FUNC_NO_ARGS, "Turn90");
+    testFunction(OIPL_Sharpen, FUNC_NO_ARGS, "Sharpen");
 
-    testFunction(imgVignette, FUNC_WITH_2_FLOAT, "Vignette", 0.8f, 1.4f);
+    testFunction(OIPL_Vignette, FUNC_WITH_2_FLOAT, "Vignette", 0.8f, 1.4f);
 
-    testFunction(imgBilinearInterpolation, FUNC_WITH_SIZE, "BilinearInterpolation", 256, 200);
+    testFunction(OIPL_BilinearInterpolation, FUNC_WITH_SIZE, "BilinearInterpolation", 256, 200);
 
-    testFunction(imgGaussianBlur, FUNC_WITH_ITERATIONS, "GaussianBlur", 50u);
+    testFunction(OIPL_GaussianBlur, FUNC_WITH_ITERATIONS, "GaussianBlur", 50u);
 
-    testFunction(imgChromaticAberration, FUNC_WITH_SHIFT, "ChromaticAberration", 5, 5, -3, 0, 0.1f);
+    testFunction(OIPL_ChromaticAberration, FUNC_WITH_SHIFT, "ChromaticAberration", 5, 5, -3, 0, 0.1f);
 
-    testFunction(imgTint, FUNC_WITH_RGB, "Tint", 1.2f, 1.0f, 0.8f);
+    testFunction(OIPL_Tint, FUNC_WITH_RGB, "Tint", 1.2f, 1.0f, 0.8f);
 
-    testFunction(imgAddText, FUNC_WITH_FONT, "AddText", 350, 800, "Hello world", 100, 255, 255, 255);
+    testFunction(OIPL_AddText, FUNC_WITH_FONT, "AddText", 350, 800, "Hello world", 100, 255, 255, 255);
 
     return 0;
 }
@@ -72,7 +72,7 @@ void testFunction(void* func, int argType, char* operationName, ...)
     va_start(args, operationName);
 
     clock_t start, end;
-    Img* img = loadImg(sourcePath);
+    Img* img = OIPL_imgLoad(sourcePath);
     OpenIPLErrorInfo err;
 
     if (!img) 
@@ -153,7 +153,7 @@ void testFunction(void* func, int argType, char* operationName, ...)
             int g = va_arg(args, int);
             int b = va_arg(args, int);
 
-            OIPLFont* font = fontLoadFromFile("examples\\AddText\\Lobster-Regular.ttf");
+            OIPLFont* font = OIPL_fontLoad("examples\\AddText\\Lobster-Regular.ttf");
              
             err = operation(img, x, y, text, size, font, r, g, b);
 
@@ -168,11 +168,11 @@ void testFunction(void* func, int argType, char* operationName, ...)
     if (err.code)
         printErr(&err);
 
-    err = writeImg(outputPath, img);
+    err = OIPL_imgWrite(outputPath, img);
     if (err.code)
         printErr(&err);
 
-    imgFree(img);
+    OIPL_imgFree(img);
     va_end(args);
 }
 

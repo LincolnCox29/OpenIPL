@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo imgNegative(Img* img)
+OpenIPLErrorInfo OIPL_Negative(Img* img)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;

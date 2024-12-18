@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-OpenIPLErrorInfo imgAddText(Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPLFont* font, int r, int g, int b)
+OpenIPLErrorInfo OIPL_AddText(Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPLFont* font, int r, int g, int b)
 {
     if (!img || !img->data)
         return ERROR_LOADING_IMAGE;

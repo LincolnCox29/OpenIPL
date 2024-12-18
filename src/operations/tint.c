@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo imgTint(Img* img, float rFactor, float gFactor, float bFactor)
+OpenIPLErrorInfo OIPL_Tint(Img* img, float rFactor, float gFactor, float bFactor)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;

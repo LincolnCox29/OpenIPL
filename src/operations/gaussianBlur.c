@@ -6,7 +6,7 @@ inline int reflect(int pos, int max)
     return (pos < 0) ? -pos : (pos >= max) ? 2 * max - pos - 2 : pos;
 }
 
-OpenIPLErrorInfo imgGaussianBlur(Img* img, unsigned iterations)
+OpenIPLErrorInfo OIPL_GaussianBlur(Img* img, unsigned iterations)
 {
     unsigned char* currentData = img->data;
     unsigned char* blurredData = imgDataAlloc(img);

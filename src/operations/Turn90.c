@@ -10,7 +10,7 @@ static inline int getTargetIndex(int x, int y, int c, int width, const Img* imgP
     return ((x * width) + (width - y - 1)) * imgPtr->channels + c;
 }
 
-OpenIPLErrorInfo imgTurn90(Img* img)
+OpenIPLErrorInfo OIPL_Turn90(Img* img)
 {
     const int newWidth = img->height;
     const int newHeight = img->width;

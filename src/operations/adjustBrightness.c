@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo imgAdjustBrightness(Img* img, const float factor)
+OpenIPLErrorInfo OIPL_AdjustBrightness(Img* img, const float factor)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;

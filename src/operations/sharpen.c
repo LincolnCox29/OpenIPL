@@ -2,7 +2,7 @@
 #include "../tools.h"
 #include <string.h>
 
-OpenIPLErrorInfo imgSharpen(Img* img)
+OpenIPLErrorInfo OIPL_Sharpen(Img* img)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;

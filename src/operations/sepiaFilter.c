@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo imgSepiaFilter(Img* img)
+OpenIPLErrorInfo OIPL_SepiaFilter(Img* img)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;

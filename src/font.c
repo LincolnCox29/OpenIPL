@@ -5,7 +5,7 @@
 #include <string.h>
 #include "errors.h"
 
-OIPLFont* fontLoadFromFile(const char* path)
+OIPLFont* OIPL_fontLoad(const char* path)
 {
     OIPLFont* font = (OIPLFont*)malloc(sizeof(OIPLFont));
 
@@ -38,7 +38,7 @@ OIPLFont* fontLoadFromFile(const char* path)
     return font;
 }
 
-void fontFree(OIPLFont* font) 
+void OIPL_fontFree(OIPLFont* font) 
 {
     if (font) 
     {
