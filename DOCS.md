@@ -187,22 +187,22 @@
 int main()
 {
     OpenIPLErrorInfo err;
-    Img* img = loadImg("src.png");
-    OIPLFont* font = fontLoadFromFile("font.ttf");
-	
+    Img* img = OIPL_imgLoad("src.png");
+    OIPLFont* font = OIPL_fontLoad("font.ttf");
+
     int halfWidth = (int)(img->width / 2);
-    err = imgAddText(img, halfWidth, 800, "Test Text", 75, font, 255, 255, 255);
+    err = OIPL_AddText(img, halfWidth, 300, "Test Text", 30, font, 255, 255, 255);
     if (err.code)
     {
-        imgFree(img);
-        fontFree(font);
+        OIPL_imgFree(img);
+        OIPL_fontFree(font);
         printError(&err);
         return 1;
     }
 
-    err = writeImg("out.png", img);
-    imgFree(img);
-    fontFree(font);
+    err = OIPL_imgWrite("out.png", img);
+    OIPL_imgFree(img);
+    OIPL_fontFree(font);
     if (err.code)
     {
         printError(&err);
@@ -245,7 +245,7 @@ Loads an image from the specified file.
 
 Example:
 ```c
-Img* img = loadImg("input.png");
+Img* img = OIPL_imgLoad("input.png");
 if (img->data) {
     // Image successfully loaded, now you can process or save it
 } else {
@@ -267,9 +267,9 @@ Frees the memory allocated for an image structure and its associated pixel data.
 
 - **Example Usage**:
     ```c
-    Img* image = loadImg("path/to/image.png");
+    Img* image = OIPL_imgLoad("path/to/image.png");
     if (image != NULL) {
         // Process the image as needed
-        imgFree(image); // Properly frees the allocated memory
+        OIPL_imgFree(image); // Properly frees the allocated memory
     }
     ```
