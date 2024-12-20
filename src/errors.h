@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef ERRORS_H
+#define ERRORS_H
+
 #include <stdio.h>
 
 typedef enum
@@ -26,3 +29,5 @@ typedef struct
 #define UNSUPPORTED_IMAGE_FORMAT (OpenIPLErrorInfo) { OIPL_ERROR_UNSUPPORTED_IMAGE_FORMAT, "Unsupported image format.\n" }
 #define FILE_PATH_DOES_NOT_EXIST (OpenIPLErrorInfo) { OIPL_ERROR_FILE_PATH_DOES_NOT_EXIST, "The specified path may be invalid or the file may not exist. Please check the file path and permissions.\n" }
 #define UNSUPPORTED_FONT_FORMAT (OpenIPLErrorInfo) { OIPL_ERROR_UNSUPPORTED_FONT_FORMAT, "Invalid font format.\n" }
+
+#endif // ERRORS_H

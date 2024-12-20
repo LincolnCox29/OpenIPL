@@ -1,9 +1,11 @@
+#pragma once
+
 #ifndef FONT_H
 #define FONT_H
 
 #include "stb_truetype.h"
 
-typedef struct OIPLFont 
+typedef struct OIPLFont
 {
     stbtt_fontinfo fontInfo;
     unsigned char* fontBuffer;

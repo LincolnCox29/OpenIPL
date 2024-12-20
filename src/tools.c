@@ -1,6 +1,7 @@
 #include "OpenIPL.h"
 #include <stdio.h>
 #include "stdlib.h"
+#include "tools.h"
 
 unsigned char MaxComponent(unsigned char r, unsigned char g, unsigned char b)
 {
