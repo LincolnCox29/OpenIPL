@@ -101,25 +101,25 @@ Example usage:
 
 int main()
 {
-    OpenIPLErrorInfo err;
-    Img* img = loadImg("src.png");
-	
-    err = imgAdjustBrightness(img, 1.5f);
-    if (err.code)
-    {
-        imgFree(img);
-        printError(&err);
-        return 1;
-    }
+	OpenIPLErrorInfo err;
+	Img* img = OIPL_imgLoad("src.png");
 
-    err = writeImg("out.png", img);
-    imgFree(img);
-    if (err.code)
-    {
-        printError(&err);
-        return 1;
-    }
-    return 0;
+	err = OIPL_ChromaticAberration(img, 3, 3, -3, -3, 0.5);
+	if (err.code)
+	{
+		OIPL_imgFree(img);
+		printError(&err);
+		return err.code;
+	}
+
+	err = OIPL_imgWrite("out.png", img);
+        OIPL_imgFree(img);
+	if (err.code)
+	{
+		printError(&err);
+		return err.code;
+	}
+	return 0;
 }
 ```
 
