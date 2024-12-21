@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo OIPL_ToMirror(Img* img)
+OpenIPLErrorInfo OIPL_ToMirror(OIPL_Img* img)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;

@@ -3,7 +3,7 @@
 #include <string.h>
 #include <math.h>
 
-OpenIPLErrorInfo OIPL_SobelFilter(Img* img, float factor)
+OpenIPLErrorInfo OIPL_SobelFilter(OIPL_Img* img, float factor)
 {
     unsigned char* edgeData = imgDataAlloc(img);
 

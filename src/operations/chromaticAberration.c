@@ -5,12 +5,12 @@
 #define GRADIENT(sobelImg, index) ((sobelImg.data[index] + sobelImg.data[index + 1] + sobelImg.data[index + 2]) / 3.0f)
 #define IS_SHIFT_PIX_IN_BOUNDS(imgPtr, x, y) (x >= 0 && x < imgPtr->width && y >= 0 && y < imgPtr->height)
 
-OpenIPLErrorInfo OIPL_ChromaticAberration(Img* img, const int bX, const int bY, const int rX, const int rY, const float threshold)
+OpenIPLErrorInfo OIPL_ChromaticAberration(OIPL_Img* img, const int bX, const int bY, const int rX, const int rY, const float threshold)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;
 
-    Img sobelImg;
+    OIPL_Img sobelImg;
     sobelImg.width = img->width;
     sobelImg.height = img->height;
     sobelImg.channels = img->channels;

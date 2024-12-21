@@ -7,14 +7,14 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-typedef OpenIPLErrorInfo(*ImgOperationWithFac)(Img*, float);
-typedef OpenIPLErrorInfo(*ImgOperationWith2Fac)(Img*, float, float);
-typedef OpenIPLErrorInfo(*ImgOperation)(Img*);
-typedef OpenIPLErrorInfo(*ImgOperationWithRGB)(Img*, float, float, float);
-typedef OpenIPLErrorInfo(*ImgOperationWithSize)(Img*, int, int);
-typedef OpenIPLErrorInfo(*ImgOperationWithIterations)(Img*, unsigned);
-typedef OpenIPLErrorInfo(*ImgOperationWithShift)(Img*, int, int, int, int, float);
-typedef OpenIPLErrorInfo(*ImgOperationWithFont)(Img*, int, int, char*, unsigned, OIPLFont*, int, int, int);
+typedef OpenIPLErrorInfo(*ImgOperationWithFac)(OIPL_Img*, float);
+typedef OpenIPLErrorInfo(*ImgOperationWith2Fac)(OIPL_Img*, float, float);
+typedef OpenIPLErrorInfo(*ImgOperation)(OIPL_Img*);
+typedef OpenIPLErrorInfo(*ImgOperationWithRGB)(OIPL_Img*, float, float, float);
+typedef OpenIPLErrorInfo(*ImgOperationWithSize)(OIPL_Img*, int, int);
+typedef OpenIPLErrorInfo(*ImgOperationWithIterations)(OIPL_Img*, unsigned);
+typedef OpenIPLErrorInfo(*ImgOperationWithShift)(OIPL_Img*, int, int, int, int, float);
+typedef OpenIPLErrorInfo(*ImgOperationWithFont)(OIPL_Img*, int, int, char*, unsigned, OIPLFont*, int, int, int);
 
 void testFunction(void* func, int argType, char* operationName, ...);
 void printErr(OpenIPLErrorInfo* err);
@@ -72,7 +72,7 @@ void testFunction(void* func, int argType, char* operationName, ...)
     va_start(args, operationName);
 
     clock_t start, end;
-    Img* img = OIPL_imgLoad(sourcePath);
+    OIPL_Img* img = OIPL_imgLoad(sourcePath);
     OpenIPLErrorInfo err;
 
     if (!img) 

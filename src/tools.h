@@ -8,4 +8,4 @@
 
 unsigned char MaxComponent(unsigned char r, unsigned char g, unsigned char b);
 void clampColorValue(int* value);
-void* imgDataAlloc(Img* img);
+void* imgDataAlloc(OIPL_Img* img);

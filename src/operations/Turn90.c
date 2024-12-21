@@ -1,16 +1,16 @@
 #include "../errors.h"
 #include "../tools.h"
 
-static inline int getPixelIndex(int x, int y, int c, const Img* imgPtr) 
+static inline int getPixelIndex(int x, int y, int c, const OIPL_Img* imgPtr) 
 {
     return (y * imgPtr->width + x) * imgPtr->channels + c;
 }
-static inline int getTargetIndex(int x, int y, int c, int width, const Img* imgPtr) 
+static inline int getTargetIndex(int x, int y, int c, int width, const OIPL_Img* imgPtr) 
 {
     return ((x * width) + (width - y - 1)) * imgPtr->channels + c;
 }
 
-OpenIPLErrorInfo OIPL_Turn90(Img* img)
+OpenIPLErrorInfo OIPL_Turn90(OIPL_Img* img)
 {
     const int newWidth = img->height;
     const int newHeight = img->width;

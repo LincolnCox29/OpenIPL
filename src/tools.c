@@ -16,7 +16,7 @@ void clampColorValue(int* value)
         *value = MAX_COLOR_VALUE;
 }
 
-void* imgDataAlloc(Img* img)
+void* imgDataAlloc(OIPL_Img* img)
 {
     return malloc(img->width * img->height * img->channels * sizeof(unsigned char));
 }

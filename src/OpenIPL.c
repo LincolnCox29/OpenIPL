@@ -10,7 +10,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-OpenIPLErrorInfo OIPL_imgWrite(const char* path, Img* img)
+OpenIPLErrorInfo OIPL_imgWrite(const char* path, OIPL_Img* img)
 {
     const char* ext = strrchr(path, '.');
 
@@ -43,14 +43,14 @@ OpenIPLErrorInfo OIPL_imgWrite(const char* path, Img* img)
         return FILE_PATH_DOES_NOT_EXIST;
 }
 
-Img* OIPL_imgLoad(const char* path)
+OIPL_Img* OIPL_imgLoad(const char* path)
 {
-    Img* img = malloc(sizeof(Img));
+    OIPL_Img* img = malloc(sizeof(OIPL_Img));
     img->data = stbi_load(path, &img->width, &img->height, &img->channels, 0);
     return img;
 }
 
-void OIPL_imgFree(Img* img)
+void OIPL_imgFree(OIPL_Img* img)
 {
     if (img == NULL) 
         return;

@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo OIPL_BilinearInterpolation(Img* img, int height, int width)
+OpenIPLErrorInfo OIPL_BilinearInterpolation(OIPL_Img* img, int height, int width)
 {
     unsigned char* newData = (unsigned char*)malloc(height * width * img->channels);
 
