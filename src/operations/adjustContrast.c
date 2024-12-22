@@ -8,16 +8,12 @@ OpenIPLErrorInfo OIPL_AdjustContrast(OIPL_Img* img, const float factor)
     if (factor < 0)
         return NEGATIVE_FACTOR;
 
-    int pIndex = 0;
-    const int totalChannels = img->height * img->width * img->channels;
-    int newValue;
+    const unsigned char* lastChannelPtr = img->data + (img->height * img->width * img->channels) - 1;
 
-    for (int cIndex = 0; cIndex < totalChannels; cIndex++)
+    for (unsigned char* cPtr = img->data; cPtr < lastChannelPtr; cPtr++)
     {
-        newValue = (int)((img->data[cIndex] - MID_COLOR_VALUE) * factor + MID_COLOR_VALUE);
-        clampColorValueInt(&newValue);
-        img->data[cIndex] = (unsigned char)newValue;
+        *cPtr = (unsigned char)((*cPtr - MID_COLOR_VALUE) * factor + MID_COLOR_VALUE);
+        clampColorValueUChar(cPtr);
     }
-
     return SUCCESS;
 }
