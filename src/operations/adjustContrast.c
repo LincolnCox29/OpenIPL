@@ -15,7 +15,7 @@ OpenIPLErrorInfo OIPL_AdjustContrast(OIPL_Img* img, const float factor)
     for (int cIndex = 0; cIndex < totalChannels; cIndex++)
     {
         newValue = (int)((img->data[cIndex] - MID_COLOR_VALUE) * factor + MID_COLOR_VALUE);
-        clampColorValue(&newValue);
+        clampColorValueInt(&newValue);
         img->data[cIndex] = (unsigned char)newValue;
     }
 

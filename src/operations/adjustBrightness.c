@@ -8,14 +8,12 @@ OpenIPLErrorInfo OIPL_AdjustBrightness(OIPL_Img* img, const float factor)
     if (factor < 0)
         return NEGATIVE_FACTOR;
 
-    const int totalChannels = img->height * img->width * img->channels;
-    int newValue;
+    const unsigned char* lastChannelPtr = img->data + (img->height * img->width * img->channels) - 1;
 
-    for (int cIndex = 0; cIndex < totalChannels; cIndex++)
+    for (unsigned char* cPtr = img->data; cPtr < lastChannelPtr; cPtr++)
     {
-        newValue = (int)(img->data[cIndex] * factor);
-        clampColorValue(&newValue);
-        img->data[cIndex] = (unsigned char)newValue;
+        *cPtr *= factor;
+        clampColorValueUChar(cPtr);
     }
     return SUCCESS;
 }

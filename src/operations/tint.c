@@ -19,7 +19,7 @@ OpenIPLErrorInfo OIPL_Tint(OIPL_Img* img, float rFactor, float gFactor, float bF
             colorIndex = pIndex * channels + i;
             newColor = (int)(filter[i] * img->data[colorIndex]);
 
-            clampColorValue(&newColor);
+            clampColorValueInt(&newColor);
             img->data[colorIndex] = (unsigned char)newColor;
         }
     }

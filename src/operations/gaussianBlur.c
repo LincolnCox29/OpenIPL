@@ -56,7 +56,7 @@ OpenIPLErrorInfo OIPL_GaussianBlur(OIPL_Img* img, unsigned iterations)
                     }
 
                     int blurredValue = sum / weightSum;
-                    clampColorValue(&blurredValue);
+                    clampColorValueInt(&blurredValue);
                     blurredData[pIndex + c] = (unsigned char)blurredValue;
                 }
             }
@@ -90,7 +90,7 @@ OpenIPLErrorInfo OIPL_GaussianBlur(OIPL_Img* img, unsigned iterations)
                     }
 
                     int blurredValue = sum / weightSum;
-                    clampColorValue(&blurredValue);
+                    clampColorValueInt(&blurredValue);
                     blurredData[pIndex + c] = (unsigned char)blurredValue;
                 }
             }

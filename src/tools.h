@@ -7,5 +7,6 @@
 #define MIN_COLOR_VALUE 0
 
 unsigned char MaxComponent(unsigned char r, unsigned char g, unsigned char b);
-void clampColorValue(int* value);
+void clampColorValueInt(int* value);
+void clampColorValueUChar(unsigned char* value);
 void* imgDataAlloc(OIPL_Img* img);

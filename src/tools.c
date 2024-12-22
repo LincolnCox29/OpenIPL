@@ -8,7 +8,15 @@ unsigned char MaxComponent(unsigned char r, unsigned char g, unsigned char b)
     return (r > g) ? ((r > b) ? r : b) : ((g > b) ? g : b);
 }
 
-void clampColorValue(int* value)
+void clampColorValueInt(int* value)
+{
+    if (*value < MIN_COLOR_VALUE)
+        *value = MIN_COLOR_VALUE;
+    else if (*value > MAX_COLOR_VALUE)
+        *value = MAX_COLOR_VALUE;
+}
+
+void clampColorValueUChar(unsigned char* value)
 {
     if (*value < MIN_COLOR_VALUE)
         *value = MIN_COLOR_VALUE;

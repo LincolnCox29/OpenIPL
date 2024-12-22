@@ -20,7 +20,7 @@ OpenIPLErrorInfo OIPL_SepiaFilter(OIPL_Img* img)
 
         for (short i = 0; i < 3; i++)
         {
-            clampColorValue(&(newColors[i]));
+            clampColorValueInt(&(newColors[i]));
             img->data[pIndex + i] = ((unsigned char)newColors[i]);
         }
     }

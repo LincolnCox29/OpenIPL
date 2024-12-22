@@ -47,7 +47,7 @@ OpenIPLErrorInfo OIPL_Sharpen(OIPL_Img* img)
                     img->data[((y + 1) * width + (x + 1)) * channels + c] * weights[2][2]
                     );
 
-                clampColorValue(&sum);
+                clampColorValueInt(&sum);
                 sharpenedData[pIndex + c] = (unsigned char)sum;
             }
         }

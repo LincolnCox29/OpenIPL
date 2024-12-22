@@ -65,7 +65,7 @@ OpenIPLErrorInfo OIPL_SobelFilter(OIPL_Img* img, float factor)
                 }
 
                 newValue = (int)((float)(sqrt(gx * gx + gy * gy)) * factor);
-                clampColorValue(&newValue);
+                clampColorValueInt(&newValue);
                 edgeData[pIndex + c] = (unsigned char)newValue;
             }
         }
