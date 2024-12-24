@@ -5,7 +5,7 @@
 #define GRADIENT(sobelImg, index) ((sobelImg.data[index] + sobelImg.data[index + 1] + sobelImg.data[index + 2]) / 3.0f)
 #define IS_SHIFT_PIX_IN_BOUNDS(imgPtr, x, y) (x >= 0 && x < imgPtr->width && y >= 0 && y < imgPtr->height)
 
-OpenIPLErrorInfo OIPL_ChromaticAberration(OIPL_Img* img, const int bX, const int bY, const int rX, const int rY, const float threshold)
+OIPL_ErrorInfo OIPL_ChromaticAberration(OIPL_Img* img, const int bX, const int bY, const int rX, const int rY, const float threshold)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;
@@ -17,7 +17,7 @@ OpenIPLErrorInfo OIPL_ChromaticAberration(OIPL_Img* img, const int bX, const int
     sobelImg.data = imgDataAlloc(img);
     memcpy(sobelImg.data, img->data, img->width * img->height * img->channels * sizeof(unsigned char));
 
-    OpenIPLErrorInfo err = OIPL_SobelFilter(&sobelImg, 0.5f);
+    OIPL_ErrorInfo err = OIPL_SobelFilter(&sobelImg, 0.5f);
     if (err.code)
         return err;
 

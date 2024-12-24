@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo OIPL_AdjustContrast(OIPL_Img* img, const float factor)
+OIPL_ErrorInfo OIPL_AdjustContrast(OIPL_Img* img, const float factor)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;

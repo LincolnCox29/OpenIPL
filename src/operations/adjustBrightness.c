@@ -2,7 +2,7 @@
 #include "../tools.h"
 #include "../simde/x86/sse2.h"
 
-OpenIPLErrorInfo OIPL_AdjustBrightness(OIPL_Img* img, const float factor)
+OIPL_ErrorInfo OIPL_AdjustBrightness(OIPL_Img* img, const float factor)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;

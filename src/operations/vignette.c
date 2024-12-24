@@ -10,7 +10,7 @@ inline void applyVignette(unsigned char* channelPtr, double factor)
 
 #define DISTANCE(x, y, halfW, halfH) (sqrt((x - halfW) * (x - halfW) + (y - halfH) * (y - halfH)))
 
-OpenIPLErrorInfo OIPL_Vignette(OIPL_Img* img, float intensity, float curve)
+OIPL_ErrorInfo OIPL_Vignette(OIPL_Img* img, float intensity, float curve)
 {
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;
