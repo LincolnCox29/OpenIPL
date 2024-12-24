@@ -113,7 +113,7 @@ int main()
 	}
 
 	err = OIPL_imgWrite("out.png", img);
-    OIPL_imgFree(img);
+        OIPL_imgFree(img);
 	if (err.code)
 	{
 		printError(&err);
