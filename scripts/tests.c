@@ -7,17 +7,17 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-typedef OpenIPLErrorInfo(*ImgOperationWithFac)(OIPL_Img*, float);
-typedef OpenIPLErrorInfo(*ImgOperationWith2Fac)(OIPL_Img*, float, float);
-typedef OpenIPLErrorInfo(*ImgOperation)(OIPL_Img*);
-typedef OpenIPLErrorInfo(*ImgOperationWithRGB)(OIPL_Img*, float, float, float);
-typedef OpenIPLErrorInfo(*ImgOperationWithSize)(OIPL_Img*, int, int);
-typedef OpenIPLErrorInfo(*ImgOperationWithIterations)(OIPL_Img*, unsigned);
-typedef OpenIPLErrorInfo(*ImgOperationWithShift)(OIPL_Img*, int, int, int, int, float);
-typedef OpenIPLErrorInfo(*ImgOperationWithFont)(OIPL_Img*, int, int, char*, unsigned, OIPLFont*, int, int, int);
+typedef OIPL_ErrorInfo(*ImgOperationWithFac)(OIPL_Img*, float);
+typedef OIPL_ErrorInfo(*ImgOperationWith2Fac)(OIPL_Img*, float, float);
+typedef OIPL_ErrorInfo(*ImgOperation)(OIPL_Img*);
+typedef OIPL_ErrorInfo(*ImgOperationWithRGB)(OIPL_Img*, float, float, float);
+typedef OIPL_ErrorInfo(*ImgOperationWithSize)(OIPL_Img*, int, int);
+typedef OIPL_ErrorInfo(*ImgOperationWithIterations)(OIPL_Img*, unsigned);
+typedef OIPL_ErrorInfo(*ImgOperationWithShift)(OIPL_Img*, int, int, int, int, float);
+typedef OIPL_ErrorInfo(*ImgOperationWithFont)(OIPL_Img*, int, int, char*, unsigned, OIPL_Font*, int, int, int);
 
 void testFunction(void* func, int argType, char* operationName, ...);
-void printErr(OpenIPLErrorInfo* err);
+void printErr(OIPL_ErrorInfo* err);
 
 enum 
 {
@@ -73,7 +73,7 @@ void testFunction(void* func, int argType, char* operationName, ...)
 
     clock_t start, end;
     OIPL_Img* img = OIPL_imgLoad(sourcePath);
-    OpenIPLErrorInfo err;
+    OIPL_ErrorInfo err;
 
     if (!img) 
     {
@@ -153,7 +153,7 @@ void testFunction(void* func, int argType, char* operationName, ...)
             int g = va_arg(args, int);
             int b = va_arg(args, int);
 
-            OIPLFont* font = OIPL_fontLoad("examples\\AddText\\Lobster-Regular.ttf");
+            OIPL_Font* font = OIPL_fontLoad("examples\\AddText\\Lobster-Regular.ttf");
              
             err = operation(img, x, y, text, size, font, r, g, b);
 
@@ -176,7 +176,7 @@ void testFunction(void* func, int argType, char* operationName, ...)
     va_end(args);
 }
 
-void printErr(OpenIPLErrorInfo* err)
+void printErr(OIPL_ErrorInfo* err)
 {
     printf("code: %d msg: %s\n", err->code, err->message);
 }

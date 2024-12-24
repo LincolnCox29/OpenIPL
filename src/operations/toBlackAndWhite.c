@@ -1,7 +1,7 @@
 #include "../errors.h"
 #include "../tools.h"
 
-OpenIPLErrorInfo OIPL_ToBlackAndWhite(OIPL_Img* img, const float factor)
+OIPL_ErrorInfo OIPL_ToBlackAndWhite(OIPL_Img* img, const float factor)
 {
     if (factor < 0)
         return NEGATIVE_FACTOR;

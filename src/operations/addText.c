@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-OpenIPLErrorInfo OIPL_AddText(OIPL_Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPLFont* font, int r, int g, int b)
+OIPL_ErrorInfo OIPL_AddText(OIPL_Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPL_Font* font, int r, int g, int b)
 {
     if (!img || !img->data)
         return ERROR_LOADING_IMAGE;
@@ -14,7 +14,7 @@ OpenIPLErrorInfo OIPL_AddText(OIPL_Img* img, int centerX, int centerY, char* tex
     if (!font)
         return FILE_PATH_DOES_NOT_EXIST;
 
-    float scale = fontGetScaleForPixelHeight(font, (float)fontSize);
+    float scale = stbtt_ScaleForPixelHeight(&font->fontInfo, (float)fontSize);
     int ascent, descent, lineGap;
     stbtt_GetFontVMetrics(&font->fontInfo, &ascent, &descent, &lineGap);
 

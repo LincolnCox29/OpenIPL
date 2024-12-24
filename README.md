@@ -101,8 +101,8 @@ Example usage:
 
 int main()
 {
-	OpenIPLErrorInfo err;
-	Img* img = OIPL_imgLoad("src.png");
+	OIPL_ErrorInfo err;
+	OIPL_Img* img = OIPL_imgLoad("src.png");
 
 	err = OIPL_ChromaticAberration(img, 3, 3, -3, -3, 0.5);
 	if (err.code)
@@ -113,7 +113,7 @@ int main()
 	}
 
 	err = OIPL_imgWrite("out.png", img);
-        OIPL_imgFree(img);
+    OIPL_imgFree(img);
 	if (err.code)
 	{
 		printError(&err);

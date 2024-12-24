@@ -5,9 +5,9 @@
 #include <string.h>
 #include "errors.h"
 
-OIPLFont* OIPL_fontLoad(const char* path)
+OIPL_Font* OIPL_fontLoad(const char* path)
 {
-    OIPLFont* font = (OIPLFont*)malloc(sizeof(OIPLFont));
+    OIPL_Font* font = (OIPL_Font*)malloc(sizeof(OIPL_Font));
 
     FILE* file = fopen(path, "rb");
     if (!file)
@@ -38,7 +38,7 @@ OIPLFont* OIPL_fontLoad(const char* path)
     return font;
 }
 
-void OIPL_fontFree(OIPLFont* font) 
+void OIPL_fontFree(OIPL_Font* font) 
 {
     if (font) 
     {
@@ -52,14 +52,7 @@ void OIPL_fontFree(OIPLFont* font)
     }
 }
 
-float fontGetScaleForPixelHeight(OIPLFont* font, float pixelHeight) 
-{
-    if (!font)
-        return 0.0f;
-    return stbtt_ScaleForPixelHeight(&font->fontInfo, pixelHeight);
-}
-
-void fontGetGlyphBitmap(OIPLFont* font, int codepoint, float scale,
+void fontGetGlyphBitmap(OIPL_Font* font, int codepoint, float scale,
     unsigned char** bitmap, int* width, int* height) 
 {
     if (!font || !bitmap || !width || !height)

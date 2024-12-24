@@ -10,7 +10,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-OpenIPLErrorInfo OIPL_imgWrite(const char* path, OIPL_Img* img)
+OIPL_ErrorInfo OIPL_imgWrite(const char* path, OIPL_Img* img)
 {
     const char* ext = strrchr(path, '.');
 

@@ -1,18 +1,12 @@
 #pragma once
 
-#ifndef FONT_H
-#define FONT_H
-
 #include "stb_truetype.h"
 
-typedef struct OIPLFont
+typedef struct OIPL_Font
 {
     stbtt_fontinfo fontInfo;
     unsigned char* fontBuffer;
-} OIPLFont;
+} OIPL_Font;
 
-OIPLFont* OIPL_fontLoad(const char* path);
-void OIPL_fontFree(OIPLFont* font);
-float fontGetScaleForPixelHeight(OIPLFont* font, float pixelHeight);
-
-#endif // FONT_H
+OIPL_Font* OIPL_fontLoad(const char* path);
+void OIPL_fontFree(OIPL_Font* font);
