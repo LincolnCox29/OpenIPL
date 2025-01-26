@@ -28,3 +28,4 @@ OIPL_ErrorInfo OIPL_BilinearInterpolation(OIPL_Img* img, int height, int width);
 OIPL_ErrorInfo OIPL_Sharpen(OIPL_Img* img);
 OIPL_ErrorInfo OIPL_ChromaticAberration(OIPL_Img* img, int bX, int bY, int rX, int rY, float threshold);
 OIPL_ErrorInfo OIPL_AddText(OIPL_Img* img, int centerX, int centerY, char* text, unsigned fontSize, const OIPL_Font* font, int r, int g, int b);
+OIPL_ErrorInfo OIPL_Pixelate(OIPL_Img* img, const unsigned scale);

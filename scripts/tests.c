@@ -49,6 +49,7 @@ int main()
 
     testFunction(OIPL_BilinearInterpolation, FUNC_WITH_SIZE, "BilinearInterpolation", 256, 200);
 
+    testFunction(OIPL_Pixelate, FUNC_WITH_ITERATIONS, "Pixelate", 3u);
     testFunction(OIPL_GaussianBlur, FUNC_WITH_ITERATIONS, "GaussianBlur", 50u);
 
     testFunction(OIPL_ChromaticAberration, FUNC_WITH_SHIFT, "ChromaticAberration", 5, 5, -3, 0, 0.1f);

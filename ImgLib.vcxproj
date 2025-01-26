@@ -30,6 +30,7 @@
     <ClCompile Include="src\operations\gaussianBlur.c" />
     <ClCompile Include="src\operations\grayscale.c" />
     <ClCompile Include="src\operations\negative.c" />
+    <ClCompile Include="src\operations\pixelate.c" />
     <ClCompile Include="src\operations\sepiaFilter.c" />
     <ClCompile Include="src\operations\sharpen.c" />
     <ClCompile Include="src\operations\sobelFilter.c" />

@@ -1,2 +1,2 @@
-@Echo off
+@echo off
 start python "build.py"
