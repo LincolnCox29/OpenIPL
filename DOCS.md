@@ -8,8 +8,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Grayscale/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Grayscale/Grayscale.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_ToGrayscale/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_ToGrayscale/OIPL_ToGrayscale.png" width="300"></td>
     </tr>
   </table>
 
@@ -21,8 +21,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/BlackAndWhite/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/BlackAndWhite/BlackAndWhite.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_ToBlackAndWhite/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_ToBlackAndWhite/OIPL_ToBlackAndWhite.png" width="300"></td>
     </tr>
   </table>
 
@@ -34,8 +34,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Brightness/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Brightness/Brightness.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_AdjustBrightness/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_AdjustBrightness/OIPL_AdjustBrightness.png" width="300"></td>
     </tr>
   </table>
 
@@ -47,8 +47,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Contrast/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Contrast/Contrast.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_AdjustContrast/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_AdjustContrast/OIPL_AdjustContrast.png" width="300"></td>
     </tr>
   </table>
 
@@ -60,8 +60,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/GaussianBlur/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/GaussianBlur/GaussianBlur.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_GaussianBlur/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_GaussianBlur/OIPL_GaussianBlur.png" width="300"></td>
     </tr>
   </table>
 
@@ -73,8 +73,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/SepiaFilter/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/SepiaFilter/SepiaFilter.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_SepiaFilter/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_SepiaFilter/OIPL_SepiaFilter.png" width="300"></td>
     </tr>
   </table>
 
@@ -86,8 +86,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/SobelFilter/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/SobelFilter/SobelFilter.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_SobelFilter/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_SobelFilter/OIPL_SobelFilter.png" width="300"></td>
     </tr>
   </table>
 
@@ -99,8 +99,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Negative/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Negative/Negative.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_Negative/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_Negative/OIPL_Negative.png" width="300"></td>
     </tr>
   </table>
 
