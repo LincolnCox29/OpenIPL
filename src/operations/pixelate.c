@@ -1,6 +1,5 @@
 #include "../errors.h"
 #include "../tools.h"
-#include "../simde/x86/sse2.h"
 
 OIPL_ErrorInfo OIPL_Pixelate(OIPL_Img* img, const unsigned scale)
 {
