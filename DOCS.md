@@ -112,8 +112,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/ToMirror/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/ToMirror/ToMirror.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_ToMirror/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_ToMirror/OIPL_ToMirror.png" width="300"></td>
     </tr>
   </table>
 
@@ -126,8 +126,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Tint/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Tint/Tint.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_Tint/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_Tint/OIPL_Tint.png" width="300"></td>
     </tr>
   </table>
 
@@ -139,8 +139,8 @@
           <td style="text-align: center;">Modified Image</td>
       </tr> 
       <tr> 
-          <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Sharpen/source.png" width="300"></td> 
-          <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/Sharpen/Sharpen.png" width="300"></td> 
+          <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_Sharpen/source.png" width="300"></td> 
+          <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_Sharpen/OIPL_Sharpen.png" width="300"></td> 
       </tr> 
   </table>
 
@@ -154,8 +154,8 @@
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/ChromaticAberration/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/ChromaticAberration/ChromaticAberration.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_ChromaticAberration/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_ChromaticAberration/OIPL_ChromaticAberration.png" width="300"></td>
     </tr>
   </table>
 
@@ -217,8 +217,8 @@ int main()
       <td style="text-align: center;">Modified Image</td>
     </tr>
     <tr>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/AddText/source.png" width="300"></td>
-      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/AddText/AddText.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_AddText/source.png" width="300"></td>
+      <td><img src="https://github.com/LincolnCox29/OpenIPL/blob/master/examples/OIPL_AddText/OIPL_AddText.png" width="300"></td>
     </tr>
   </table>
 
