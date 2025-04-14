@@ -6,9 +6,13 @@ OIPL_ErrorInfo OIPL_Negative(OIPL_Img* img)
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;
 
-    int totalPixels = img->height * img->width * img->channels;
-    for (int pIndex = 0; pIndex < totalPixels; pIndex++)
-        img->data[pIndex] = (unsigned char)(255 - img->data[pIndex]);
+    const unsigned char* lastChannelPtr = img->data + (img->height * img->width * img->channels) - 1;
+    for (unsigned char* cPtr = img->data; cPtr < lastChannelPtr; cPtr += img->channels)
+    {
+        cPtr[0] = (unsigned char)(255 - cPtr[0]);
+        cPtr[1] = (unsigned char)(255 - cPtr[1]);
+        cPtr[2] = (unsigned char)(255 - cPtr[2]);
+    }
 
     return SUCCESS;
 }
