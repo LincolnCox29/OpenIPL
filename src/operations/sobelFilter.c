@@ -7,13 +7,10 @@ OIPL_ErrorInfo OIPL_SobelFilter(OIPL_Img* img, float factor)
 {
     unsigned char* edgeData = imgDataAlloc(img);
 
-    if (edgeData == NULL)
-    {
-        free(edgeData);
-        return FAILED_MEMORY_ALLOCATION;
-    }
     if (img->data == NULL)
         return ERROR_LOADING_IMAGE;
+    if (edgeData == NULL)
+        return FAILED_MEMORY_ALLOCATION;
 
     const int sobelX[3][3] =
     {
@@ -41,7 +38,7 @@ OIPL_ErrorInfo OIPL_SobelFilter(OIPL_Img* img, float factor)
         {
             pIndex = (y * img->width + x) * img->channels;
 
-            for (int c = 0; c < img->channels; c++)
+            for (int c = 0; c < 3; c++)
             {
                 gx = 0;
                 gy = 0;
@@ -68,10 +65,12 @@ OIPL_ErrorInfo OIPL_SobelFilter(OIPL_Img* img, float factor)
                 clampColorValueInt(&newValue);
                 edgeData[pIndex + c] = (unsigned char)newValue;
             }
+            if (img->channels == 4)
+                edgeData[pIndex + 3] = img->data[pIndex + 3];
         }
     }
 
-    memcpy(img->data, edgeData, img->width * img->height * img->channels * sizeof(unsigned char));
+    memcpy(img->data, edgeData, img->width * img->height * img->channels);
     free(edgeData);
 
     return SUCCESS;
