@@ -9,14 +9,14 @@ OIPL_ErrorInfo OIPL_AdjustBrightness(OIPL_Img* img, const float factor)
         return NEGATIVE_FACTOR;
 
     const unsigned char* lastChannelPtr = img->data + (img->height * img->width * img->channels) - 1;
-    unsigned char* cPtr = img->data;
 
-    while (cPtr <= lastChannelPtr)
+    for (unsigned char* pPtr = img->data; pPtr < lastChannelPtr; pPtr += img->channels)
     {
-        *cPtr = (unsigned char)(*cPtr * factor);
-        clampColorValueUChar(cPtr);
-        cPtr++;
+        for (unsigned char* cPtr = pPtr; cPtr < pPtr + 3; cPtr++)
+        {
+            *cPtr = (unsigned char)(*cPtr * factor);
+            clampColorValueUChar(cPtr);
+        }
     }
-
     return SUCCESS;
 }
