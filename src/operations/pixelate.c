@@ -19,7 +19,7 @@ OIPL_ErrorInfo OIPL_Pixelate(OIPL_Img* img, const unsigned scale)
                 {
                     for (unsigned xPix = x; xPix < x + scale && xPix < img->width; xPix++)
                     {
-                        unsigned index = (yPix * img->width + xPix) * 3;
+                        unsigned index = (yPix * img->width + xPix) * img->channels;
                         colSum[0] += img->data[index];
                         colSum[1] += img->data[index + 1];
                         colSum[2] += img->data[index + 2];
@@ -35,7 +35,7 @@ OIPL_ErrorInfo OIPL_Pixelate(OIPL_Img* img, const unsigned scale)
                 {
                     for (unsigned xPix = x; xPix < x + scale && xPix < img->width; xPix++)
                     {
-                        unsigned index = (yPix * img->width + xPix) * 3;
+                        unsigned index = (yPix * img->width + xPix) * img->channels;
                         img->data[index] = (unsigned char)colSum[0];
                         img->data[index + 1] = (unsigned char)colSum[1];
                         img->data[index + 2] = (unsigned char)colSum[2];
